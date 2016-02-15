@@ -1,0 +1,23 @@
+#sidebar
+	float: left
+	width: $sidebar-width
+
+	nav
+		position: relative
+
+		> a
+			display: block
+			text-decoration: none
+			line-height: 2em
+			color: black
+
+			&.selected
+				font-weight: bold
+				margin-left: 1em
+
+				&::before
+					content: "›"
+					display: block
+					position: absolute
+					left: 0
+

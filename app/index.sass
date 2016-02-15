@@ -1,0 +1,31 @@
+@import '~normalize.css/normalize';
+@import 'styles/constants';
+@import 'styles/mixins';
+
+body {
+	background-color: white;
+	font-family: Myriad Pro;
+	font-size: 15px;
+}
+
+button,
+input {
+	border-radius: 0;
+	border: 1px solid $light-grey-line;
+	padding: .2em .3em .1em;
+}
+
+input {
+	@include box-shadow($input-shadow)
+}
+
+#app {
+	padding: $standard-spacing;
+	width: 100%;
+}
+
+@import 'styles/header';
+@import 'styles/sidebar';
+@import 'styles/main';
+@import 'styles/footer';
+
