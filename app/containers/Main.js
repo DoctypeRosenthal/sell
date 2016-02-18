@@ -4,7 +4,7 @@ class Main extends React.Component {
 	render() {
 		return (
 			<main>
-				<button className="add-btn add-btn--big">+</button>
+				<button className="add-btn add-btn--big ico-add"></button>
 
 				<div className="row">
 					<ul className="browse__filters">
@@ -15,7 +15,9 @@ class Main extends React.Component {
 					
 
 					<div className="browse__pagination">
-						<span>0 - 50 von 1200</span><button className="ico-next"></button><button className="ico-prev"></button>
+						<b>0</b> - <b>50</b> von <b>1200</b>
+						<button className="ico-prev"></button>
+						<button className="ico-next"></button>
 					</div>
 				</div>
 
