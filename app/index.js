@@ -1,5 +1,5 @@
 /* Styles */
-require('./index.sass')
+require('./styles/index.sass')
 
 /* React */
 import React from 'react'
@@ -14,7 +14,7 @@ import Footer from './containers/Footer'
 class App extends React.Component {
 	render() {
 		return(
-			<div>
+			<div className="customers">
 				<Header />
 				<Sidebar />
 				<Main />

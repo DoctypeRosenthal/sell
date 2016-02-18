@@ -3,27 +3,27 @@ import React from 'react'
 class Main extends React.Component {
 	render() {
 		return (
-			<main id="main">
-				<button id="main__add-btn"><em>+</em>Neu</button>
+			<main>
+				<button className="add-btn add-btn--big">+</button>
 
-				<div id="main__controls">
-					<ul id="main__filters">
-						<li>Alle</li><li className="selected">Bezahlt</li><li>Unbezahlt</li>
+				<div className="row">
+					<ul className="browse__filters">
+						<li>Alle</li><li className="js-selected">Bezahlt</li><li>Unbezahlt</li>
 					</ul>
 					
-					<input id="main__search" placeholder="Suchen..." />
+					<input className="browse__search" placeholder="Suchen..." />
 					
 
-					<div id="main__pagination">
+					<div className="browse__pagination">
 						<span>0 - 50 von 1200</span><button className="ico-next"></button><button className="ico-prev"></button>
 					</div>
 				</div>
 
-				<ol id="main-table__head" className="customers">
-					<li className="actions hidden">
+				<ol className="browse-table browse-table__head">
+					<li className="browse-table__actions hidden">
 					</li>
 
-					<li className="col-names">
+					<li className="browse-table__cols">
 						<div>Nr.</div>
 						<div>Adresszusatz</div>
 						<div>Vorname</div>
@@ -35,7 +35,7 @@ class Main extends React.Component {
 					</li>
 				</ol>
 
-				<ol id="main-table__body" className="customers">
+				<ol className="browse-table browse-table__body">
 
 				    <li>
 				        <div>436</div>
