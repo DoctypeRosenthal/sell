@@ -4,8 +4,8 @@ class Header extends React.Component {
 	render() {
 		return (
 			<header>
-				<h2 id="sell-logo">Sell.</h2>
-				<input id="global-search"/>
+				<h3 id="sell-logo">Sell.</h3>
+				<input id="global-search" type="text"/>
 				<a href="#">Lorenz Rosenthal</a>
 			</header>
 		)

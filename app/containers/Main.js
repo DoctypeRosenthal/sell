@@ -11,7 +11,7 @@ class Main extends React.Component {
 						<li>Alle</li><li className="js-selected">Bezahlt</li><li>Unbezahlt</li>
 					</ul>
 					
-					<input className="browse__search" placeholder="Suchen..." />
+					<input className="browse__search" type="text" placeholder="Suchen..." />
 					
 
 					<div className="browse__pagination">
@@ -38,7 +38,6 @@ class Main extends React.Component {
 				</ol>
 
 				<ol className="browse-table browse-table__body">
-
 				    <li>
 				        <div>436</div>
 				        <div>-</div>
