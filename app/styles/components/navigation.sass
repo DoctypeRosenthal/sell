@@ -1,12 +1,14 @@
 .nav
-	position: relative
+	position: fixed
+	top: ($user-bar-height + $standard-spacing)
+	z-index: map-get($z-index, 'nav')
 
 	> a
 		display: block
 		text-decoration: none
-		line-height: 2em
 		color: black
 		transition: all .3s
+		line-height: 2
 
 		&.js-selected
 			font-weight: bold
@@ -21,4 +23,5 @@
 				display: block
 				position: absolute
 				left: 0
-				top: -2px
+				margin-top: -1px
+

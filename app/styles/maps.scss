@@ -1,5 +1,6 @@
 /**
- * Maps are not possible in sass-syntax at the time. So I use scss.
+ * Maps 
+ * (not possible as SASS-syntax at the time so I use SCSS)
  */
 
 $z-index: (
@@ -8,6 +9,7 @@ $z-index: (
 	standard: 1,
 
 	header: 10,
+	nav:10,
 	dialog: 100,
 	notifyer: 110
 );
@@ -20,13 +22,6 @@ $icons: (
 	list: "",
 	angle-right: "›"
 );
-
-// map each icon to its element
-@each $name, $icon in $icons {
-	.ico-#{$name}:before {
-		content: $icon;
-	}
-}
 
 $font-sizes: (
 	s: .5em,

@@ -1,9 +1,8 @@
 /**
- *  GLOBAL DEFINITIONS
+ *  GENRAL CLASSES AND ELEMENTS
  */
 
-/* elements and ids ----------------------------------------------------------*/
-
+/* GENERAL LAYOUT ================================== */
 body
 	background-color: $white
 	font-family: Myriad Pro
@@ -30,16 +29,34 @@ input[type="text"]
 	padding: $standard-spacing
 	width: 100%
 
-/* classes -------------------------------------------------------------------*/
+header
+	position: fixed
+	z-index: map-get($z-index, 'header')
+	width: 100%
+	left: 0
+	top: 0
+	background: $standard-bg-color
+	line-height: $user-bar-height
+	padding-left: ($side-bar-width + $standard-spacing)
+	padding-right: $standard-spacing
+	padding-top: ($user-bar-height + $standard-spacing)
 
+main
+	position: relative
+	margin-top: calc(125px + 2.2em) // header height + one line
+	margin-left: $side-bar-width
+
+
+aside
+	width: $side-bar-width
+
+	
+/* GENERAL PUPOSE CLASSES ================================== */
 .inline-block
 	display: inline-block
 
 .width100
 	width: 100%
-
-.add-btn
-	background: $green
 
 .delete-btn
 	background: $red
@@ -52,3 +69,9 @@ input[type="text"]
 	display: inline-block
 	clear:both
 	width: 100%
+
+// map icons to their respective elements
+@each $name, $ico in $icons
+	.ico-#{$name}:before
+		content: $ico
+	

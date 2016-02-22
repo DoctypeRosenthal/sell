@@ -4,38 +4,6 @@ class Main extends React.Component {
 	render() {
 		return (
 			<main>
-				<button className="add-btn add-btn--big ico-add"></button>
-
-				<div className="row">
-					<ul className="browse__filters">
-						<li>Alle</li><li className="js-selected">Bezahlt</li><li>Unbezahlt</li>
-					</ul>
-					
-					<input className="browse__search" type="text" placeholder="Suchen..." />
-					
-
-					<div className="browse__pagination">
-						<b>0</b> - <b>50</b> von <b>1200</b>
-						<button className="ico-prev"></button>
-						<button className="ico-next"></button>
-					</div>
-				</div>
-
-				<ol className="browse-table browse-table__head">
-					<li className="browse-table__actions hidden">
-					</li>
-
-					<li className="browse-table__cols">
-						<div>Nr.</div>
-						<div>Adresszusatz</div>
-						<div>Vorname</div>
-						<div>Nachname</div>
-						<div>Straße</div>
-						<div>PLZ</div>
-						<div>Ort</div>
-						<div>eMail</div>
-					</li>
-				</ol>
 
 				<ol className="browse-table browse-table__body">
 				    <li>

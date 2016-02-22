@@ -1,0 +1,32 @@
+.filter-bar
+	float: left
+	padding: 0
+	margin: 0
+
+	> li
+		list-style: none
+		cursor: pointer
+		float: left
+		padding: 0 1.5em
+		position: relative
+		margin-right: 1rem
+		color: $grey
+		transition: all .3s
+
+		&::before
+			content: ""
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			width: 0%
+			height: 1px
+			background: black
+			transition: all .3s
+
+		&:hover,
+		&.js-selected
+			color: $black
+
+			&::before
+				width: 100%

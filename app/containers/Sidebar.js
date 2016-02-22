@@ -5,6 +5,7 @@ class Sidebar extends React.Component {
 		return(
 			<aside>
 				<nav className="nav">
+					<a href="#">Startseite</a>
 					<a href="#" className="js-selected">Kunden</a>
 					<a href="#">Bestellungen</a>
 					<a href="#">Produkte</a>
