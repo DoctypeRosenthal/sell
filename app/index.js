@@ -1,16 +1,17 @@
-/* Styles */
+/* styles */
 require('./styles/index.sass')
 
-/* React */
+/* react */
 import React from 'react'
 import { render } from 'react-dom'
 
-/* Containters */
+/* containters */
 import Header from './containers/Header'
 import Sidebar from './containers/Sidebar'
 import Main from './containers/Main'
 import Footer from './containers/Footer'
 
+/* make App */
 class App extends React.Component {
 	render() {
 		return(
@@ -24,6 +25,7 @@ class App extends React.Component {
 	}
 }
 
+/* render dat shit!! :-D */
 render(
 	<App />,
 	document.getElementById('app')

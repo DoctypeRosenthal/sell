@@ -23,11 +23,11 @@ class Header extends React.Component {
 					</div>
 				</div>
 
-				<ol className="browse-table browse-table__head">
-					<li className="browse-table__actions hidden">
+				<ol className="browse-list browse-list__head">
+					<li className="browse-list__actions">
 					</li>
 
-					<li className="browse-table__cols">
+					<li className="browse-list__cols">
 						<div>Nr.</div>
 						<div>Adresszusatz</div>
 						<div>Vorname</div>
