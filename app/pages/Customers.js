@@ -1,12 +1,10 @@
 import React from 'react'
+import BrowseList from '../components/BrowseList'
 
-class Header extends React.Component {
+class Main extends React.Component {
 	render() {
 		return (
-			<header>
-				<div className="user-bar">
-					<a href="#">Lorenz Rosenthal</a>
-				</div>
+			<main>
 				<div className="row">
 					<ul className="filter-bar">
 						<li>Alle</li><li className="js-selected">Bezahlt</li><li>Unbezahlt</li>
@@ -23,24 +21,11 @@ class Header extends React.Component {
 					</div>
 				</div>
 
-				<ol className="browse-list browse-list__head">
-					<li className="browse-list__actions">
-					</li>
-
-					<li className="browse-list__cols">
-						<div>Nr.</div>
-						<div>Adresszusatz</div>
-						<div>Vorname</div>
-						<div>Nachname</div>
-						<div>Straße</div>
-						<div>PLZ</div>
-						<div>Ort</div>
-						<div>eMail</div>
-					</li>
-				</ol>
-			</header>
+				<BrowseList />
+				
+			</main>
 		)
 	}
 }
 
-export default Header
+export default Main

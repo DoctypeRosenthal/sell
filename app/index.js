@@ -5,27 +5,9 @@ require('./styles/index.sass')
 import React from 'react'
 import { render } from 'react-dom'
 
-/* containters */
-import Header from './containers/Header'
-import Sidebar from './containers/Sidebar'
-import Main from './containers/Main'
-import Footer from './containers/Footer'
+import App from './containers/App'
 
-/* make App */
-class App extends React.Component {
-	render() {
-		return(
-			<div className="customers">
-				<Header />
-				<Sidebar />
-				<Main />
-				<Footer />
-			</div>
-		)
-	}
-}
-
-/* render dat shit!! :-D */
+/* render dat shit!! */
 render(
 	<App />,
 	document.getElementById('app')

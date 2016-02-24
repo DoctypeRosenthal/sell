@@ -29,28 +29,32 @@ input[type="text"]
 		border-color: $black
 
 #app
-	padding: $standard-spacing
+	padding: 0 $standard-spacing $standard-spacing
 	width: 100%
 
 header
 	position: fixed
 	z-index: map-get($z-index, 'header')
+	background: $lighter-grey
+	border-bottom: 1px solid $lightest-grey-line
 	width: 100%
 	left: 0
 	top: 0
-	background: $standard-bg-color
 	line-height: $user-bar-height
-	padding-left: ($side-bar-width + $standard-spacing)
-	padding-right: $standard-spacing
-	padding-top: ($user-bar-height + $standard-spacing)
+	padding: 0 $standard-spacing
 
 main
 	position: relative
-	margin-top: calc(125px + 2.2em) // header height + one line
+	margin-top: $user-bar-height
+	padding-top: $standard-spacing
 	margin-left: $side-bar-width
 
 
 aside
+	position: fixed
+	top: $user-bar-height
+	padding-top: $standard-spacing
+	z-index: map-get($z-index, 'nav')
 	width: $side-bar-width
 
 

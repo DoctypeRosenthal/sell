@@ -1,0 +1,77 @@
+/**
+ * The list to show the browse contents
+ */
+     
+.browse-list
+	position: relative
+	width: 100%
+	display: block
+	padding: 0
+	margin: 0
+	list-style-type: none	
+
+	> li
+		line-height: $standard-li-height
+		display: inline-block
+		width: 100%
+
+		> div
+			float: left
+			text-overflow: ellipsis
+			overflow: hidden
+			white-space: nowrap
+
+	&__body,
+	&__head
+		@extend .browse-list
+
+	&__head 
+		position: absolute
+		z-index: map-get($z-index, 'header')
+		background: $standard-bg-color
+		border-bottom: 1px solid $lighter-grey-line
+
+		&.fixed
+			box-shadow: 0 9px 10px -10px $grey
+
+	&__actions
+		display: none
+
+	&__sorters
+		font-weight: bold
+
+	&__body 
+		padding-top: 56px // prevent head from overlapping body
+
+		> li
+			border-bottom: 1px solid $lightest-grey-line
+
+	// page-specific col widths
+	&__sorters,
+	&__body > li,
+		>  div
+			// customers-page
+			.customers &
+				&:nth-child(1)
+					width: 4%
+
+				&:nth-child(2)
+					width: 18%
+
+				&:nth-child(3)
+					width: 10%
+
+				&:nth-child(4)
+					width: 13%
+
+				&:nth-child(5)
+					width: 20%
+
+				&:nth-child(6)
+					width: 6%
+
+				&:nth-child(7)
+					width: 11%
+					
+				&:nth-child(8)
+					width: 18%
