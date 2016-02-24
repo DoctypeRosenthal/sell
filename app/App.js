@@ -4,7 +4,7 @@ import React from 'react'
 import UserBar from './components/UserBar'
 import Navigation from './components/Navigation'
 
-class App extends React.Component {
+export default class App extends React.Component {
 	render() {
 		return(
 			<div className="customers">
@@ -25,5 +25,3 @@ class App extends React.Component {
 		)
 	}
 }
-
-export default App

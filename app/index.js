@@ -7,7 +7,7 @@ import { render } from 'react-dom'
 
 /* routing */
 import { Router, hashHistory } from 'react-router'
-import ROUTES from './routes'
+import { ROUTES } from './routes'
 
 /* render dat shit!! */
 render(

@@ -1,7 +1,7 @@
 import React from 'react'
 import BrowseList from '../components/BrowseList'
 
-class Customers extends React.Component {
+export default class Customers extends React.Component {
 	render() {
 		return (
 			<main>
@@ -27,5 +27,3 @@ class Customers extends React.Component {
 		)
 	}
 }
-
-export default Customers
