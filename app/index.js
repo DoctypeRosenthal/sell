@@ -1,14 +1,16 @@
 /* styles */
 require('./styles/index.sass')
 
-/* react */
+/* React */
 import React from 'react'
 import { render } from 'react-dom'
 
-import App from './containers/App'
+/* routing */
+import { Router, hashHistory } from 'react-router'
+import ROUTES from './routes'
 
 /* render dat shit!! */
 render(
-	<App />,
+	<Router history={hashHistory} routes={ROUTES} />,
 	document.getElementById('app')
 )

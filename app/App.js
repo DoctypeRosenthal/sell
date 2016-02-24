@@ -1,8 +1,8 @@
 import React from 'react'
 
-import UserBar from '../components/UserBar'
-import Navigation from '../components/Navigation'
-import Customers from '../pages/Customers'
+/* route-independend components */
+import UserBar from './components/UserBar'
+import Navigation from './components/Navigation'
 
 class App extends React.Component {
 	render() {
@@ -16,10 +16,10 @@ class App extends React.Component {
 					<Navigation />
 				</aside>
 
-				<Customers />
+				{this.props.children}
 
 				<footer>
-					Footer
+					Lorenz Rosenthal (c) 2014 - 2016
 				</footer>
 			</div>
 		)

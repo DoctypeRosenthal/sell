@@ -1,15 +1,17 @@
 import React from 'react'
 
+import { Link } from 'react-router'
+
 class Navigation extends React.Component {
 	render() {
 		return (
 			<nav className="nav">
-				<a href="#">Startseite</a>
-				<a href="#" className="js-selected">Kunden</a>
-				<a href="#">Bestellungen</a>
-				<a href="#">Produkte</a>
-				<a href="#">Einstellungen</a>
-				<a href="#">Protokoll</a>
+				<Link to='/'>Startseite</Link>
+				<Link to='/customers' className="js-selected">Kunden</Link>
+				<Link to='/orders'>Bestellungen</Link>
+				<Link to='/products'>Produkte</Link>
+				<Link to='/options'>Einstellungen</Link>
+				<Link to='/protocol'>Protokoll</Link>
 			</nav>
 		)
 	}
