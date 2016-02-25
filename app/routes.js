@@ -12,7 +12,9 @@ export const ROUTES = {
   path: '/', component: App,
   indexRoute: { component: Home },
   childRoutes: [
-    { path: 'customers', component: Customers },
+    {
+    	path: 'customers', component: Customers
+    },
     { path: 'orders', component: Orders },
     { path: 'products', component: Products },
     { path: 'options', component: Options },

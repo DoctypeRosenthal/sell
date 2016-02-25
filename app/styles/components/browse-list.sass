@@ -3,16 +3,17 @@
  */
      
 .browse-list
-	position: relative
 	width: 100%
 	display: block
+	float: left
 	padding: 0
 	margin: 0
 	list-style-type: none	
+	position: relative
 
 	> li
-		line-height: $standard-li-height
-		display: inline-block
+		display: block
+		float: left
 		width: 100%
 
 		> div
@@ -21,13 +22,8 @@
 			overflow: hidden
 			white-space: nowrap
 
-	&__body,
 	&__head
-		@extend .browse-list
-
-	&__head 
-		position: absolute
-		z-index: map-get($z-index, 'header')
+		z-index: map-get($z-index, 'list-head')
 		background: $standard-bg-color
 		border-bottom: 1px solid $lighter-grey-line
 
@@ -40,38 +36,7 @@
 	&__sorters
 		font-weight: bold
 
-	&__body 
-		padding-top: 56px // prevent head from overlapping body
-
+	&__body
+		//padding-top: 56px // prevent head from overlapping body
 		> li
 			border-bottom: 1px solid $lightest-grey-line
-
-	// page-specific col widths
-	&__sorters,
-	&__body > li,
-		>  div
-			// customers-page
-			.customers &
-				&:nth-child(1)
-					width: 4%
-
-				&:nth-child(2)
-					width: 18%
-
-				&:nth-child(3)
-					width: 10%
-
-				&:nth-child(4)
-					width: 13%
-
-				&:nth-child(5)
-					width: 20%
-
-				&:nth-child(6)
-					width: 6%
-
-				&:nth-child(7)
-					width: 11%
-					
-				&:nth-child(8)
-					width: 18%

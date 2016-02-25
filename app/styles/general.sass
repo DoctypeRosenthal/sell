@@ -17,16 +17,25 @@ input
 	padding: .2em .3em .1em
 	border-width: 1px
 	border-color: $light-grey-line
-	border-style: solid;
+	border-style: solid
+	height: 1.8em
+
+button
+	background-color: $lightest-grey
+	text-shadow: 0px 1px 0px $white
+	box-shadow: 0 1px 3px -3px $black
 
 input[type="text"]
-	line-height: 1.4em;
-	+box-shadow($input-shadow)
-	transition: border .3s
+	transition: all .3s
+	border-color: $light-grey-line
+	color: $dark-grey
+	+box-shadow(0 0 0 0 $grey)
 
 	&:hover,
 	&:focus
-		border-color: $black
+		+box-shadow($input-shadow)
+		color: $darkest-grey
+		border-color: $grey-line
 
 #app
 	padding: 0 $standard-spacing $standard-spacing
@@ -46,9 +55,7 @@ header
 main
 	position: relative
 	margin-top: $user-bar-height
-	padding-top: $standard-spacing
-	margin-left: $side-bar-width
-
+	margin-left: $side-bar-width // note: has to be margin NOT padding (watch browse-list__head!)
 
 aside
 	position: fixed
@@ -56,6 +63,16 @@ aside
 	padding-top: $standard-spacing
 	z-index: map-get($z-index, 'nav')
 	width: $side-bar-width
+
+footer
+	position: relative
+	padding-left: $side-bar-width
+	line-height: $footer-height
+	color: $grey
+	text-align: center
+	display: block;
+	float: left;
+	width: 100%;
 
 
 /*---------------------------------------------------

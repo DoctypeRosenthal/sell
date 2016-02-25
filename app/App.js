@@ -6,8 +6,9 @@ import Navigation from './components/Navigation'
 
 export default class App extends React.Component {
 	render() {
+		let pageClass = this.props.location.pathname.replace('/', '')
 		return(
-			<div className="customers">
+			<div className={pageClass}>
 				<header>
 					<UserBar />
 				</header>
@@ -19,7 +20,7 @@ export default class App extends React.Component {
 				{this.props.children}
 
 				<footer>
-					Lorenz Rosenthal (c) 2014 - 2016
+					Lorenz Rosenthal © 2014 - 2016
 				</footer>
 			</div>
 		)

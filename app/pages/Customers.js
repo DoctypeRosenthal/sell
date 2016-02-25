@@ -1,5 +1,5 @@
 import React from 'react'
-import BrowseList from '../components/BrowseList'
+import { ListHead, ListBody } from '../components/CustomerList'
 
 export default class Customers extends React.Component {
 	render() {
@@ -21,7 +21,8 @@ export default class Customers extends React.Component {
 					</div>
 				</div>
 
-				<BrowseList />
+				<ListHead />
+				<ListBody />
 				
 			</main>
 		)

@@ -1,0 +1,70 @@
+/**
+ * col-specific options. 
+ * note: NOT BEM! because it would make the markup a total mess to write always like browse-list__col--group-description etc.
+ */
+
+.browse-list
+	> li > div
+		padding-top: $col-padding
+		padding-bottom: $col-padding
+		
+		&.nr
+			width: 3%
+
+		&.type
+			width: 3%
+
+		&.price
+			width: 8%
+
+		&.quantity
+			width: 8%
+
+		&.labels
+			width: auto
+			padding-bottom: 0
+
+			button
+				font-size: .8em
+				padding: .3em
+				margin: -1px $col-padding $col-padding 0
+
+		&.group
+			width: 12%
+			&-pic
+				width: 150px
+			&-description
+				width: 6%
+
+		&.product
+			width: calc(100% - 150px - 6%)
+
+		&.prefix
+			width: 20%
+
+		&.forename
+			width: 15%
+
+		&.surname
+			width: 15%
+
+		&.street
+			width: 15%
+
+		&.zip
+			width: 8%
+
+		&.city
+			width: 8%
+
+		&.email
+			width: 10%
+
+		/* numerical cols are right oriented */
+		&.nr,
+		&.price,
+		&.quantity,
+		&.zip
+			text-align: right
+			padding-right: .8em
+
