@@ -1,15 +1,19 @@
 /**
  * col-specific options. 
- * note: NOT BEM! because it would make the markup a total mess to write always like browse-list__col--group-description etc.
+ * note: NOT BEM! Because it would make the markup a total mess to write always like browse-list__group--pic etc.
  */
 
 .browse-list
+	/* general stuff */
 	> li > div
-		padding-top: $col-padding
-		padding-bottom: $col-padding
-		
+
+		padding-right: .4em
+
+		&:not(:first-of-type)
+			padding-left: .4em
+
 		&.nr
-			width: 3%
+			width: 38px
 
 		&.type
 			width: 3%
@@ -22,22 +26,14 @@
 
 		&.labels
 			width: auto
-			padding-bottom: 0
-
-			button
-				font-size: .8em
-				padding: .3em
-				margin: -1px $col-padding $col-padding 0
+			margin-bottom: -$line-padding // since buttons have a margin-bottom
 
 		&.group
-			width: 12%
-			&-pic
-				width: 150px
-			&-description
-				width: 6%
+			width: 100%
 
 		&.product
-			width: calc(100% - 150px - 6%)
+			width: 100%
+			margin-bottom: $standard-spacing
 
 		&.prefix
 			width: 20%
@@ -61,10 +57,36 @@
 			width: 10%
 
 		/* numerical cols are right oriented */
-		&.nr,
 		&.price,
 		&.quantity,
 		&.zip
 			text-align: right
-			padding-right: .8em
 
+	/* body-specific stuff */
+	&__body div
+		&.labels
+			button
+				font-size: .8em
+				padding: .3em
+				margin: 0 $line-padding $line-padding 0
+				color: $darkest-grey
+
+				&:hover,
+				&:focus
+					color: $black
+					border-color: $grey
+
+		&.group
+			padding: $small-spacing 0
+
+			&__pic
+				float: left
+				width: 150px
+				margin-right: $small-spacing
+
+				img
+					box-shadow: $img-shadow
+
+			&__title
+				font-weight: bold
+				font-size: map-get($font-sizes, 'h2')

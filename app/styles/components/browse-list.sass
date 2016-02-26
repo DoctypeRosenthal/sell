@@ -12,9 +12,9 @@
 	position: relative
 
 	> li
-		display: block
 		float: left
 		width: 100%
+		padding: $line-padding 0 $line-padding
 
 		> div
 			float: left
@@ -34,9 +34,10 @@
 		display: none
 
 	&__sorters
-		font-weight: bold
+		font-weight: 600
 
-	&__body
-		//padding-top: 56px // prevent head from overlapping body
+	.customers &__body,
+	.products &__body &__body
 		> li
 			border-bottom: 1px solid $lightest-grey-line
+
