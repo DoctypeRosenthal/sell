@@ -4,7 +4,9 @@ import { AddBtnSmall } from './AddBtn'
 
 export class CustomerRow extends React.Component {
 	render() {
+
 		let row = this.props.data
+		
 		return (
 			<li>
 				<div className="nr">{row.nr}</div>
@@ -23,6 +25,7 @@ export class CustomerRow extends React.Component {
 
 export class OrderRow extends React.Component {
 	render() {
+
 		let row = this.props.data
 
 		return (

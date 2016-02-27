@@ -14,7 +14,7 @@ export default class App extends React.Component {
 				</header>
 
 				<aside>
-					<Navigation />
+					<Navigation page={pageClass}/>
 				</aside>
 
 				{this.props.children}
