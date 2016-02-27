@@ -7,6 +7,7 @@ import mockupData from '../mockup.json'
 
 export class CustomersList extends React.Component {
 	render() {
+		
 		let mockup = mockupData.customers
 			
 		return (
@@ -36,6 +37,7 @@ export class CustomersList extends React.Component {
 
 export class OrdersList extends React.Component {
 	render() {
+
 		let mockup = mockupData.orders
 			
 		return (
@@ -65,6 +67,7 @@ export class OrdersList extends React.Component {
 
 export class ProductsList extends React.Component {
 	render() {
+
 		let mockup = mockupData.products
 
 		return (
