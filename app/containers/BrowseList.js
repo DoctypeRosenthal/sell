@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { OrderRow, CustomerRow, ProductRow } from '../components/BrowseListRow'
+import { OrderRow, CustomerRow, ProductRow, ProtocolRow } from '../components/BrowseListRow'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -94,7 +94,12 @@ export class ProtocolList extends React.Component {
 
 		return (
 			<div>
-				<button className="delete-btn">Protokoll löschen</button>
+				<ol className="browse-list browse-list__head">
+					<li className="browse-list__actions">
+						<button className="delete-btn">Protokoll löschen</button>
+					</li>
+				</ol>
+				
 				<ol className="browse-list browse-list__body">
 					{ mockup.map(row => <ProtocolRow data={row} />) }
 				</ol>

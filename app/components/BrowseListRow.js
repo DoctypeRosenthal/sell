@@ -1,12 +1,11 @@
 import React from 'react'
 
+import { Link } from 'react-router'
 import { AddBtnSmall } from './AddBtn'
 
 export class CustomerRow extends React.Component {
 	render() {
-
 		let row = this.props.data
-		
 		return (
 			<li>
 				<div className="nr">{row.nr}</div>
@@ -25,7 +24,6 @@ export class CustomerRow extends React.Component {
 
 export class OrderRow extends React.Component {
 	render() {
-
 		let row = this.props.data
 
 		return (
@@ -103,10 +101,10 @@ export class ProtocolRow extends React.Component {
 		let row = this.props.data
 
 		return (
-		    <li>
+		    <li className="action action--changed">
 				<div>{row.description}</div>
-				<Link to={row.link}>-> anschauen</Link>
-				<div>{row.date}</div>
+				<Link to={row.link}>→ anschauen</Link>
+				<em className="floatright">{row.date}</em>
 		    </li>
 		)
 	}

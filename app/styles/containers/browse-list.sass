@@ -30,7 +30,7 @@
 		&.fixed
 			box-shadow: 0 9px 10px -10px $grey
 
-	&__actions
+	&__actions:not(.protocol &)
 		display: none
 
 	&__sorters
@@ -41,3 +41,9 @@
 		> li
 			border-bottom: 1px solid $lightest-grey-line
 
+	.protocol &__body
+		
+		margin-top: 1rem
+
+		> li
+			margin-bottom: 1rem
