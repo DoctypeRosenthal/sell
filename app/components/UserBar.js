@@ -1,6 +1,6 @@
 import React from 'react'
 
-class UserBar extends React.Component {
+export default class UserBar extends React.Component {
 	render() {
 		return (
 			<div className="user-bar">
@@ -9,5 +9,3 @@ class UserBar extends React.Component {
 		)
 	}
 }
-
-export default UserBar

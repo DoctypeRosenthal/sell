@@ -20,6 +20,10 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { 
+        test: /\.json$/, 
+        loader: 'json'
+      },
       {
         test: /\.js$/,
         loader: 'babel',
@@ -44,3 +48,7 @@ module.exports = {
   }
 }
 
+loaders: [
+   
+   // other loaders 
+]

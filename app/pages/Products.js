@@ -1,6 +1,11 @@
 import React from 'react'
-import { ListHead, ListBody } from '../components/ProductList'
+
 import { AddBtnMain } from '../components/AddBtn'
+import { FilterBarProducts } from '../components/FilterBar'
+import SearchField from '../components/SearchField'
+import Pagination from '../components/Pagination' 
+
+import { ProductsList } from '../containers/BrowseList'
 
 export default class Products extends React.Component {
 	render() {
@@ -9,18 +14,12 @@ export default class Products extends React.Component {
 				<AddBtnMain />
 				
 				<div className="row">
-					
-					<input className="search-field--main" type="text" placeholder="Suchen..." />
-					
-					<div className="pagination">
-						<b>0</b> - <b>50</b> von <b>1200</b>
-						<button className="ico-prev"></button>
-						<button className="ico-next"></button>
-					</div>
+					<FilterBarProducts />
+					<SearchField />
+					<Pagination />
 				</div>
 
-				<ListHead />
-				<ListBody />
+				<ProductsList />
 
 			</main>
 		)

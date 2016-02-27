@@ -15,20 +15,18 @@
 		margin-bottom: 1rem
 
 	&--main
+		$fs: map-get($font-sizes, 'h3')
+		font-size: $fs
 		font-weight: 600
-		line-height: 1.4em
+		line-height: $fs
 		padding-right: .5em
 		padding-left: 1.5em
+		margin-bottom: $fs
 
-		> b 
+		&::before
+		    left: .5em
 		    position: absolute
-		    font-size: 1.4em
-		    left: 0px
-		    top: 0px
-		    height: 100%
-		    width: 1.2em
-		    padding-top: .1em
 
 	&--small
-		border: 1px solid transparent;
+		border: 1px solid transparent
 		font-weight: 700;

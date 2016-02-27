@@ -13,12 +13,21 @@
 			padding-left: .4em
 
 		&.nr
-			width: 38px
+			width: 3%
+
+		&.bill-nr,
+		&.order-nr,
+		&.customer-nr
+			width: 5%
 
 		&.type
 			width: 3%
 
-		&.price
+		&.price,
+		&.netto,
+		&.brutto,
+		&.total,
+		&.shipping
 			width: 8%
 
 		&.quantity
@@ -35,12 +44,13 @@
 			width: 100%
 			margin-bottom: $standard-spacing
 
+		&.name
+			width: 25%
+
 		&.prefix
 			width: 20%
 
-		&.forename
-			width: 15%
-
+		&.forename,
 		&.surname
 			width: 15%
 
@@ -56,8 +66,21 @@
 		&.email
 			width: 10%
 
+		&.created,
+		&.dispatched,
+		&.payed,
+		&.date
+			width: 8%
+
 		/* numerical cols are right oriented */
+		&.bill-nr,
+		&.order-nr,
+		&.customer-nr,
 		&.price,
+		&.netto,
+		&.brutto,
+		&.total,
+		&.shipping,
 		&.quantity,
 		&.zip
 			text-align: right

@@ -1,6 +1,11 @@
 import React from 'react'
-import { ListHead, ListBody } from '../components/CustomerList'
+
+import { FilterBarCustomers } from '../components/FilterBar'
+import SearchField from '../components/SearchField'
+import Pagination from '../components/Pagination' 
 import { AddBtnMain } from '../components/AddBtn'
+
+import { CustomersList } from '../containers/BrowseList'
 
 export default class Customers extends React.Component {
 	render() {
@@ -10,21 +15,12 @@ export default class Customers extends React.Component {
 				<AddBtnMain />
 				
 				<div className="row">
-					<ul className="filter-bar">
-						<li>Alle</li><li className="js-selected">Bezahlt</li><li>Unbezahlt</li>
-					</ul>
-					
-					<input className="search-field--main" type="text" placeholder="Suchen..." />
-					
-					<div className="pagination">
-						<b>0</b> - <b>50</b> von <b>1200</b>
-						<button className="ico-prev"></button>
-						<button className="ico-next"></button>
-					</div>
+					<FilterBarCustomers />
+					<SearchField />
+					<Pagination />
 				</div>
 
-				<ListHead />
-				<ListBody />
+				<CustomersList />
 				
 			</main>
 		)
