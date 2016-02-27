@@ -94,3 +94,17 @@ export class ProductRow extends React.Component {
 		)
 	}
 }
+
+export class ProtocolRow extends React.Component {
+	render() {
+		let row = this.props.data
+
+		return (
+		    <li>
+				<div>{row.description}</div>
+				<Link to={row.link}>-> anschauen</Link>
+				<div>{row.date}</div>
+		    </li>
+		)
+	}
+}

@@ -84,3 +84,18 @@ export class ProductsList extends React.Component {
 		)
 	}
 }
+
+export class ProtocolList extends React.Component {
+	render() {
+		let mockup = mockupData.protocol
+
+		return (
+			<div>
+				<button className="delete-btn">Protokoll löschen</button>
+				<ol className="browse-list browse-list__body">
+					{ mockup.map(row => <ProtocolRow data={row} />) }
+				</ol>
+			</div>
+		)
+	}
+}
