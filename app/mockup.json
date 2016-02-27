@@ -1,0 +1,57 @@
+{
+	"customers": [
+		{
+			"nr": "411",
+			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
+			"forename": "Prof. Dr. Markus",
+			"surname": "Vogt",
+			"street": "Geschwister-Scholl-Platz 1",
+			"zip": 80539,
+			"city": "München",
+			"email": "-"
+		},
+		{
+			"nr": 423,
+			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
+			"forename": "Prof. Dr. Markus",
+			"surname": "Vogt",
+			"street": "Geschwister-Scholl-Platz 1",
+			"zip": 80539,
+			"city": "München",
+			"email": "-"
+		}
+	],
+	"orders": [
+		{
+		    "nr": 363,
+		    "billNr": 150100,
+		    "created": "14.12.15",
+		    "customerNr": 431,
+		    "name": "Jonas Limbrock",
+		    "email": "jonas@dingsbums.de",
+		    "total": "34,65€",
+		    "dispatched": "14.12.15"
+		}, 
+		{
+		    "nr": 411,
+		    "billNr": 150078,
+		    "created": "23.11.15",
+		    "customerNr": 411,
+		    "name": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik, Prof. Dr. Markus Vogt",
+		    "email": "m.vogt@dingsbums.de",
+		    "total": "18,15€",
+		    "dispatched": "23.11.15"
+		}
+	],
+	"products": [
+		{
+			"empty": "mockup data"
+		},
+		{
+			"empty": "mockup data"
+		},
+		{
+			"empty": "mockup data"
+		}		
+	]
+}
