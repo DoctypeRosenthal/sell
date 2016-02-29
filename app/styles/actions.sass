@@ -1,0 +1,28 @@
+/**
+ * elements, which represents an action invoked by the user 
+ */
+
+.action
+	padding: $small-spacing $small-spacing $small-spacing 1.5em
+	position: relative
+
+	&:before
+		content: ""
+		display: block
+		top: 0
+		left: 0
+		position: absolute
+		height: 41px
+		width: .5em
+
+	&--changed:before
+		background: $light-grey
+
+	&--deleted:before
+		background: $red
+
+	&--created:before
+		background: $green
+
+	&--recreated:before
+		background: $green
