@@ -21,6 +21,88 @@
 			text-overflow: ellipsis
 			overflow: hidden
 			white-space: nowrap
+			padding-right: .4em
+
+			&:not(:first-of-type)
+				padding-left: .4em
+
+			/*-------------------------------------------------------
+			 * col-specific options (mainly width)
+			 *-----------------------------------------------------*/
+
+			/* general */
+			&.nr
+				width: 3%
+
+			&.bill-nr,
+			&.order-nr,
+			&.customer-nr
+				width: 5%
+
+			&.type
+				width: 3%
+
+			&.price,
+			&.netto,
+			&.brutto,
+			&.total,
+			&.shipping
+				width: 8%
+
+			&.quantity
+				width: 8%
+
+			&.labels
+				width: auto
+				margin-bottom: -$line-padding // since label-buttons already have a margin-bottom
+
+			&.group
+				width: 100%
+
+			&.product
+				width: 100%
+				margin-bottom: $standard-spacing
+
+			&.name
+				width: 25%
+
+			&.prefix
+				width: 20%
+
+			&.forename,
+			&.surname
+				width: 15%
+
+			&.street
+				width: 15%
+
+			&.zip
+				width: 8%
+
+			&.city
+				width: 8%
+
+			&.email
+				width: 10%
+
+			&.created,
+			&.dispatched,
+			&.payed,
+			&.date
+				width: 8%
+
+			/* numerical cols are right oriented */
+			&.bill-nr,
+			&.order-nr,
+			&.customer-nr,
+			&.price,
+			&.netto,
+			&.brutto,
+			&.total,
+			&.shipping,
+			&.quantity,
+			&.zip
+				text-align: right
 
 	&__head
 		z-index: map-get($z-index, 'list-head')
@@ -36,14 +118,47 @@
 	&__sorters
 		font-weight: 600
 
+	&__body div
+		&.labels
+			button
+				font-size: .8em
+				padding: .3em
+				margin: 0 $line-padding $line-padding 0
+				color: $darkest-grey
+
+				&:hover,
+				&:focus
+					color: $black
+					border-color: $grey
+
+		&.group
+			padding: $small-spacing 0
+
+			&__pic
+				float: left
+				width: 150px
+				margin-right: $small-spacing
+
+				img
+					box-shadow: $img-shadow
+
+			&__title
+				font-weight: bold
+				font-size: map-get($font-sizes, 'h2')
+
+	/*-------------------------------------------------------
+	 * page specific options
+	 *-----------------------------------------------------*/
+
 	.customers &__body,
 	.products &__body &__body
 		> li
 			border-bottom: 1px solid $lightest-grey-line
 
 	.protocol &__body
-		
 		margin-top: 1rem
 
 		> li
 			margin-bottom: 1rem
+			padding-left: 1rem
+

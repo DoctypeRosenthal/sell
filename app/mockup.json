@@ -57,16 +57,25 @@
 	"protocol": [
 		{
 			"description": "Luis Reichard hat bei Rechnung 150063 den Bezahltstatus auf bezahlt geändert.",
+			"action": "deleted",
 			"link": "/orders?billNr=150063",
 			"date": "08.02.16 um 16:21 Uhr"
 		},
 		{
 			"description": "Luis Reichard hat bei Rechnung 150063 den Bezahltstatus auf bezahlt geändert.",
+			"action": "changed",
 			"link": "/orders?billNr=150063",
 			"date": "08.02.16 um 16:21 Uhr"
 		},
 		{
 			"description": "Luis Reichard hat bei Rechnung 150063 den Bezahltstatus auf bezahlt geändert.",
+			"action": "changed",
+			"link": "/orders?billNr=150063",
+			"date": "08.02.16 um 16:21 Uhr"
+		},
+		{
+			"description": "Luis Reichard hat bei Rechnung 150063 den Bezahltstatus auf bezahlt geändert.",
+			"action": "created",
 			"link": "/orders?billNr=150063",
 			"date": "08.02.16 um 16:21 Uhr"
 		}
