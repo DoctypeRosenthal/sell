@@ -1,0 +1,44 @@
+.stats-widget
+
+	&__head
+		line-height: 1em
+		display: inline-block
+		width: 100%
+
+	&__body
+		background-color: $lightest-grey
+		padding: $standard-spacing
+		margin: -$standard-spacing
+		border-top: 1px solid $lighter-grey-line
+
+	.group
+		&__description
+			float: right
+			text-align: right
+
+		&__title
+			font-size: map-get($font-sizes, 'h2')
+			font-weight: 600
+			margin-bottom: .8em
+
+		&__pic
+			margin-right: $standard-spacing
+			margin-bottom: $standard-spacing
+
+	&--product__table
+		text-align: left
+
+		button
+			+label-button()
+
+		> tbody 
+			th, td
+				&:first-child
+					padding-left: $small-spacing
+
+				&:not(:first-child)
+					text-align: right
+
+		.total
+			font-weight: 600
+			border-top: 1px solid $lighter-grey-line

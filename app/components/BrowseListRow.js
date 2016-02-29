@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { AddBtnSmall } from './AddBtn'
 
 export const CustomerRow = (props) => {
-	let row = this.props.data
+	let row = props.data
 	return (
 		<li>
 			<div className="nr">{row.nr}</div>

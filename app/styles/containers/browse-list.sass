@@ -121,15 +121,7 @@
 	&__body div
 		&.labels
 			button
-				font-size: .8em
-				padding: .3em
-				margin: 0 $line-padding $line-padding 0
-				color: $darkest-grey
-
-				&:hover,
-				&:focus
-					color: $black
-					border-color: $grey
+				+label-button()
 
 		&.group
 			padding: $small-spacing 0

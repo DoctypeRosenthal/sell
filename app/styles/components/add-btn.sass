@@ -8,24 +8,48 @@
 	transition: all .3s 
 	position: relative
 	text-shadow: none
+	font-weight: 600
+	float: left
+
+	&:before
+		position: absolute
 
 	&--big
 		display: block
 		font-size: 2.4em
 		margin-bottom: 1rem
 
+	&--main,
+	&--medium
+		padding-right: .5em
+		padding-left: 1.5em
+		
+		&:before
+			left: .3em
+
 	&--main
 		$fs: map-get($font-sizes, 'h3')
 		font-size: $fs
-		font-weight: 600
 		line-height: $fs
-		padding-right: .5em
-		padding-left: 1.5em
 		margin-bottom: $fs
 
-		&::before
-		    left: .5em
-		    position: absolute
+		&:before
+			font-size: ($fs + .2em)
+
+	&--medium
+		$fs: map-get($font-sizes, 'h4')
+		font-size: $fs
+		line-height: $fs
+
+		&:before
+			font-size: ($fs + .3em)
 
 	&--small
-		font-weight: 700;
+		padding-left: .5em
+
+		&:before
+			top: .3em
+			left: .1em
+			font-weight: 700
+			font-size: 1.1em
+			color: black

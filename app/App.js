@@ -6,7 +6,7 @@ import Navigation from './components/Navigation'
 
 export default class App extends React.Component {
 	render() {
-		let pageClass = this.props.location.pathname.replace('/', '')
+		let pageClass = this.props.location.pathname.replace('/', '') || 'home'
 		return(
 			<div className={pageClass}>
 				<header>

@@ -20,6 +20,29 @@ body
 	font-family: PT Sans, Myriad Pro
 	font-size: 15px
 
+h1,
+h2,
+h3,
+h4
+	margin-top: 0
+	line-height: 1em
+
+h1
+	font-size: map-get($font-sizes, 'h1')
+
+h2
+	font-size: map-get($font-sizes, 'h2')
+
+h3
+	font-size: map-get($font-sizes, 'h3')
+
+h4
+	font-size: map-get($font-sizes, 'h4')
+
+table
+	line-height: 2.2em
+	width: 100%
+
 button,
 input
 	border-radius: 0
@@ -85,13 +108,46 @@ footer
 	float: left;
 	width: 100%;
 
+
+/*---------------------------------------------------
+ *  GRID COLS
+ *-------------------------------------------------*/
+
+div[class*=grid-col-]
+	float: left
+	display: block
+
+	&:not(:last-child)
+		margin-right: $standard-spacing
+
+
+
+$grid-fineness: 12
+$single-col: (100% / $grid-fineness)
+
+/** 
+ * col-6 is six times the smallest unit of the grid (i.e. $grid-fineness), col-7 is seven times that unit
+ * e.g. with {$grid-fineness: 12}:
+ * .col-6
+ * 		width: calc( (100% / 12) * 6 - 25px * (6 - 1) / 6)
+ */
+
+@for $i from 1 through $grid-fineness
+	.grid-col-#{$i}
+		width: calc( #{$single-col} * #{$i} - #{$standard-spacing} * (#{$i} - 1) / #{$i} )
+
+
+/*---------------------------------------------------
+ *  ICONS
+ *-------------------------------------------------*/
+
 // map icons to their respective elements
 @each $name, $ico in $icons
 	.ico-#{$name}:before
 		content: $ico
 
 /*---------------------------------------------------
- *  MISC
+ *  MISC CLASSES
  *-------------------------------------------------*/
 
 .inline-block
@@ -109,11 +165,17 @@ footer
 .hidden
 	display: none !important
 
+.floatright
+	float: right
+
+.clearboth
+	clear: both
+
 .row
 	line-height: 4em
 	display: inline-block
 	clear:both
 	width: 100%
 
-.floatright
-	float: right
+	& + & // add margins to following rows
+        margin-top: $standard-spacing
