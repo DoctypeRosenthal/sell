@@ -12,7 +12,7 @@ import mockupData from '../mockup.json'
 
 export default class Home extends React.Component {
 	render() {
-		let products = mockupData.products
+		let productGroups = mockupData.productGroups
 		return (
 			<main>
 				<div className="row">
@@ -29,9 +29,9 @@ export default class Home extends React.Component {
 				</div>
 
 				<div className="row">
-					{ products.map(row => (
+					{ productGroups.map(group => (
 						<HoverBox className="grid-col-4">
-							<StatsWidgetProduct data={row} />
+							<StatsWidgetProduct data={group} />
 						</HoverBox>
 					)) }
 				</div>

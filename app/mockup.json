@@ -43,16 +43,106 @@
 		    "dispatched": "23.11.15"
 		}
 	],
-	"products": [
+	"productGroups": [
 		{
-			"empty": "mockup data"
+			"nr": 401,
+			"name": "MoveDove",
+			"pic": "MoveDove-150x150.jpg",
+			"created": "29.11.13",
+			"products": [
+				{
+					"nr": 2,
+					"type": "CD",
+					"price": 17.00,
+					"quantity": 100,
+					"labels": [
+						{
+							"name": "Händlerabgabe",
+							"sold": 20,
+							"quantity": 200,
+							"price": 15.00
+						},
+						{
+							"name": "VVK",
+							"sold": 5,
+							"quantity": 100,
+							"price": 16.00
+						}
+					]
+				}
+
+			]
 		},
 		{
-			"empty": "mockup data"
-		},
-		{
-			"empty": "mockup data"
-		}		
+			"nr": 301,
+			"name": "NochSchon",
+			"pic": "NochSchon-150x135.jpg",
+			"created": "20.10.14",
+			"products": [
+				{
+					"nr": 2,
+					"type": "CD",
+					"price": 17.00,
+					"quantity": 100,
+					"labels": [
+						{
+							"name": "Händlerabgabe",
+							"sold": 20,
+							"quantity": 20,
+							"price": 15.00
+						},
+						{
+							"name": "VVK",
+							"sold": 50,
+							"quantity": 50,
+							"price": 16.00
+						}
+					]
+				},
+				{
+					"nr": 3,
+					"type": "DVD",
+					"price": 20.00,
+					"quantity": 50,
+					"labels": [
+						{
+							"name": "Händlerabgabe",
+							"sold": 5,
+							"quantity": 10,
+							"price": 17.00
+						},
+						{
+							"name": "VVK",
+							"sold": 30,
+							"quantity": 30,
+							"price": 18.00
+						}
+					]
+				},
+				{
+					"nr": 99999,
+					"type": "LP",
+					"price": 35.00,
+					"quantity": 10,
+					"labels": [
+						{
+							"name": "Händlerabgabe",
+							"sold": 5,
+							"quantity": 5,
+							"price": 30.00
+						},
+						{
+							"name": "VVK",
+							"sold": 5,
+							"quantity": 5,
+							"price": 30.00
+						}
+					]
+				}
+
+			]
+		}
+
 	],
 	"protocol": [
 		{
