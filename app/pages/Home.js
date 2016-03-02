@@ -13,10 +13,12 @@ import mockupData from '../mockup.json'
 export default class Home extends React.Component {
 	render() {
 		let productGroups = mockupData.productGroups
+
+
 		return (
 			<main>
 				<div className="row">
-					<h2>Hallo Luis und wacko' ho'!</h2>
+					<h1>Hallo Luis und wacko' ho'!</h1>
 					<div className="clearboth">
 						Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
 					</div>
@@ -24,13 +26,14 @@ export default class Home extends React.Component {
 				</div>
 
 				<div className="row">
+					<h3>Umsätze</h3>
 					<StatsGraph className="grid-col-9" />
 					<StatsTable className="grid-col-3" />
 				</div>
 
 				<div className="row">
 					{ productGroups.map(group => (
-						<HoverBox className="grid-col-4">
+						<HoverBox className="grid-col-3">
 							<StatsWidgetProduct data={group} />
 						</HoverBox>
 					)) }

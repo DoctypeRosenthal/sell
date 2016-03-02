@@ -26,19 +26,25 @@
 			margin-bottom: $standard-spacing
 
 	&--product__table
-		text-align: left
 
 		button
 			+label-button()
 
-		> tbody 
-			th, td
-				&:first-child
-					padding-left: $small-spacing
+		> tbody:nth-child(2n)
+				background: $lighter-grey
 
-				&:not(:first-child)
-					text-align: right
+		.type
+			color: $grey
+
+		.type,
+		.label
+			text-align: left
+
+		.sold,
+		.stock,
+		.sum
+			text-align: right
 
 		.total
 			font-weight: 600
-			border-top: 1px solid $lighter-grey-line
+			border-top: 1px solid $lighter-grey

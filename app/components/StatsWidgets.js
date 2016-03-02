@@ -2,42 +2,32 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
-const ProductLabel = (props) => {
+const LabelRow = (props) => {
 	let label = props.data
 	return (
 		<tr>
-			<td><button>{label.name}</button></td>
-			<td>{label.sold}</td>
-			<td>{label.quantity}</td>
-			<td>{label.sold * label.price} €</td>
+			<td className="label"><button>{label.name}</button></td>
+			<td className="sold">{label.sold}</td>
+			<td className="stock">{label.quantity}</td>
+			<td className="sum">{label.sold * label.price} €</td>
 		</tr>
 	)
 }
 
-const ProductTable = (props) => {
+const ProductRow = (props) => {
 	let product = props.data
-	console.log(product)
 	return (
-		<table className="stats-widget--product__table">
-			<thead>
-				<tr className="title">
-					<th colSpan="4">{product.type}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Label</th><th>verkauft</th><th>gesamt</th><th>total</th>
-				</tr>
+		<tbody>
+			<tr>
+				<th className="type" rowSpan={product.labels.length + 1}><em>{product.type}</em></th>
+			</tr>
 
-				{ product.labels.map(label => <ProductTable data={label} />) }
+			{ product.labels.map(label => <LabelRow data={label} />) }
 
-				<tr className="total">
-					<td colSpan="3">insgesamt</td><td>823,50€</td>
-				</tr>
-			</tbody>
-		</table>	
+		</tbody>
 	)
 }
+
 export const StatsWidgetProduct = (props) => {
 	let group = props.data
 	return (
@@ -50,9 +40,25 @@ export const StatsWidgetProduct = (props) => {
 				</div>
 			</div>
 			<div className="stats-widget__body">
+				<table className="stats-widget--product__table">
+					<thead>
+						<tr>
+							<th className="type"></th>
+							<th className="label">Label</th>
+							<th className="sold">verkauft</th>
+							<th className="stock">auf Lager</th>
+							<th className="sum">Summe</th>
+						</tr>
+					</thead>
 
-				{ group.products.map(product => <ProductTable data={product} />) }
-				
+					{ group.products.map(product => <ProductRow data={product} />) }
+
+					<tfoot>
+						<tr className="total">
+							<td colSpan="4">insgesamt</td><td className="sum">823,50€</td>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	)

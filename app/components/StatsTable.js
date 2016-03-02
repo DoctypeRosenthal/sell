@@ -8,11 +8,6 @@ const StatsTable = (props) => {
 		<table className={className}>
 		    <tbody>
 		        <tr>
-		            <th colSpan="2">
-		                Umsatz (ohne Versandkosten)
-		            </th>
-		        </tr>
-		        <tr>
 		            <td>Einnahmen insgesamt: </td>
 		            <td className="bold right"> 18.307,21€</td>
 		        </tr>

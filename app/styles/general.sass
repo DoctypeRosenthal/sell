@@ -104,9 +104,11 @@ footer
 	line-height: $footer-height
 	color: $grey
 	text-align: center
-	display: block;
-	float: left;
-	width: 100%;
+	display: block
+	float: left
+	width: 100%
+	font-size: .9em
+	padding-bottom: 3em
 
 
 /*---------------------------------------------------
@@ -134,7 +136,7 @@ $single-col: (100% / $grid-fineness)
 
 @for $i from 1 through $grid-fineness
 	.grid-col-#{$i}
-		width: calc( #{$single-col} * #{$i} - #{$standard-spacing} * (#{$i} - 1) / #{$i} )
+		width: calc( #{$single-col} * #{$i}  - 3px - #{$standard-spacing} * (#{$i} - 1) / #{$i})
 
 
 /*---------------------------------------------------

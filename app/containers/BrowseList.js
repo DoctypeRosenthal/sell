@@ -68,7 +68,7 @@ export class OrdersList extends React.Component {
 export class ProductsList extends React.Component {
 	render() {
 
-		let mockup = mockupData.products
+		let mockup = mockupData.productGroups
 
 		return (
 			<div>
