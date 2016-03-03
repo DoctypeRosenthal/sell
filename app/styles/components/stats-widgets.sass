@@ -41,10 +41,34 @@
 			text-align: left
 
 		.sold,
-		.stock,
+		.stocked,
 		.sum
 			text-align: right
 
 		.total
 			font-weight: 600
 			border-top: 1px solid $lighter-grey
+
+.stats-table
+	line-height: 2em
+
+	.home &
+		float: right
+
+	th
+		text-align: left
+
+	td
+		&:first-child
+			padding-right: 1em
+
+		&:last-child
+			text-align: right
+
+.stats-graph
+	height: 250px
+	//box-shadow: 0 0 10px -2px $grey inset
+	//background: linear-gradient(to bottom, rgb(255,255,255) 44%,rgb(117,189,209) 87%,rgb(73,165,191) 100%)
+
+	.home &
+		float: left

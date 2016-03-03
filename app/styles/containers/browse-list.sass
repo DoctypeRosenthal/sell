@@ -61,7 +61,6 @@
 
 			&.product
 				width: 100%
-				margin-bottom: $standard-spacing
 
 			&.name
 				width: 25%
@@ -104,6 +103,10 @@
 			&.zip
 				text-align: right
 
+			&.view-toggle
+				right: 0
+				position: absolute
+
 	&__head
 		z-index: map-get($z-index, 'list-head')
 		background: $standard-bg-color
@@ -125,6 +128,7 @@
 
 		&.group
 			padding: $small-spacing 0
+			margin-top: $small-spacing
 
 			&__pic
 				float: left
@@ -138,6 +142,9 @@
 				font-weight: bold
 				font-size: map-get($font-sizes, 'h2')
 
+		&.product
+			margin-bottom: $standard-spacing
+			
 	/*-------------------------------------------------------
 	 * page specific options
 	 *-----------------------------------------------------*/

@@ -37,17 +37,35 @@ export const OrderRow = (props) => {
 	)
 }
 
-export const ProductRow = (props) => {
-	let row = props.data
+
+const ProductRow = (props) => {
+	let product = props.data
+
+	return (
+		<li>
+			<div className="nr">{product.nr}</div>
+			<div className="type">{product.type}</div>
+			<div className="price">{product.price} €</div>
+			<div className="quantity">{product.quantity}</div>
+			<div className="labels">
+				<AddBtnSmall />
+				{ product.labels.map(label => <button>{label.name}</button>) }
+			</div>				        	
+    	</li>		
+	)
+}
+
+export const ProductGroupRow = (props) => {
+	let group = props.data
 
 	return (
 		<li>
 	    	<div className="group">
 		    	<div className="group__pic">
-		    		<img src={ require("file?name=[sha512:hash:base64:7].[ext]!../pics/NochSchon-150x135.jpg") } />
+		    		<img src={ require("file?name=[sha512:hash:base64:7].[ext]!../pics/" + group.pic) } />
 		    	</div>
-	    		<div className="group__date">20.10.14</div>
-	    		<div className="group__title">Noch:Schon - 301</div>
+	    		<div className="group__date">{group.created}</div>
+	    		<div className="group__title">{group.name} - {group.nr}</div>
 	    	</div>
 	        <div className="product">
 		        <ol className="browse-list browse-list__head">
@@ -60,35 +78,12 @@ export const ProductRow = (props) => {
 		        	</li>
 		        </ol>
 		        <ol className="browse-list browse-list__body">
-		        	<li>
-						<div className="nr">2</div>
-						<div className="type">CD</div>
-						<div className="price">17,00 €</div>
-						<div className="quantity">100</div>
-						<div className="labels">
-							<AddBtnSmall /><button>VVK</button><button>Geschenk</button><button>Händlerabgabepreis</button><button>Normalpreis</button><button>Promo</button>
-						</div>				        	
-		        	</li>
-		        	<li>
-						<div className="nr">3</div>
-						<div className="type">DVD</div>
-						<div className="price">20,00 €</div>
-						<div className="quantity">50</div>
-						<div className="labels"><AddBtnSmall /><button>Label</button></div>
-		        	</li>
-		        	<li>
-						<div className="nr">9999</div>
-						<div className="type">LP</div>
-						<div className="price">30,00 €</div>
-						<div className="quantity">20</div>
-						<div className="labels"><AddBtnSmall /><button>Label</button></div>
-		        	</li>
+		        	{ group.products.map(product => <ProductRow data={product} />) }
 		        </ol>
 	        </div>
 	    </li>
 	)
 }
-
 
 export const ProtocolRow = (props) => {
 	let row = props.data

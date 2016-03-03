@@ -9,9 +9,6 @@ export default class App extends React.Component {
 		let pageClass = this.props.location.pathname.replace('/', '') || 'home'
 		return(
 			<div className={pageClass}>
-				<header>
-					<UserBar />
-				</header>
 
 				<aside>
 					<Navigation page={pageClass}/>

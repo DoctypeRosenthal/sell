@@ -12,6 +12,7 @@ const Navigation = (props) => {
 			<Link to="/products" className={ page == 'products' ? 'js-selected' : '' }>Produkte</Link>
 			<Link to="/options" className={ page == 'options' ? 'js-selected' : '' }>Einstellungen</Link>
 			<Link to="/protocol" className={ page == 'protocol' ? 'js-selected' : '' }>Protokoll</Link>
+			<Link to="/#" className="logout">Logout</Link>
 		</nav>
 	)
 }

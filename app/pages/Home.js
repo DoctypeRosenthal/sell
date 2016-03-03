@@ -2,10 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router'
 import { AddBtnMedium } from '../components/AddBtn'
-import StatsGraph from '../components/StatsGraph'
-import StatsTable from '../components/StatsTable'
 import HoverBox from '../components/HoverBox'
-import { StatsWidgetProduct } from '../components/StatsWidgets'
+import { StatsGraph, StatsTable, StatsWidgetProduct } from '../components/StatsWidgets'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -18,7 +16,7 @@ export default class Home extends React.Component {
 		return (
 			<main>
 				<div className="row">
-					<h1>Hallo Luis und wacko' ho'!</h1>
+					<h2>Hallo Luis und wacko' ho'!</h2>
 					<div className="clearboth">
 						Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
 					</div>
@@ -27,8 +25,8 @@ export default class Home extends React.Component {
 
 				<div className="row">
 					<h3>Umsätze</h3>
-					<StatsGraph className="grid-col-9" />
-					<StatsTable className="grid-col-3" />
+					<StatsGraph className="grid-col-10" />
+					<StatsTable className="grid-col-2" />
 				</div>
 
 				<div className="row">

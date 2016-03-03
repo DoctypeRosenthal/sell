@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { OrderRow, CustomerRow, ProductRow, ProtocolRow } from '../components/BrowseListRow'
+import { OrderRow, CustomerRow, ProductGroupRow, ProtocolRow } from '../components/BrowseListRow'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -78,10 +78,11 @@ export class ProductsList extends React.Component {
 
 					<li className="browse-list__sorters">
 						<div className="group">Veröffentlichung</div>
+						<div className="view-toggle"><i className="ico-list-view"></i><i className="ico-tile-view"></i></div>
 					</li>
 				</ol>
 				<ol className="browse-list browse-list__body">
-					{ mockup.map(row => <ProductRow data={row} />) }
+					{ mockup.map(row => <ProductGroupRow data={row} />) }
 				</ol>
 			</div>
 		)

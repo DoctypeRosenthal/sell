@@ -2,13 +2,54 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
+export const StatsTable = (props) => {
+	let className = "stats-table " + props.className
+	return (
+		<table className={className}>
+		    <tbody>
+		        <tr>
+		            <td>Einnahmen insgesamt: </td>
+		            <td className="bold right"> 18.307,21€</td>
+		        </tr>
+		        <tr>
+		            <td>Bisher davon bezahlt: </td>
+		            <td className="bold right"> 18.092,21€</td>
+		        </tr>
+		        <tr>
+		            <td>noch <Link to="/orders?due">ausstehend</Link>: </td>
+		            <td className="bold right"> 215,00€</td>
+		        </tr>
+		    </tbody>
+		</table>
+	)
+}
+
+export const StatsGraph = (props) => {
+	let className = "stats-graph " + props.className
+	return (
+		<svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className={className}>
+		  <defs>
+		    <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+		      <path d="M 8 0 L 0 0 0 8" fill="none" stroke="gray" strokeWidth="0.5"/>
+		    </pattern>
+		    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+		      <rect width="80" height="80" fill="url(#smallGrid)"/>
+		      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="gray" strokeWidth="1"/>
+		    </pattern>
+		  </defs>
+
+		  <rect width="100%" height="100%" fill="url(#grid)" />
+		</svg>
+	)
+}
+
 const LabelRow = (props) => {
 	let label = props.data
 	return (
 		<tr>
 			<td className="label"><button>{label.name}</button></td>
 			<td className="sold">{label.sold}</td>
-			<td className="stock">{label.quantity}</td>
+			<td className="stocked">{label.quantity}</td>
 			<td className="sum">{label.sold * label.price} €</td>
 		</tr>
 	)
@@ -46,7 +87,7 @@ export const StatsWidgetProduct = (props) => {
 							<th className="type"></th>
 							<th className="label">Label</th>
 							<th className="sold">verkauft</th>
-							<th className="stock">auf Lager</th>
+							<th className="stocked">auf Lager</th>
 							<th className="sum">Summe</th>
 						</tr>
 					</thead>

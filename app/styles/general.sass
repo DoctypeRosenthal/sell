@@ -74,7 +74,7 @@ input[type="text"]
 	padding: 0 $standard-spacing $standard-spacing
 	width: 100%
 
-header
+header // attention: not in use at the moment
 	position: fixed
 	z-index: map-get($z-index, 'header')
 	background: $lighter-grey
@@ -88,13 +88,11 @@ header
 main
 	position: relative
 	margin-top: $user-bar-height
-	padding-top: $standard-spacing
 	margin-left: $side-bar-width // note: has to be margin NOT padding (watch browse-list__head!)
 
 aside
 	position: fixed
 	top: $user-bar-height
-	padding-top: $standard-spacing
 	z-index: map-get($z-index, 'nav')
 	width: $side-bar-width
 
@@ -146,6 +144,7 @@ $single-col: (100% / $grid-fineness)
 // map icons to their respective elements
 @each $name, $ico in $icons
 	.ico-#{$name}:before
+		font-style: normal
 		content: $ico
 
 /*---------------------------------------------------
