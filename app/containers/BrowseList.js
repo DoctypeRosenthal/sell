@@ -78,7 +78,7 @@ export class ProductsList extends React.Component {
 
 					<li className="browse-list__sorters">
 						<div className="group">Veröffentlichung</div>
-						<div className="view-toggle"><i className="ico-list-view"></i><i className="ico-tile-view"></i></div>
+						<div className="view-toggle"><i className="fa fa-camera-retro fa-lg"></i><i className="ico-tile-view"></i></div>
 					</li>
 				</ol>
 				<ol className="browse-list browse-list__body">

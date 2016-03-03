@@ -5,6 +5,7 @@ module.exports = {
   devtool: 'inline-source-map',
   context: __dirname + '/app',
   entry: [
+    'font-awesome-webpack',
     'webpack-hot-middleware/client',
     './index'
   ],
@@ -43,6 +44,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style!css!sass'
+      },
+      { 
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, 
+        loader: 'url?limit=100000&name=[name].[ext]'
       }
     ]
   }
