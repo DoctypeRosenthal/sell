@@ -4,14 +4,16 @@ import { Link } from 'react-router'
 
 const Navigation = (props) => {
 	let page = props.page
+
+	let selected = 'js-selected ico-angle-right'
 	return (
 		<nav className="nav">
-			<Link to="/" className={ page == 'home' ? 'js-selected' : '' }>Startseite</Link>
-			<Link to="/customers" className={ page == 'customers' ? 'js-selected' : '' }>Kunden</Link>
-			<Link to="/orders" className={ page == 'orders' ? 'js-selected' : '' }>Bestellungen</Link>
-			<Link to="/products" className={ page == 'products' ? 'js-selected' : '' }>Produkte</Link>
-			<Link to="/options" className={ page == 'options' ? 'js-selected' : '' }>Einstellungen</Link>
-			<Link to="/protocol" className={ page == 'protocol' ? 'js-selected' : '' }>Protokoll</Link>
+			<Link to="/" className={ page == 'home' ? selected : '' }>Startseite</Link>
+			<Link to="/customers" className={ page == 'customers' ? selected : '' }>Kunden</Link>
+			<Link to="/orders" className={ page == 'orders' ? selected : '' }>Bestellungen</Link>
+			<Link to="/products" className={ page == 'products' ? selected : '' }>Produkte</Link>
+			<Link to="/options" className={ page == 'options' ? selected : '' }>Einstellungen</Link>
+			<Link to="/protocol" className={ page == 'protocol' ? selected : '' }>Protokoll</Link>
 			<Link to="/#" className="logout">Logout</Link>
 		</nav>
 	)

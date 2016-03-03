@@ -15,16 +15,26 @@ $z-index: (
 	notifyer: 110
 );
 
+
 $icons: (
-	add: "+",
-	next: ">",
-	prev: "<",
-	trash: "",
-	list: "",
-	angle-right: "›",
-	list-view: "=",
-	tile-view: "::"
+	add: "\f067",
+	next: "\f105",
+	prev: "\f104",
+	trash: "\f1f8",
+	list: "\f0c9",
+	angle-right: "\f105",
+	list-view: "\f00b",
+	tile-view: "\f00a"
 );
+
+// map icons to their respective elements
+@each $name, $ico in $icons {
+	.ico-#{$name}:before {
+		font: normal normal normal .95em FontAwesome; 
+		content: $ico
+	}
+}
+
 
 $font-sizes: (
 	s: .5em,

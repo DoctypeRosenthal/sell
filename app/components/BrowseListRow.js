@@ -62,7 +62,7 @@ export const ProductGroupRow = (props) => {
 		<li>
 	    	<div className="group">
 		    	<div className="group__pic">
-		    		<img src={ require("file?name=[sha512:hash:base64:7].[ext]!../pics/" + group.pic) } />
+		    		<img src={ require("../pics/" + group.pic) } />
 		    	</div>
 	    		<div className="group__date">{group.created}</div>
 	    		<div className="group__title">{group.name} - {group.nr}</div>

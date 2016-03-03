@@ -26,6 +26,7 @@
 		
 		&:before
 			left: .3em
+			top: .3em;
 
 	&--main
 		$fs: map-get($font-sizes, 'h3')
@@ -34,7 +35,7 @@
 		margin-bottom: $fs
 
 		&:before
-			font-size: ($fs + .2em)
+			line-height: inherit;
 
 	&--medium
 		$fs: map-get($font-sizes, 'h4')
@@ -45,11 +46,9 @@
 			font-size: ($fs + .3em)
 
 	&--small
-		padding-left: .5em
+		padding-left: 1.1em
 
 		&:before
-			top: .3em
-			left: .1em
-			font-weight: 700
-			font-size: 1.1em
+			top: .35em
+			left: .3em
 			color: black
