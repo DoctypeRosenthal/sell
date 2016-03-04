@@ -266,5 +266,10 @@
 			"link": "/orders?billNr=150063",
 			"date": "08.02.16 um 16:21 Uhr"
 		}
-	]
+	],
+	"options": {
+		"company": {
+			"name": "Ein toller Firmenname"
+		}
+	}
 }
