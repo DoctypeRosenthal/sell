@@ -74,7 +74,7 @@ export const StatsWidgetProduct = (props) => {
 	return (
 		<div className="stats-widget stats-widget--product">
 			<div className="stats-widget__head">
-				<img className="group__pic" src={ require("file?name=[sha512:hash:base64:7].[ext]!../pics/" + group.pic) } />
+				<img className="group__pic" src={ require("../pics/" + group.pic) } />
 				<div className="group__description">
 					<div className="group__title">{group.nr} - {group.name}</div>
 					<div className="group__date">{group.created}</div>

@@ -45,6 +45,11 @@ module.exports = {
         test: /\.scss$/,
         loader: 'style!css!sass'
       },
+      {
+          test: /\.(png|jpg|jpeg|ico)$/,
+          loader: "url-loader",
+          query: { mimetype: "image/png" }
+      },
       { 
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, 
         loader: 'url?limit=100000&name=[name].[ext]'
