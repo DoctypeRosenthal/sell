@@ -1,0 +1,26 @@
+.input-field
+	position: relative
+	$s: map-get($font-sizes, 's')
+
+	&__placeholder
+		position: absolute
+		color: $grey
+		transition: all .3s
+		left: 0
+
+	&__input.empty:not(:focus) + &__placeholder
+		top: 0
+		font-size: inherit
+		line-height: inherit
+
+	&__input.empty:focus,
+	&__input:not(.empty)
+		border-color: $black
+		color: $black
+		
+		& + .input-field__placeholder
+			font-size: $s
+			top: calc(-#{$s} - 5px)
+			line-height: $s
+			color: $black
+
