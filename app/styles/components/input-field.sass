@@ -11,10 +11,28 @@
 		transition: all .3s
 
 	&__input
+		+input-style()
 		font-size: inherit
 		width: 100%
 		line-height: inherit
 		height: inherit
+
+		> input
+			border: none
+
+	&__tag
+		background: $lighter-grey
+		border: 1px solid $light-grey-line
+		padding: .1em 1em .1em .1em
+		font-size: .9em
+
+		&:after
+			position: relative
+			right: -.5em
+
+		& ~ input,
+		& ~ &
+			margin-left: $small-spacing
 
 	&:not(.empty) &__input
 		color: $black

@@ -1,7 +1,8 @@
 {
 	"customers": [
 		{
-			"nr": "411",
+			"nr": 411,
+			"gender": "Herr",
 			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
 			"forename": "Prof. Dr. Markus",
 			"surname": "Vogt",
@@ -12,6 +13,7 @@
 		},
 		{
 			"nr": 423,
+			"gender": "Herr",
 			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
 			"forename": "Prof. Dr. Markus",
 			"surname": "Vogt",
@@ -267,18 +269,36 @@
 			"date": "08.02.16 um 16:21 Uhr"
 		}
 	],
-	"options": {
-		"company": {
-			"name": "",
-			"owner": "",
-			"street": "ee",
-			"zip": 0,
-			"city": "",
-			"telephone": "",
-			"fax": "",
-			"mobile": "",
-			"email": "",
-			"website": ""
-		}
+	"company": {
+		"name": "",
+		"owner": "",
+		"street": "ee",
+		"zip": 0,
+		"city": "",
+		"telephone": "",
+		"fax": "",
+		"mobile": "",
+		"email": "",
+		"website": "",
+		"bank": "",
+		"bic": null,
+		"iban": null,
+		"taxOffice": "",
+		"taxNr": ""
+	},
+	"billMeta": {
+		"introText": "wir bedanken uns für die Bestellung und stellen ihnen folgende Posten in Rechnung:",
+		"greetings": "Bitte überweisen sie das Geld bis zum #Zahlungsziel auf unser Konto. Vielen Dank! Herzliche Grüße, Luis Reichard",
+		"termOfPayment": 14
+	},
+
+	"dunning": {
+		"firstIntro": "im Alltag bleibt einiges liegen, und möglicherweise auch meine Rechnung #Rechnungsnummer vom #Rechnungsdatum, denn ich konnte keinen Zahlungseingang verzeichnen. Bitte prüfen Sie einmal den Stand der Bearbeitung. Falls Sie den Betrag schon angewiesen haben sollten, teilen Sie mir bitte das Datum mit. Andernfalls weisen Sie den Betrag bitte nunmehr innerhalb von #Zahlungszeitraum Tagen ab dem oben genannten Datum meinem Konto an (s. u.). Ich gehe davon aus, dass sich die Sache damit geklärt haben wird oder sich dieses Schreiben möglicherweise mit Ihrer Zahlung überschnitten hat. Sollte der Betrag allerdings auch innerhalb der genannten Frist nicht meinem Konto gutgeschrieben worden sein und ich nichts von Ihnen hören, müsste ich im nächsten Schritt den Verzugsschaden geltend machen.",
+		"firstGreetings": "",
+		"firstTermOfPayment": 14,
+
+		"secondIntro": "auch auf meine Zahlungserinnerung vom #DatumZahlungserinnerung konnten ich weder einen Zahlungseingang auf die Rechnung Nr #Rechnungsnummer vom #Rechnungsdatum noch eine Erläuterung von Ihnen hierzu feststellen. Sie befinden sich seit dem #Zahlungsziel im Zahlungsverzug. Wie in der Zahlungserinnerung angekündigt, mache ich damit neben der Honorarforderung nun auch den Verzugsschaden geltend:",
+		"secondGreetings": "Mit freundlichen Grüßen, Luis Reichard",
+		"secondTermOfPayment": 10
 	}
 }

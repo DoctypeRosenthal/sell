@@ -5,37 +5,69 @@ import InputField from '../components/InputField'
 
 import mockupData from '../mockup'
 
+const Row = (props) => {
+	return (
+		<div className="row">{props.children}</div>
+	)
+}
 export default class Options extends React.Component {
 	render() {
-		let company = mockupData.options.company
+		let company = mockupData.company
+		let billMeta = mockupData.billMeta
+		let dunning = mockupData.dunning
 		return (
 			<main>
-				<div className="row">
+				<Row>
 					<HoverBox className="grid-col-4">
 						<h2>Firma</h2>
-						<InputField className="h2" placeholder="Firmenname" value={company.name}/>
-						<InputField className="font-size-m" placeholder="Inhaber" value={company.owner}/>
-						<InputField className="font-size-m" placeholder="Straße" value={company.street}/>
-						<InputField className="font-size-m" placeholder="PLZ" value={company.zip}/>
-						<InputField className="font-size-m" placeholder="Ort" value={company.city}/>
-						<InputField className="font-size-m" placeholder="Telefon" value={company.telephone}/>
-						<InputField className="font-size-m" placeholder="Fax" value={company.fax}/>
-						<InputField className="font-size-m" placeholder="Handy" value={company.mobile}/>
-						<InputField className="font-size-m" placeholder="eMail" value={company.email}/>
-						<InputField className="font-size-m" placeholder="Website" value={company.website}/>
+						<Row><InputField className="h2" placeholder="Firmenname" value={company.name}/></Row>
+						<Row><InputField placeholder="Inhaber" value={company.owner}/></Row>
+						<Row><InputField placeholder="Straße" value={company.street}/></Row>
+						<Row>
+							<InputField className="grid-col-6" placeholder="PLZ" value={company.zip}/>
+							<InputField className="grid-col-6" placeholder="Ort" value={company.city}/>
+						</Row>
+						<Row><InputField placeholder="Telefon" value={company.telephone}/></Row>
+						<Row><InputField placeholder="Fax" value={company.fax}/></Row>
+						<Row><InputField placeholder="Handy" value={company.mobile}/></Row>
+						<Row><InputField placeholder="eMail" value={company.email}/></Row>
+						<Row><InputField placeholder="Website" value={company.website}/></Row>
 					</HoverBox>
 					<HoverBox className="grid-col-4">
 						<h2>Bankdaten und Zahlungsmodalitäten</h2>
+						<Row><InputField placeholder="Bank" value={company.bank}/></Row>
+						<Row><InputField placeholder="BIC" value={company.bic}/></Row>
+						<Row><InputField placeholder="IBAN" value={company.iban}/></Row>
+						<Row><InputField placeholder="Finanzamt" value={company.taxOffice}/></Row>
+						<Row><InputField placeholder="Steuernummer" value={company.taxNr}/></Row>
+						<Row><InputField placeholder="Zahlungszeitraum" value={billMeta.termOfPayment}/></Row>
+						<Row><InputField type="textarea" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
+						<Row><InputField type="textarea" placeholder="Grußtext" value={billMeta.greetings} /></Row>
+						<Row>
+							<h4>Zahlungserinnerung</h4>
+							<Row><InputField type="textarea" placeholder="Einleitung" value={dunning.firstIntro} /></Row>
+							<Row><InputField type="textarea" placeholder="Grußtext" value={dunning.firstGreetings} /></Row>
+							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.firstTermOfPayment} /></Row>
+						</Row>
+						<Row>
+							<h4>Mahnung</h4>
+							<Row><InputField type="textarea" placeholder="Einleitung" value={dunning.secondIntro} /></Row>
+							<Row><InputField type="textarea" placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
+							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.secondTermOfPayment} /></Row>
+						</Row>
 					</HoverBox>
 					<HoverBox className="grid-col-4">
 						<h2>Allgemeines</h2>
+						<Row><InputField type="tag" placeholder="Versandkosten"><em className="input-field__tag ico-a-close">1,45 €</em></InputField></Row>
+						<Row><InputField placeholder="Währung" value="€" /></Row>
+						<Row><InputField type="tag" placeholder="Steuersätze"><em className="input-field__tag ico-a-close">19%</em><em className="input-field__tag ico-a-close">7%</em></InputField></Row>
 					</HoverBox>
-				</div>
-				<div className="row">
+				</Row>
+				<Row>
 				<HoverBox className="grid-col-4">
 					<h2>persönliche Einstellungen</h2>
 				</HoverBox>
-				</div>
+				</Row>
 			</main>
 		)
 	}

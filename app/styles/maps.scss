@@ -26,6 +26,7 @@ $icons: (
 	list-view: "\f00b",
 	tile-view: "\f00a",
 	search: "\f002",
+	close: "\f00d",
 
 	product-cd: "",
 	product-lp: "",
@@ -35,9 +36,10 @@ $icons: (
 
 // map icons to their respective elements
 @each $name, $ico in $icons {
-	.ico-#{$name}:before {
-		font: normal normal normal .95em FontAwesome; 
-		content: $ico
+	.ico-#{$name}:before,
+	.ico-a-#{$name}:after {
+		font: normal normal normal .95em FontAwesome;
+		content: $ico;
 	}
 }
 
