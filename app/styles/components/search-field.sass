@@ -1,4 +1,32 @@
 .search-field
+	position: relative
 
 	&--main
-		margin-right: 1rem
+		display: inline-block
+		
+		> input
+			background: transparentize($standard-bg-color, .3)
+			padding-left: calc(1em + #{$small-spacing})
+			opacity: 0
+			position: absolute
+
+			&.empty,
+			&:not(:focus),
+			&:not(:active)
+				left: 0
+				width: 1em
+
+			&:not(.empty),
+			&:focus,
+			&:active
+				opacity: 1
+				width: 18em
+				
+		&:before
+			color: $black
+			font-size: inherit
+			position: relative
+			left: 0
+			top: .5rem
+
+

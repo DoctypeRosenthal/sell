@@ -1,22 +1,23 @@
 import React from 'react'
 
-import { FilterBarCustomers } from '../components/FilterBar'
-import SearchField from '../components/SearchField'
-import Pagination from '../components/Pagination' 
-import { AddBtnMain } from '../components/AddBtn'
 
+import { AddBtnMain } from '../components/AddBtn'
+import SearchField from '../components/SearchField'
+import { FilterBarCustomers } from '../components/FilterBar'
+import Pagination from '../components/Pagination'
 import { CustomersList } from '../containers/BrowseList'
 
 export default class Customers extends React.Component {
 	render() {
 		return (
 			<main>
-				
-				<AddBtnMain />
+				<div className="row h2">
+					<AddBtnMain />
+					<SearchField />
+				</div>
 				
 				<div className="row">
 					<FilterBarCustomers />
-					<SearchField />
 					<Pagination />
 				</div>
 

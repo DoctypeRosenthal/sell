@@ -269,7 +269,16 @@
 	],
 	"options": {
 		"company": {
-			"name": "Ein toller Firmenname"
+			"name": "",
+			"owner": "",
+			"street": "ee",
+			"zip": 0,
+			"city": "",
+			"telephone": "",
+			"fax": "",
+			"mobile": "",
+			"email": "",
+			"website": ""
 		}
 	}
 }

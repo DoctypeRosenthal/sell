@@ -1,13 +1,13 @@
 import React from 'react'
 
 const InputField = (props) => {
-
-	let inputClass = 'input-field__input ' + props.className
-	if (props.text == '') inputClass += ' empty'
+	let className = 'input-field ' + props.className
+	if (props.value === '' || props.value === null) 
+		className += ' empty'
 
 	return (
-		<div className={'input-field ' + props.className}>
-			<input className={inputClass} value={props.text} type="text" />
+		<div className={className}>
+			<input className={'input-field__input'} value={props.value} type="text" />
 			<span className="input-field__placeholder">{props.placeholder}</span>
 		</div>
 	)

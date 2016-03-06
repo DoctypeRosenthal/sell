@@ -20,8 +20,8 @@ body
 	font-family: PT Sans, Myriad Pro
 	font-size: 15px
 
-h1,
-h2,
+h1, .h1,
+h2, .h2,
 h3,
 h4
 	margin-top: 0
@@ -39,6 +39,10 @@ h3, .h3
 h4, .h4
 	font-size: map-get($font-sizes, 'h4')
 
+.font-size-m
+	font-size: map-get($font-sizes, 'm')
+	line-height: 1em
+	
 table
 	line-height: 2.2em
 	width: 100%
@@ -67,8 +71,8 @@ input[type="text"]
 
 	&:hover,
 	&:focus
-		color: $darkest-grey
-		border-color: $grey-line
+		color: $black
+		border-color: $black
 
 #app
 	padding: 0 $standard-spacing $standard-spacing
@@ -83,7 +87,7 @@ header // attention: not in use at the moment
 	left: 0
 	top: 0
 	line-height: $user-bar-height
-	padding: 0 $standard-spacing
+	padding: 0 $standard-spacing 0 ($side-bar-width + $standard-spacing)
 
 main
 	position: relative
@@ -117,8 +121,8 @@ div[class*=grid-col-]
 	float: left
 	display: block
 
-	&:not(:last-child)
-		margin-right: $standard-spacing
+	& + &
+		margin-left: $standard-spacing
 
 $grid-fineness: 12
 $single-col: (100% / $grid-fineness)
@@ -164,7 +168,6 @@ $single-col: (100% / $grid-fineness)
 	clear: both
 
 .row
-	line-height: 4em
 	display: inline-block
 	clear:both
 	width: 100%

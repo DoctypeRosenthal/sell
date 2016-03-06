@@ -13,7 +13,16 @@ export default class Options extends React.Component {
 				<div className="row">
 					<HoverBox className="grid-col-4">
 						<h2>Firma</h2>
-						<InputField className="h2 grid-col-12" placeholder="Firmenname" text={company.name}/>
+						<InputField className="h2" placeholder="Firmenname" value={company.name}/>
+						<InputField className="font-size-m" placeholder="Inhaber" value={company.owner}/>
+						<InputField className="font-size-m" placeholder="Straße" value={company.street}/>
+						<InputField className="font-size-m" placeholder="PLZ" value={company.zip}/>
+						<InputField className="font-size-m" placeholder="Ort" value={company.city}/>
+						<InputField className="font-size-m" placeholder="Telefon" value={company.telephone}/>
+						<InputField className="font-size-m" placeholder="Fax" value={company.fax}/>
+						<InputField className="font-size-m" placeholder="Handy" value={company.mobile}/>
+						<InputField className="font-size-m" placeholder="eMail" value={company.email}/>
+						<InputField className="font-size-m" placeholder="Website" value={company.website}/>
 					</HoverBox>
 					<HoverBox className="grid-col-4">
 						<h2>Bankdaten und Zahlungsmodalitäten</h2>

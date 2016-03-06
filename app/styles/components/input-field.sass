@@ -1,26 +1,31 @@
 .input-field
 	position: relative
 	$s: map-get($font-sizes, 's')
+	padding: $s 0 .1em
 
 	&__placeholder
+		left: 0
+		top: $s
 		position: absolute
 		color: $grey
 		transition: all .3s
-		left: 0
 
-	&__input.empty:not(:focus) + &__placeholder
-		top: 0
+	&__input
+		font-size: inherit
+		width: 100%
+		line-height: inherit
+		height: inherit
+
+	&:not(.empty) &__input
+		color: $black
+
+	&.empty &__placeholder
 		font-size: inherit
 		line-height: inherit
 
-	&__input.empty:focus,
-	&__input:not(.empty)
-		border-color: $black
+	&:not(.empty) &__placeholder,
+	&__input:focus + &__placeholder
+		font-size: $s
+		top: 0
+		line-height: $s
 		color: $black
-		
-		& + .input-field__placeholder
-			font-size: $s
-			top: calc(-#{$s} - 5px)
-			line-height: $s
-			color: $black
-

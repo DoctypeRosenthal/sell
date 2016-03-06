@@ -8,7 +8,6 @@
 	transition: all .3s 
 	position: relative
 	text-shadow: none
-	font-weight: 600
 	float: left
 
 	&:before
@@ -23,16 +22,16 @@
 	&--medium
 		padding-right: .5em
 		padding-left: 1.5em
-		
+		padding-top: 0
+
 		&:before
 			left: .3em
-			top: .3em;
+			top: .4em;
 
 	&--main
-		$fs: map-get($font-sizes, 'h3')
-		font-size: $fs
-		line-height: $fs
-		margin-bottom: $fs
+		font-size: inherit
+		line-height: inherit
+		margin-right: $standard-spacing
 
 		&:before
 			line-height: inherit;
