@@ -12,7 +12,7 @@ export default class Customers extends React.Component {
 		return (
 			<main>
 				
-				<div className="row h2">
+				<div className="row h1">
 					<AddBtnMain />
 					<SearchField />
 				</div>

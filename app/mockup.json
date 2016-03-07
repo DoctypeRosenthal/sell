@@ -300,5 +300,11 @@
 		"secondIntro": "auch auf meine Zahlungserinnerung vom #DatumZahlungserinnerung konnten ich weder einen Zahlungseingang auf die Rechnung Nr #Rechnungsnummer vom #Rechnungsdatum noch eine Erläuterung von Ihnen hierzu feststellen. Sie befinden sich seit dem #Zahlungsziel im Zahlungsverzug. Wie in der Zahlungserinnerung angekündigt, mache ich damit neben der Honorarforderung nun auch den Verzugsschaden geltend:",
 		"secondGreetings": "Mit freundlichen Grüßen, Luis Reichard",
 		"secondTermOfPayment": 10
+	},
+	"user": {
+		"name": "Luis Reichard",
+		"login": "luis",
+		"password": "taube",
+		"email": "info@amc-records.com"
 	}
 }

@@ -1,7 +1,7 @@
 .input-field
 	position: relative
 	$s: map-get($font-sizes, 's')
-	padding: $s 0 .1em
+	padding: calc(#{$s} + 3px) 0 .1em
 
 	&__placeholder
 		left: 0
@@ -14,6 +14,7 @@
 		+input-style()
 		font-size: inherit
 		width: 100%
+		max-width: 100%
 		line-height: inherit
 		height: inherit
 
@@ -46,4 +47,10 @@
 		font-size: $s
 		top: 0
 		line-height: $s
+
+	&:not(.empty) &__placeholder
+		color: $dark-grey
+
+	&__input:hover + &__placeholder,
+	&__input:focus + &__placeholder
 		color: $black

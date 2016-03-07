@@ -15,6 +15,7 @@ export default class Options extends React.Component {
 		let company = mockupData.company
 		let billMeta = mockupData.billMeta
 		let dunning = mockupData.dunning
+		let user = mockupData.user
 		return (
 			<main>
 				<Row>
@@ -32,14 +33,17 @@ export default class Options extends React.Component {
 						<Row><InputField placeholder="Handy" value={company.mobile}/></Row>
 						<Row><InputField placeholder="eMail" value={company.email}/></Row>
 						<Row><InputField placeholder="Website" value={company.website}/></Row>
+						<Row>
+							<h4>Bankdaten</h4>
+							<Row><InputField placeholder="Bank" value={company.bank}/></Row>
+							<Row><InputField placeholder="BIC" value={company.bic}/></Row>
+							<Row><InputField placeholder="IBAN" value={company.iban}/></Row>
+							<Row><InputField placeholder="Finanzamt" value={company.taxOffice}/></Row>
+							<Row><InputField placeholder="Steuernummer" value={company.taxNr}/></Row>
+						</Row>
 					</HoverBox>
 					<HoverBox className="grid-col-4">
-						<h2>Bankdaten und Zahlungsmodalitäten</h2>
-						<Row><InputField placeholder="Bank" value={company.bank}/></Row>
-						<Row><InputField placeholder="BIC" value={company.bic}/></Row>
-						<Row><InputField placeholder="IBAN" value={company.iban}/></Row>
-						<Row><InputField placeholder="Finanzamt" value={company.taxOffice}/></Row>
-						<Row><InputField placeholder="Steuernummer" value={company.taxNr}/></Row>
+						<h2>Zahlungsbedingungen</h2>
 						<Row><InputField placeholder="Zahlungszeitraum" value={billMeta.termOfPayment}/></Row>
 						<Row><InputField type="textarea" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
 						<Row><InputField type="textarea" placeholder="Grußtext" value={billMeta.greetings} /></Row>
@@ -66,6 +70,10 @@ export default class Options extends React.Component {
 				<Row>
 				<HoverBox className="grid-col-4">
 					<h2>persönliche Einstellungen</h2>
+					<Row><InputField placeholder="Name" value={user.name} /></Row>
+					<Row><InputField placeholder="Login" value={user.login} /></Row>
+					<Row><InputField placeholder="Passwort" value={user.password} /></Row>
+					<Row><InputField placeholder="eMail" value={user.email} /></Row>
 				</HoverBox>
 				</Row>
 			</main>

@@ -9,45 +9,30 @@
 	position: relative
 	text-shadow: none
 	float: left
+	font-size: inherit
+	line-height: inherit
 
 	&:before
-		position: absolute
-
-	&--big
-		display: block
-		font-size: 2.4em
-		margin-bottom: 1rem
-
-	&--main,
-	&--medium
-		padding-right: .5em
-		padding-left: 1.5em
-		padding-top: 0
-
-		&:before
-			left: .3em
-			top: .4em;
+		position: relative
+		line-height: inherit
+		font-size: inherit
 
 	&--main
-		font-size: inherit
-		line-height: inherit
-		margin-right: $standard-spacing
-
+		padding: 0
+		width: 1.8em
+		margin-right: .8em
 		&:before
-			line-height: inherit;
+			top: .01em
 
 	&--medium
-		$fs: map-get($font-sizes, 'h4')
-		font-size: $fs
-		line-height: $fs
-
+		padding: 0 .4em
+		font-weight: 600
 		&:before
-			font-size: inherit
+			width: 1em
+			margin-right: .4em
 
 	&--small
-		padding-left: 1.1em
-
+		padding: 0
+		width: 1.8em
 		&:before
-			top: .35em
-			left: .3em
 			color: black
