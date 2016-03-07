@@ -36,11 +36,7 @@ $icons: (
 
 // map icons to their respective elements
 @each $name, $ico in $icons {
-	/* normally, icons are put into the before-Element but if you wish to put them 
-	 * in the after-Element, in the css-class just add 'a-' right before the icon name
-	*/
-	.ico-#{$name}:before,
-	.ico-a-#{$name}:after {
+	.ico-#{$name}:before {
 		font: normal normal normal .95em FontAwesome;
 		content: $ico;
 	}

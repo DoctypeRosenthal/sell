@@ -24,12 +24,22 @@
 	&__tag
 		background: $lighter-grey
 		border: 1px solid $light-grey-line
-		padding: .1em 1em .1em .1em
+		padding: .1em .1em .1em .2em
 		font-size: .9em
 
-		&:after
-			position: relative
-			right: -.5em
+		> i
+			padding: 0 .2em
+			margin-left: .1em
+			color: $grey
+			transition: color .3s
+			cursor: pointer
+
+			&:before
+				position: relative
+
+			&:hover
+				color: $red
+				
 
 		& ~ input,
 		& ~ &

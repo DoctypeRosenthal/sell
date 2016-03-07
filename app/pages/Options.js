@@ -62,9 +62,9 @@ export default class Options extends React.Component {
 					</HoverBox>
 					<HoverBox className="grid-col-4">
 						<h2>Allgemeines</h2>
-						<Row><InputField type="tag" placeholder="Versandkosten"><em className="input-field__tag ico-a-close">1,45 €</em></InputField></Row>
+						<Row><InputField type="tag" placeholder="Versandkosten"><em className="input-field__tag">1,45 €<i className="ico-close"></i></em></InputField></Row>
 						<Row><InputField placeholder="Währung" value="€" /></Row>
-						<Row><InputField type="tag" placeholder="Steuersätze"><em className="input-field__tag ico-a-close">19%</em><em className="input-field__tag ico-a-close">7%</em></InputField></Row>
+						<Row><InputField type="tag" placeholder="Steuersätze"><em className="input-field__tag">19%<i className="ico-close"></i></em><em className="input-field__tag">7%<i className="ico-close"></i></em></InputField></Row>
 					</HoverBox>
 				</Row>
 				<Row>
