@@ -45,18 +45,18 @@ export default class Options extends React.Component {
 					<HoverBox className="grid-col-4">
 						<h2>Zahlungsbedingungen</h2>
 						<Row><InputField placeholder="Zahlungszeitraum" value={billMeta.termOfPayment}/></Row>
-						<Row><InputField type="textarea" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
-						<Row><InputField type="textarea" placeholder="Grußtext" value={billMeta.greetings} /></Row>
+						<Row><InputField placeholder="Zahlungstext" value={billMeta.introText} /></Row>
+						<Row><InputField placeholder="Grußtext" value={billMeta.greetings} /></Row>
 						<Row>
 							<h4>Zahlungserinnerung</h4>
-							<Row><InputField type="textarea" placeholder="Einleitung" value={dunning.firstIntro} /></Row>
-							<Row><InputField type="textarea" placeholder="Grußtext" value={dunning.firstGreetings} /></Row>
+							<Row><InputField placeholder="Einleitung" value={dunning.firstIntro} /></Row>
+							<Row><InputField placeholder="Grußtext" value={dunning.firstGreetings} /></Row>
 							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.firstTermOfPayment} /></Row>
 						</Row>
 						<Row>
 							<h4>Mahnung</h4>
-							<Row><InputField type="textarea" placeholder="Einleitung" value={dunning.secondIntro} /></Row>
-							<Row><InputField type="textarea" placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
+							<Row><InputField placeholder="Einleitung" value={dunning.secondIntro} /></Row>
+							<Row><InputField placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
 							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.secondTermOfPayment} /></Row>
 						</Row>
 					</HoverBox>

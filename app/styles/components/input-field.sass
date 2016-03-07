@@ -1,31 +1,40 @@
 .input-field
 	position: relative
 	$s: map-get($font-sizes, 's')
-	padding: calc(#{$s} + 3px) 0 .1em
+	padding: calc(#{$s} + 3px) 0 0
+
+	&__input
+		border-bottom: 1px solid $grey
+		transition: all .3s
+		font-size: inherit
+		width: 100%
+		max-width: 100%
+		line-height: 1.4em
+		display: block
+
+		&:hover,
+		&:focus,
+		&:active
+			color: $black
+			border-color: $black
+
+		> input
+			border: none
 
 	&__placeholder
 		left: 0
 		top: $s
 		position: absolute
-		color: $grey
+		color: inherit
 		transition: all .3s
-
-	&__input
-		+input-style()
-		font-size: inherit
-		width: 100%
-		max-width: 100%
-		line-height: inherit
-		height: inherit
-
-		> input
-			border: none
 
 	&__tag
 		background: $lighter-grey
 		border: 1px solid $light-grey-line
 		padding: .1em .1em .1em .2em
 		font-size: .9em
+		display: inline-block
+		margin-bottom: .2rem
 
 		> i
 			padding: 0 .2em
@@ -40,27 +49,19 @@
 			&:hover
 				color: $red
 				
-
-		& ~ input,
-		& ~ &
+		& + input,
+		& + &
 			margin-left: $small-spacing
 
-	&:not(.empty) &__input
-		color: $black
-
 	&.empty &__placeholder
+		color: $grey
 		font-size: inherit
-		line-height: inherit
+		line-height: 1.4em
 
 	&:not(.empty) &__placeholder,
-	&__input:focus + &__placeholder
+	&__input:focus ~ &__placeholder,
+	&__input:active ~ &__placeholder
 		font-size: $s
 		top: 0
 		line-height: $s
-
-	&:not(.empty) &__placeholder
-		color: $dark-grey
-
-	&__input:hover + &__placeholder,
-	&__input:focus + &__placeholder
 		color: $black

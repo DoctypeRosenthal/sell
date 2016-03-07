@@ -1,24 +1,21 @@
 import React from 'react'
 
 const InputField = (props) => {
-	let className = 'input-field ' + props.className
-	if (props.value === '' || props.value === null) 
-		className += ' empty'
-
+	let className = props.className || ''
+	className += (props.value === '' || props.value === null) ? ' empty' : ''
 	return (
-		<div className={className}>
+		<div className={'input-field ' + className}>
 			{(() => {
 				switch (props.type) {
-					case 'textarea':
-						return <textarea className="input-field__input" value={props.value}></textarea>
 					case 'tag':
-						return <div className="input-field__input">{props.children}<input type="text" /></div>
+						return <div className="input-field__input">{props.children}<div contentEditable="true"></div></div>
 					default:
-						return <input className="input-field__input" value={props.value} type="text" />
+						return <div className="input-field__input" contentEditable="true">{ (props.value === '' || props.value === null) ? <br /> : props.value }</div>
 				}
 			})()}
-			<span className="input-field__placeholder">{props.placeholder}</span>
+			<div className="input-field__placeholder">{props.placeholder}</div>
 		</div>
+		
 	)
 }
 
