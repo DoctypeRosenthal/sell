@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { AddBtn } from '../components/Buttons'
 import HoverBox from '../components/HoverBox'
 import { StatsGraph, StatsTable, StatsWidgetProduct } from '../components/StatsWidgets'
+import Row from '../components/Row'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -15,27 +16,32 @@ export default class Home extends React.Component {
 
 		return (
 			<main>
-				<div className="row">
-					<h2>Hallo Luis und wacko' ho'!</h2>
-					<div className="clearboth">
-						Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
-					</div>
+				<Row>
+					<h3>Hallo Luis</h3>
+					Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
+				</Row>
+
+				<Row>
 					<AddBtn type="medium" title="Bestellung hinzufügen" />
-				</div>
+				</Row>
 
-				<div className="row">
+				<Row>
 					<h3>Umsätze</h3>
-					<StatsGraph className="grid-col-10" />
-					<StatsTable className="grid-col-2" />
-				</div>
+					<StatsTable className="grid-col-4" />
+				</Row>
+				<Row>
+					<h4>Monatsübersicht</h4>
+					<Row><StatsGraph className="grid-col-12" /></Row>
+				</Row>
 
-				<div className="row">
+				<Row>
+					<h4>Produktionen</h4>
 					{ productGroups.map(group => (
-						<HoverBox className="grid-col-3">
+						<HoverBox className="grid-col-4">
 							<StatsWidgetProduct data={group} />
 						</HoverBox>
 					)) }
-				</div>
+				</Row>
 			</main>
 		)
 	}
