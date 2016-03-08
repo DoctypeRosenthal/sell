@@ -4,7 +4,7 @@ import mockupData from '../mockup.json'
 import React from 'react'
 import { Link } from 'react-router'
 
-import { AddBtnSmall } from '../components/AddBtn'
+import { AddBtn } from '../components/Buttons'
 
 /*-----------------------------------------------------------------------------------------
  * CUSTOMERS
@@ -121,7 +121,7 @@ const ProductRow = (props) => {
 			<div className="price">{product.price} €</div>
 			<div className="quantity">{product.quantity}</div>
 			<div className="labels">
-				<AddBtnSmall />
+				<AddBtn type="small" />
 				{ product.labels.map(label => <button>{label.name}</button>) }
 			</div>				        	
     	</li>		

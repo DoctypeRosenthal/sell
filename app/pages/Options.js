@@ -2,7 +2,7 @@ import React from 'react'
 
 import HoverBox from '../components/HoverBox'
 import InputField from '../components/InputField'
-
+import Row from '../components/Row'
 import mockupData from '../mockup'
 
 export default class Options extends React.Component {
@@ -12,8 +12,6 @@ export default class Options extends React.Component {
 		let dunning = mockupData.dunning
 		let user = mockupData.user
 		
-		const Row = (props) => <div className="row">{props.children}</div>
-
 		return (
 			<main>
 				<Row>

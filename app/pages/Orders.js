@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AddBtnMain } from '../components/AddBtn'
+import { AddBtn } from '../components/Buttons'
 import SearchField from '../components/SearchField'
 import { FilterBarOrders } from '../components/FilterBar'
 import Pagination from '../components/Pagination'
@@ -12,7 +12,7 @@ export default class Customers extends React.Component {
 			<main>
 				
 				<div className="row h1">
-					<AddBtnMain />
+					<AddBtn type="main"/>
 					<SearchField />
 				</div>
 

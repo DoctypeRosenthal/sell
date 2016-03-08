@@ -2,25 +2,29 @@
 	"customers": [
 		{
 			"nr": 411,
-			"gender": "Herr",
 			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
+			"gender": "Herr",
 			"forename": "Prof. Dr. Markus",
 			"surname": "Vogt",
 			"street": "Geschwister-Scholl-Platz 1",
 			"zip": 80539,
 			"city": "München",
-			"email": "-"
+			"email": "",
+			"website": "",
+			"note": ""
 		},
 		{
 			"nr": 423,
-			"gender": "Herr",
 			"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
+			"gender": "Herr",
 			"forename": "Prof. Dr. Markus",
 			"surname": "Vogt",
 			"street": "Geschwister-Scholl-Platz 1",
 			"zip": 80539,
 			"city": "München",
-			"email": "-"
+			"email": "",
+			"website": "",
+			"note": ""
 		}
 	],
 	"orders": [

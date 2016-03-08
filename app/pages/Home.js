@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import { AddBtnMedium } from '../components/AddBtn'
+import { AddBtn } from '../components/Buttons'
 import HoverBox from '../components/HoverBox'
 import { StatsGraph, StatsTable, StatsWidgetProduct } from '../components/StatsWidgets'
 
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
 					<div className="clearboth">
 						Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
 					</div>
-					<AddBtnMedium title="Bestellung hinzufügen" />
+					<AddBtn type="medium" title="Bestellung hinzufügen" />
 				</div>
 
 				<div className="row">
