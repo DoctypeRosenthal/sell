@@ -1,0 +1,54 @@
+/**
+ * The button for adding a data set
+ */
+     
+.add-btn,
+.save-btn
+	background: $green
+	border-color: $green
+	transition: all .3s 
+	position: relative
+	text-shadow: none
+	font-size: inherit
+	line-height: inherit
+
+	&:before
+		position: relative
+		line-height: inherit
+		font-size: inherit
+
+	&--main,
+	&--big
+		padding: 0
+		width: 1.8em
+
+		&:before
+			top: .01em
+
+	&--medium
+		padding: 0 .4em
+		font-weight: 600
+		&:before
+			width: 1em
+			margin-right: .4em
+
+.add-btn
+	&--main
+		margin-right: .8em
+		
+	&--main,
+	&--medium
+		float: left
+
+	&--small
+		padding: 0
+		width: 1.8em
+
+		&:before
+			color: black
+
+
+.save-btn
+	&--big,
+	&--medium
+		float: right
