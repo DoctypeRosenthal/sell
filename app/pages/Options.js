@@ -5,17 +5,15 @@ import InputField from '../components/InputField'
 
 import mockupData from '../mockup'
 
-const Row = (props) => {
-	return (
-		<div className="row">{props.children}</div>
-	)
-}
 export default class Options extends React.Component {
 	render() {
 		let company = mockupData.company
 		let billMeta = mockupData.billMeta
 		let dunning = mockupData.dunning
 		let user = mockupData.user
+		
+		const Row = (props) => <div className="row">{props.children}</div>
+
 		return (
 			<main>
 				<Row>
