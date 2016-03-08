@@ -6,6 +6,7 @@ import SearchField from '../components/SearchField'
 import { FilterBarCustomers } from '../components/FilterBar'
 import Pagination from '../components/Pagination'
 import { CustomersList } from '../containers/BrowseList'
+import Dialog from '../containers/Dialog'
 
 export default class Customers extends React.Component {
 	render() {
@@ -23,6 +24,7 @@ export default class Customers extends React.Component {
 
 				<CustomersList />
 				
+				<Dialog />
 			</main>
 		)
 	}

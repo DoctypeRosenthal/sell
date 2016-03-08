@@ -1,0 +1,35 @@
+.dialog
+	&__layer
+		position: fixed
+		background: transparentize($white, .2)
+		top: 0
+		left: $side-bar-width
+		width: calc(100% - #{$side-bar-width})
+		height: 100%
+		z-index: map-get($z-index, 'dialog')
+		display: table
+
+	&__center
+		display: table-cell
+		vertical-align: middle
+		text-align: center
+
+	&__window
+		display: inline-block
+		max-width: 1400px
+		width: 80%
+		min-width: 500px
+		background: $white
+		box-shadow: $big-shadow
+		padding: $standard-spacing
+		border: 1px solid $lightest-grey-line
+		margin-top: -2%
+		
+	&__header
+		font-size: map-get($font-sizes, 'h2')
+		display: inline-block
+		width: 100%
+		text-align: left
+
+	&__x
+		float: right

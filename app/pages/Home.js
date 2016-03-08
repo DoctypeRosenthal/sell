@@ -1,6 +1,6 @@
 import React from 'react'
-
 import { Link } from 'react-router'
+
 import { AddBtnMedium } from '../components/AddBtn'
 import HoverBox from '../components/HoverBox'
 import { StatsGraph, StatsTable, StatsWidgetProduct } from '../components/StatsWidgets'
