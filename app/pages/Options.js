@@ -19,7 +19,7 @@ export default class Options extends React.Component {
 		return (
 			<main>
 				<Row>
-					<HoverBox className="grid-col-6">
+					<HoverBox className="grid-col-4">
 						<h2>Firma</h2>
 						<Row><InputField className="h2" placeholder="Firmenname" value={company.name}/></Row>
 						<Row><InputField placeholder="Inhaber" value={company.owner}/></Row>
@@ -42,7 +42,7 @@ export default class Options extends React.Component {
 							<Row><InputField placeholder="Steuernummer" value={company.taxNr}/></Row>
 						</Row>
 					</HoverBox>
-					<HoverBox className="grid-col-6">
+					<HoverBox className="grid-col-4">
 						<h2>Zahlungsbedingungen</h2>
 						<Row><InputField placeholder="Zahlungszeitraum" value={billMeta.termOfPayment}/></Row>
 						<Row><InputField className="multi-line" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
@@ -60,16 +60,15 @@ export default class Options extends React.Component {
 							<Row><InputField className="multi-line" placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
 						</Row>
 					</HoverBox>
+					<HoverBox className="grid-col-4">
+						<h2>Allgemeines</h2>
+						<Row><InputField type="tag-container" className="multi-line" placeholder="Versandkosten"><em className="input-field__tag">1,45 €<i className="ico-close"></i></em></InputField></Row>
+						<Row><InputField placeholder="Währung" value="€" /></Row>
+						<Row><InputField type="tag-container" className="multi-line" placeholder="Steuersätze"><em className="input-field__tag">19%<i className="ico-close"></i></em><em className="input-field__tag">7%<i className="ico-close"></i></em></InputField></Row>
+					</HoverBox>
 				</Row>
 				<Row>
-					<HoverBox className="grid-col-6">
-						<h2>Allgemeines</h2>
-						<Row><InputField type="tag-container" placeholder="Versandkosten"><em className="input-field__tag">1,45 €<i className="ico-close"></i></em></InputField></Row>
-						<Row><InputField placeholder="Währung" value="€" /></Row>
-						<Row><InputField type="tag-container" placeholder="Steuersätze"><em className="input-field__tag">19%<i className="ico-close"></i></em><em className="input-field__tag">7%<i className="ico-close"></i></em></InputField></Row>
-					</HoverBox>
-				
-					<HoverBox className="grid-col-6">
+					<HoverBox className="grid-col-4">
 						<h2>persönliche Einstellungen</h2>
 						<Row><InputField placeholder="Name" value={user.name} /></Row>
 						<Row><InputField placeholder="Login" value={user.login} /></Row>

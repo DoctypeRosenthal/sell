@@ -10,9 +10,6 @@
 		max-width: 100%
 		line-height: 1.4em
 		display: block
-		white-space: nowrap
-		overflow-x: hidden
-		overflow-y: auto
 
 		> input
 			border: none
@@ -62,5 +59,20 @@
 		line-height: $s
 		color: $black
 
-	&.multi-line &__input
-		white-space: initial
+	&:not(.multi-line) // aka single-line input (default)
+		overflow: hidden
+
+		.input-field__input
+			white-space: nowrap
+
+			br:not(:last-of-type)
+					display: none
+
+	&.multi-line
+		overflow: visible
+
+		.input-field__input
+			white-space: initial
+
+			br:not(:last-of-type)
+				display: initial
