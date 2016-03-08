@@ -1,9 +1,12 @@
 =label-button()
 	font-size: .8em
-	margin: 0 $line-padding $line-padding 0
+	margin-bottom: $line-padding
 	color: $darkest-grey
 	line-height: 1em
-	
+
+	& + button
+		margin-left: $line-padding
+
 	&:hover,
 	&:focus
 		color: $black
