@@ -1,19 +1,16 @@
 import React from 'react'
 
-/* route-independend components */
-import Navigation from './components/Navigation'
+import Header from './components/Header'
 
 export default class App extends React.Component {
 	render() {
-		let pageClass = this.props.location.pathname.replace('/', '') || 'home'
-		return(
-			<div className={pageClass}>
+		let pagename = this.props.location.pathname.replace('/', '') || 'home'
 
-				<aside>
-					<Navigation page={pageClass}/>
-				</aside>
-
+		return (
+			<div className={pagename}>
 				
+				<Header page={pagename} />
+
 				{this.props.children}
 
 				<footer>

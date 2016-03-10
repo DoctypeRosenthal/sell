@@ -5,6 +5,7 @@ import { AddBtn } from '../components/Buttons'
 import SearchField from '../components/SearchField'
 import { FilterBarCustomers } from '../components/FilterBar'
 import Pagination from '../components/Pagination'
+import Row from '../components/Row'
 
 import { CustomersList } from '../containers/BrowseList'
 import { CustomerDialog } from '../containers/Dialog'
@@ -15,15 +16,10 @@ export default class Customers extends React.Component {
 
 		return (
 			<main>
-				<div className="row h1">
-					<AddBtn type="main" />
-					<SearchField />
-				</div>
-				
-				<div className="row">
+				<Row>
 					<FilterBarCustomers />
 					<Pagination />
-				</div>
+				</Row>
 
 				<CustomersList />
 				

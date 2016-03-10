@@ -67,38 +67,33 @@ input[type="text"]
 	padding: .1em 0
 
 /*---------------------------------------------------
- *  LAYOUT
+ *  MAIN LAYOUT
  *-------------------------------------------------*/
 
 #app
 	padding: 0 10% $standard-spacing
 	width: 100%
 
-header // attention: not in use at the moment
-	position: fixed
-	z-index: map-get($z-index, 'header')
-	background: $lighter-grey
-	border-bottom: 1px solid $lightest-grey-line
+header
+	line-height: map-get($font-sizes, 'h1')
+	font-size: map-get($font-sizes, 'h1')
+	position: relative
+	padding: $small-spacing 0 $small-spacing $nav-width
+	display: inline-block
 	width: 100%
-	left: 0
-	top: 0
-	line-height: $user-bar-height
-	padding: 0 $standard-spacing 0 ($side-bar-width + $standard-spacing)
+
+	&:before
+		position: relative
+		content: "\00a0\00a0"
+		display: inline-block
+		height: 1.8em
+		float: right
 
 main
 	position: relative
-	margin-top: $user-bar-height
-	margin-left: $side-bar-width // note: has to be margin NOT padding (watch browse-list__head!)
-
-aside
-	position: fixed
-	top: $user-bar-height
-	z-index: map-get($z-index, 'nav')
-	width: $side-bar-width
 
 footer
 	position: relative
-	padding-left: $side-bar-width
 	line-height: $footer-height
 	color: $grey
 	text-align: center
