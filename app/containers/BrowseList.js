@@ -192,7 +192,7 @@ const ProtocolRow = (props) => {
 	return (
 	    <li className={className}>
 			<div>{row.description}</div>
-			<Link to={row.link}>→ anschauen</Link>
+			<Link to={row.link} className="ico-go-to">&nbsp;anschauen</Link>
 			<em className="floatright">{row.date}</em>
 	    </li>
 	)
@@ -206,7 +206,7 @@ export class ProtocolList extends React.Component {
 			<div>
 				<ol className="browse-list browse-list__head">
 					<li className="browse-list__actions">
-						<button className="delete-btn">Protokoll löschen</button>
+						<button className="delete-btn delete-btn--medium ico-trash">Protokoll löschen</button>
 					</li>
 				</ol>
 				

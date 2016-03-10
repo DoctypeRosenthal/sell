@@ -3,19 +3,22 @@
  */
      
 .add-btn,
-.save-btn
-	background: $green
-	border-color: $green
+.save-btn,
+.delete-btn
 	+transition(all .3s)
 	position: relative
 	text-shadow: none
 	font-size: inherit
 	line-height: inherit
+	box-shadow: 0 0 1em -.4em transparent inset
 
 	&:before
 		position: relative
 		line-height: inherit
 		font-size: inherit
+
+	&:hover
+		box-shadow: 0 0 1em -.6em $black inset
 
 	&--main,
 	&--big
@@ -32,6 +35,15 @@
 			width: 1em
 			margin-right: .4em
 
+.add-btn,
+.save-btn
+	background: $green
+	border-color: $green
+
+	&:hover
+		background: lighten($green, 5%)
+		border-color: lighten($green, 2%)
+
 .add-btn
 	&--main
 		margin: 0 .8em
@@ -47,8 +59,19 @@
 		&:before
 			color: black
 
-
 .save-btn
 	&--big,
 	&--medium
 		float: right
+
+.delete-btn
+	background: $red
+	color: $white
+	border-color: $red
+
+	&:before
+		margin-right: .5em
+
+	&:hover
+		background: lighten($red, 8%)
+		border-color: lighten($red, 2%)
