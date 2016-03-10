@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router'
 
 const Navigation = (props) => {
-	let ico = 'ico-angle-right'
+	let ico = ''
 	let isPage = (string, page = props.page) => page === string ? ' js-selected' : ''
 	
 	return (

@@ -1,29 +1,30 @@
-.nav > a
-	display: block
-	text-decoration: none
-	color: black
-	transition: all .4s
-	line-height: 2.4em
-	position: relative
+.nav
+	background: $white
+	transition: all .3s
 
-	&:before
-		font-size: 1.3em
-		line-height: inherit
-		display: block
-		position: absolute
-		top: 0
-		left: -2em
-		opacity: 0
-		transition: all .6s ease .1s
-		font-weight: 600
+	&:hover,
+	&:focus
+		box-shadow: $small-shadow
 
-	&.js-selected
-		font-weight: bold
-		padding-left: 1em
-
-		&:before
+		> a
+			padding: .4em $small-spacing 0
+			height: 2.4em
 			opacity: 1
-			left: 0
-		
-	&.logout
-		margin-top: $standard-spacing
+	> a
+		text-decoration: none
+		color: $black
+		transition: height .3s, opacity .3s, padding .3s
+		position: relative
+		display: block
+		height: 0
+		opacity: 0
+
+		&:hover
+			border-left: $small-spacing solid $green
+			margin-left: -$small-spacing
+
+		&.js-selected
+			opacity: 1
+			height: 2.4em
+			font-size: map-get($font-sizes, 'h1')
+			font-weight: bold
