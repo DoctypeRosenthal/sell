@@ -13,6 +13,7 @@ export default class App extends React.Component {
 					<Navigation page={pageClass}/>
 				</aside>
 
+				
 				{this.props.children}
 
 				<footer>

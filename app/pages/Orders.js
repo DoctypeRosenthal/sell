@@ -12,6 +12,8 @@ export default class Customers extends React.Component {
 			<main>
 				
 				<div className="row h1">
+					<b>Bestellungen</b>
+					
 					<AddBtn type="main"/>
 					<SearchField />
 				</div>
