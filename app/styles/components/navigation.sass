@@ -4,23 +4,32 @@
 	width: $nav-width
 	left: 0
 	background: $white
-	transition: all .3s
+	+transition(all .3s)
 	border: 1px solid transparent
 	border-radius: .15em
 
 	> a
 		text-decoration: none
 		color: $black
-		transition: height .3s, opacity .3s, padding .3s
+		+transition(height .3s, opacity .3s, padding-top .3s, font-size .3s)
 		position: relative
 		display: block
 		height: 0
 		opacity: 0
 		font-size: 1rem
 
+		> i:before
+			font-weight: 600
+			margin-left: $small-spacing
+			opacity: 0
+			line-height: inherit
+			+transition(opacity .2s)
+
 		&:hover
 			border-left: 5px solid $green
-			margin-left: -5px
+			padding-left: 6px
+			margin-left: -11px
+			font-weight: 600
 
 		&.js-selected
 			opacity: 1
@@ -29,13 +38,19 @@
 			font-size: 1.8rem
 			font-weight: bold
 
+			> i:before
+				opacity: 1
+
 	&:hover,
 	&:focus
 		box-shadow: $small-shadow
 		border-color: $lighter-grey-line
-		padding-bottom: $small-spacing
+		padding: $small-spacing
 
 		> a
-			padding: .4em $small-spacing 0
 			height: 2.4em
 			opacity: 1
+			padding-top: .4em
+			
+			> i:before
+				opacity: 0

@@ -12,7 +12,7 @@
 		position: relative
 		margin-right: 1rem
 		color: $grey
-		transition: all .3s
+		+transition(all .3s)
 
 		&::before
 			content: ""
@@ -23,7 +23,7 @@
 			width: 0%
 			height: 1px
 			background: black
-			transition: all .3s
+			+transition(all .3s)
 
 		&:hover,
 		&.js-selected

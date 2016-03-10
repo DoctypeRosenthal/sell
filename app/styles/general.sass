@@ -60,7 +60,7 @@ button
 	background-color: $lightest-grey
 	text-shadow: 0px 1px 0px $white
 	box-shadow: 0 1px 3px -3px $black
-	transition: all .3s
+	+transition(all .3s)
 
 input[type="text"]
 	+input()
@@ -71,14 +71,14 @@ input[type="text"]
  *-------------------------------------------------*/
 
 #app
-	padding: 0 10% $standard-spacing
+	padding: $standard-spacing 10%
 	width: 100%
 
 header
 	line-height: map-get($font-sizes, 'h1')
 	font-size: map-get($font-sizes, 'h1')
 	position: relative
-	padding: $small-spacing 0 $small-spacing $nav-width
+	padding: 0 0 $small-spacing $nav-width
 	display: inline-block
 	width: 100%
 
