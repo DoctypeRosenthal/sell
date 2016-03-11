@@ -4,22 +4,25 @@ import Row from '../components/Row'
 import InputField from '../components/InputField'
 import { SaveBtn } from '../components/Buttons'
 
-const Dialog = (props) => {
-	return (
-		<div className="dialog__layer">
-			<div className="dialog__center">
-				<div className="dialog__window">
-					<Row>
-						<h2 className="dialog__header">{props.title}<div className="dialog__x ico-close"></div></h2>
-					</Row>
-					{props.children}
-					<Row className="h1">
-						<SaveBtn type="big" />
-					</Row>
+export class Dialog extends React.Component {
+	render() {
+		console.log('hey')
+		return (
+			<div className="dialog__layer">
+				<div className="dialog__center">
+					<div className="dialog__window">
+						<Row>
+							<h2 className="dialog__header">{props.title}<div className="dialog__x ico-close"></div></h2>
+						</Row>
+						{props.children}
+						<Row className="h1">
+							<SaveBtn type="big" />
+						</Row>
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 
