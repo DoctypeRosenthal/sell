@@ -1,13 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router'
 
-export const AddBtn = props => {
+export const AddBtn = (props) => {
 	return (
-		<Link to={props.page + "/new"} >
-			<button className={ 'ico-add add-btn add-btn--' + (props.type || 'medium') }>
-				{ props.title }
-			</button>
-		</Link>
+		<button className={ 'ico-add add-btn add-btn--' + (props.type || 'medium') }>{ props.title }</button>
 	)
 }
 

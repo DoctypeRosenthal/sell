@@ -11,7 +11,7 @@ const getTools = page => {
 		case 'orders':
 		case 'products':
 			return 	<div>
-						<AddBtn type="main" page={page} />
+						<AddBtn type="main"/>
 						<SearchField />
 					</div>
 		case 'home':
