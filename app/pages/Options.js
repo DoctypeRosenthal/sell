@@ -24,7 +24,7 @@ export default class Options extends React.Component {
 							<InputField className="grid-col-6" placeholder="PLZ" value={company.zip}/>
 							<InputField className="grid-col-6" placeholder="Ort" value={company.city}/>
 						</Row>
-						<Row><InputField placeholder="Telefon" value={company.telephone}/></Row>
+						<Row><InputField placeholder="Telefon" value={company.phone}/></Row>
 						<Row><InputField placeholder="Fax" value={company.fax}/></Row>
 						<Row><InputField placeholder="Handy" value={company.mobile}/></Row>
 						<Row><InputField placeholder="eMail" value={company.email}/></Row>

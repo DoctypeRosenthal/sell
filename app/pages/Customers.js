@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-import { AddBtn } from '../components/Buttons'
-import SearchField from '../components/SearchField'
 import { FilterBarCustomers } from '../components/FilterBar'
 import Pagination from '../components/Pagination'
 import Row from '../components/Row'

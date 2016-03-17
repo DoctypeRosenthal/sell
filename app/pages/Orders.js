@@ -2,8 +2,10 @@ import React from 'react'
 
 import { FilterBarOrders } from '../components/FilterBar'
 import Pagination from '../components/Pagination'
-import { OrdersList } from '../containers/BrowseList'
 import Row from '../components/Row'
+
+import { OrdersList } from '../containers/BrowseList'
+import { OrderDialog } from '../containers/Dialog'
 
 export default class Customers extends React.Component {
 	render() {
@@ -16,6 +18,8 @@ export default class Customers extends React.Component {
 
 				<OrdersList />
 				
+				<OrderDialog />
+
 			</main>
 		)
 	}
