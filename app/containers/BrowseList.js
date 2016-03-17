@@ -1,6 +1,3 @@
-/* mockup data */
-import mockupData from '../mockup.json'
-
 import React from 'react'
 import { Link } from 'react-router'
 
@@ -10,18 +7,18 @@ import { AddBtn } from '../components/Buttons'
  * CUSTOMERS
  *---------------------------------------------------------------------------------------*/
 
-const CustomerRow = (props) => {
-	let row = props.data
+const CustomerRow = props => {
+	let customer = props.customer
 	return (
 		<li>
-			<div className="nr">{row.nr}</div>
-			<div className="prefix">{row.prefix}</div>
-			<div className="forename">{row.forename}</div>
-			<div className="surname">{row.surname}</div>
-			<div className="street">{row.street}</div>
-			<div className="zip">{row.zip}</div>
-			<div className="city">{row.city}</div>
-			<div className="email">{row.email}</div>
+			<div className="nr">{customer.nr}</div>
+			<div className="prefix">{customer.prefix}</div>
+			<div className="forename">{customer.forename}</div>
+			<div className="surname">{customer.surname}</div>
+			<div className="street">{customer.street}</div>
+			<div className="zip">{customer.zip}</div>
+			<div className="city">{customer.city}</div>
+			<div className="email">{customer.email}</div>
 		</li>
 	)
 }
@@ -29,7 +26,7 @@ const CustomerRow = (props) => {
 export class CustomersList extends React.Component {
 	render() {
 		
-		let mockup = mockupData.customers
+		let customers = this.props.data
 			
 		return (
 			<div>
@@ -49,7 +46,7 @@ export class CustomersList extends React.Component {
 					</li>
 				</ol>
 				<ol className="browse-list browse-list__body">
-					{ mockup.map(row => <CustomerRow data={row} />) }
+					{ customers.map(customer => <CustomerRow customer={customer} />) }
 				</ol>
 			</div>
 		)
@@ -60,19 +57,19 @@ export class CustomersList extends React.Component {
  * ORDERS
  *---------------------------------------------------------------------------------------*/
 
-const OrderRow = (props) => {
-	let row = props.data
+const OrderRow = props => {
+	let order = props.order
 
 	return (
 	    <li>
-			<div className="order-nr">{row.nr}</div>
-			<div className="bill-nr">{row.billNr}</div>
-			<div className="created">{row.created}</div>
-			<div className="customer-nr">{row.customerNr}</div>
-			<div className="name">{row.name}</div>
-			<div className="email">{row.email}</div>
-			<div className="total">{row.total}</div>
-			<div className="dispatched">{row.dispatched}</div>
+			<div className="order-nr">{order.nr}</div>
+			<div className="bill-nr">{order.bill.nr}</div>
+			<div className="created">{order.created}</div>
+			<div className="customer-nr">{order.customer.nr}</div>
+			<div className="name">{order.customer.name}</div>
+			<div className="email">{order.customer.email}</div>
+			<div className="total">{order.total}</div>
+			<div className="dispatched">{order.dispatched}</div>
 	    </li>
 	)
 }
@@ -80,7 +77,7 @@ const OrderRow = (props) => {
 export class OrdersList extends React.Component {
 	render() {
 
-		let mockup = mockupData.orders
+		let orders = this.props.data
 			
 		return (
 			<div>
@@ -100,7 +97,7 @@ export class OrdersList extends React.Component {
 					</li>
 				</ol>
 				<ol className="browse-list browse-list__body">
-					{ mockup.map(row => <OrderRow data={row} />) }
+					{ orders.map(order => <OrderRow order={order} />) }
 				</ol>
 			</div>
 		)
@@ -112,8 +109,7 @@ export class OrdersList extends React.Component {
  *---------------------------------------------------------------------------------------*/
 
 const ProductRow = (props) => {
-	let product = props.data
-
+	let product = props.group
 	return (
 		<li>
 			<div className="nr">{product.nr}</div>
@@ -129,7 +125,7 @@ const ProductRow = (props) => {
 }
 
 const ProductGroupRow = (props) => {
-	let group = props.data
+	let group = props.group
 	return (
 		<li>
 	    	<div className="group">
@@ -160,7 +156,7 @@ const ProductGroupRow = (props) => {
 export class ProductsList extends React.Component {
 	render() {
 
-		let mockup = mockupData.productGroups
+		let groups = this.props.productGroups
 
 		return (
 			<div>
@@ -174,7 +170,7 @@ export class ProductsList extends React.Component {
 					</li>
 				</ol>
 				<ol className="browse-list browse-list__body">
-					{ mockup.map(row => <ProductGroupRow data={row} />) }
+					{ groups.map(group => <ProductGroupRow group={group} />) }
 				</ol>
 			</div>
 		)
@@ -200,8 +196,7 @@ const ProtocolRow = (props) => {
 
 export class ProtocolList extends React.Component {
 	render() {
-		let mockup = mockupData.protocol
-
+		let protocol = mockupData.protocol
 		return (
 			<div>
 				<ol className="browse-list browse-list__head">

@@ -9,9 +9,9 @@
 			"street": "Geschwister-Scholl-Platz 1",
 			"zip": 80539,
 			"city": "München",
-			"email": "",
-			"website": "",
-			"note": ""
+			"email": null,
+			"website": null,
+			"note": null
 		},
 		{
 			"nr": 423,
@@ -22,31 +22,63 @@
 			"street": "Geschwister-Scholl-Platz 1",
 			"zip": 80539,
 			"city": "München",
-			"email": "",
-			"website": "",
-			"note": ""
+			"email": null,
+			"website": null,
+			"note": null
 		}
 	],
 	"orders": [
 		{
 		    "nr": 363,
-		    "billNr": 150100,
 		    "created": "14.12.15",
-		    "customerNr": 431,
-		    "name": "Jonas Limbrock",
-		    "email": "jonas@dingsbums.de",
-		    "total": "34,65€",
-		    "dispatched": "14.12.15"
-		}, 
-		{
-		    "nr": 411,
-		    "billNr": 150078,
-		    "created": "23.11.15",
-		    "customerNr": 411,
-		    "name": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik, Prof. Dr. Markus Vogt",
-		    "email": "m.vogt@dingsbums.de",
-		    "total": "18,15€",
-		    "dispatched": "23.11.15"
+		    "total": 34.65,
+		    "dispatched": "14.12.15",
+		    "products": [
+		    	{ 
+		    		"nr": 2,
+					"type": "CD",
+					"netto": 14.29,
+					"tax": 19.00,
+					"brutto": 17.00,
+					"label": {
+						"name": "Händlerabgabe",
+						"price": 15.00
+					},
+					"group": {
+						"nr": 301,
+						"name": "Noch:Schon"
+					}
+		    	}
+		    ],
+		    "customer": {
+		    	"nr": 431,
+		    	"prefix": null,
+		    	"gender": "Herr",
+		    	"forename": "Jonas",
+		    	"surname": "Limbrock",
+		    	"street": "Geschwister-Scholl-Platz 1",
+				"zip": 80539,
+				"city": "München",
+		    	"email": "jonas@dingsbums.de"
+		    },
+		    "bill": {
+		    	"nr": 14009,
+		    	"created": "27.5.2014",
+		    	"payed": "30.5.2014",
+		    	"customer": {
+					"nr": 411,
+					"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
+					"gender": "Herr",
+					"forename": "Prof. Dr. Markus",
+					"surname": "Vogt",
+					"street": "Geschwister-Scholl-Platz 1",
+					"zip": 80539,
+					"city": "München",
+					"email": null,
+					"website": null,
+					"note": null	    		
+		    	}
+		    }
 		}
 	],
 	"productGroups": [

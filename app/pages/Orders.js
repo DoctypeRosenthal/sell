@@ -7,7 +7,10 @@ import Row from '../components/Row'
 import { OrdersList } from '../containers/BrowseList'
 import { OrderDialog } from '../containers/Dialog'
 
-export default class Customers extends React.Component {
+/* mockup data */
+import mockupData from '../mockup.json'
+
+export default class Orders extends React.Component {
 	render() {
 		return (
 			<main>
@@ -16,9 +19,13 @@ export default class Customers extends React.Component {
 					<Pagination />
 				</Row>
 
-				<OrdersList />
+				<OrdersList data={mockupData.orders} />
 				
-				<OrderDialog />
+				<OrderDialog data={{
+					company: mockupData.company,
+					billMeta: mockupData.billMeta,
+					order: mockupData.orders[0]
+				}} />
 
 			</main>
 		)

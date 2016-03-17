@@ -3,19 +3,21 @@ import React from 'react'
 import Row from '../components/Row'
 import InputField from '../components/InputField'
 import { SaveBtn } from '../components/Buttons'
+import HoverBox from '../components/HoverBox'
 
-const Dialog = (props) => {
+const Dialog = props => {
 	return (
 		<div className="dialog__layer">
-			<div className="dialog__center">
-				<div className="dialog__window">
-					<Row>
-						<h2 className="dialog__header">{props.title}<div className="dialog__x ico-close"></div></h2>
-					</Row>
-					{props.children}
-					<Row className="h1">
-						<SaveBtn type="big" />
-					</Row>
+			<div className="dialog__scroll">
+				<div className="dialog__center">
+					<div className="dialog__window">
+						<Row>
+							<div className="dialog__header">{props.title}<SaveBtn type="big" /><div className="dialog__x ico-close"></div></div>
+						</Row>
+						<Row className="dialog__children">
+							{props.children}
+						</Row>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -24,138 +26,177 @@ const Dialog = (props) => {
 
 
 export class CustomerDialog extends React.Component {
-
 	render() {
-		let customer = this.props.data || {}
+		const customer = this.props.data
 		return (
 			<Dialog title="Neuer Kunde">
-				<Row><InputField placeholder="Namenszusatz" value={customer.prefix}/></Row>
-				<Row>
-					<InputField className="grid-col-2" placeholder="Anrede" value={customer.gender}/>
-					<InputField className="grid-col-5" placeholder="Vorname" value={customer.forename}/>
-					<InputField className="grid-col-5" placeholder="Nachname" value={customer.surname}/>
-				</Row>
-				<Row>
-					<InputField className="grid-col-5" placeholder="Straße" value={customer.street}/>
-					<InputField className="grid-col-2" placeholder="PLZ" value={customer.zip}/>
-					<InputField className="grid-col-5" placeholder="Stadt" value={customer.city}/>
-				</Row>
-				<Row>
-					<InputField className="grid-col-7" placeholder="eMail" value={customer.email}/>
-					<InputField className="grid-col-5" placeholder="Website" value={customer.website}/>
-				</Row>
-				<Row><InputField className="multi-line" placeholder="Anmerkungen" value={customer.note}/></Row>
+				<HoverBox>
+					<Row><InputField placeholder="Namenszusatz" value={customer.prefix}/></Row>
+					<Row>
+						<InputField className="grid-col-2" placeholder="Anrede" value={customer.gender}/>
+						<InputField className="grid-col-5" placeholder="Vorname" value={customer.forename}/>
+						<InputField className="grid-col-5" placeholder="Nachname" value={customer.surname}/>
+					</Row>
+					<Row>
+						<InputField className="grid-col-5" placeholder="Straße" value={customer.street}/>
+						<InputField className="grid-col-2" placeholder="PLZ" value={customer.zip}/>
+						<InputField className="grid-col-5" placeholder="Stadt" value={customer.city}/>
+					</Row>
+					<Row>
+						<InputField className="grid-col-7" placeholder="eMail" value={customer.email}/>
+						<InputField className="grid-col-5" placeholder="Website" value={customer.website}/>
+					</Row>
+					<Row><InputField className="multi-line" placeholder="Anmerkungen" value={customer.note}/></Row>
+				</HoverBox>
 			</Dialog>
 		)
 	}
-
 }
 
 
-const ProductRow = product => {
+const OrderHeader = props => {
+	const order = props.data
+	return (
+		<div>
+			<h4>Lieferadresse</h4>
+			<ul className="address-block__to">
+				<li>{order.customer.prefix}</li>
+				<li>{order.customer.forename} {order.customer.surname}</li>
+				<li>{order.customer.street}</li>
+				<li>{order.customer.zip} {order.customer.city}</li>
+			</ul>
+			<h4>Status</h4>
+			begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
+		</div>
+	)
+}
+
+
+const ProductRow = props => {
 	// returns the product price by subtractig the discount
-	const discountPrice = (netto, discount) => netto - netto / 100 * discount
+	const discountPrice = (price, discount) => price - price / 100 * discount
 	// returns the monetary value of the tax
-	const taxAmount = (netto, tax) => price / 100 * tax
+	const taxAmount = (price, tax) => price / 100 * tax
 	// returns the product's total price by adding the tax on top
-	const taxPrice = (netto, tax) => price + price / 100 * tax
+	const taxPrice = (price, tax) => price + price / 100 * tax
+	// if product's label.price is defined, take this as the product price
+
+	const product = props.product
+	const productPrice = product.label.price || product.netto
+
 	return (
 		<tr>
 			<td className="quantity">{product.quantity}</td>
-			<td className="name">{product.group.nr}-{product.nr} {product.group.name} {product.name} ({label.name})</td>
-			<td className="netto">{product.netto}</td>
+			<td className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</td>
+			<td className="netto">{productPrice}</td>
 			<td className="discount">{product.discount} %</td>
-			<td className="tax">{ taxAmount(discountPrice(product.netto, product.discount), product.tax) } ({product.tax} %)</td>
-			<th className="total">{ taxPrice(discountPrice(product.netto, product.discount), product.tax) } €</th>
+			<td className="tax">{ taxAmount(discountPrice(productPrice, product.discount), product.tax) } ({product.tax} %)</td>
+			<th className="total">{ taxPrice(discountPrice(productPrice, product.discount), product.tax) } €</th>
 		</tr>
 	)
 }
 
-export class OrderDialog extends React.Component {
-
-	render() {
-		let customer = this.props.data || {}
-		return (
-			<Dialog title="Neuer Kunde">
-				<Row>
-					<div className="address-block grid-col-6">
-						<div className="address-block__logo">
-							<img src={ require("../pics/" + company.logo) } />
-						</div>
-						<div className="address-block__from">
-							{company.name} · {company.owner} · {company.street} · {company.zip + company.city}
-						</div>
-						<ul className="address-block__to">
-							<li>{customer.prefix}</li>
-							<li>{customer.forename} {customer.surname}</li>
-							<li>{customer.street}</li>
-							<li>{customer.zip} {customer.city}</li>
-						</ul>
+const Bill = props => {
+	const company = props.data.company
+	const billMeta = props.data.billMeta
+	const order = props.data.order
+	const bill = order.bill
+	return (
+		<HoverBox className="bill">
+			<Row>
+				<div className="grid-col-6">
+					<div className="bill__logo">
+						<img src="" />
 					</div>
-					<div class="document-info grid-col-6">
-						<h3>Rechnung</h3>
-						<table>
-							<tbody>
-								<tr>
-									<td>Nr.</td><td>{bill.nr}</td>
-								</tr>
-								<tr>
-									<td>Kundennr.</td><td>{order.customerNr}</td>
-								</tr>
-								<tr>
-									<td>Rechnungsdatum</td><td>{bill.created}</td>
-								</tr>
-								<tr>
-									<td>Lieferdatum</td><td>{order.created}</td>
-								</tr>
-							</tbody>
-						</table>
-						Bitte bei Zahlung angeben.
+					<div className="bill__from">
+						{company.name} · {company.owner} · {company.street} · {company.zip + company.city}
 					</div>
-				</Row>
-				<Row>
-					{ billMeta.introText }
-				</Row>
-				<Row>
-					<table className="grid-col-12">
+					<ul className="bill__to">
+						<li>{bill.customer.prefix}</li>
+						<li>{bill.customer.forename} {bill.customer.surname}</li>
+						<li>{bill.customer.street}</li>
+						<li>{bill.customer.zip} {bill.customer.city}</li>
+					</ul>
+				</div>
+				<div className="bill__info grid-col-6">
+					<h3>Rechnung</h3>
+					<table>
 						<tbody>
 							<tr>
-								<th className="quantity">Menge</th>								
-								<th className="name">Artikel</th>
-								<th className="netto">Netto</th>
-								<th className="discount">Rabatt</th>
-								<th className="tax">MwSt.</th>
-								<th className="brutto">brutto</th>
+								<td>Nr.</td><td>{bill.nr}</td>
 							</tr>
-							{ products.map(product => <ProductRow product={product} />) }
 							<tr>
-								<th colspan="3">Summe der Bestellung</th><th>17,00 €</th>
+								<td>Kundennr.</td><td>{bill.customer.nr}</td>
+							</tr>
+							<tr>
+								<td>Rechnungsdatum</td><td>{bill.created}</td>
+							</tr>
+							<tr>
+								<td>Lieferdatum</td><td>{order.created}</td>
 							</tr>
 						</tbody>
 					</table>
+					Bitte bei Zahlung angeben.
+				</div>
+			</Row>
+			<Row>
+				{ billMeta.introText }
+			</Row>
+			<Row>
+				<table className="grid-col-12">
+					<tbody>
+						<tr>
+							<th className="quantity">Menge</th>								
+							<th className="name">Artikel</th>
+							<th className="netto">Netto</th>
+							<th className="discount">Rabatt</th>
+							<th className="tax">MwSt.</th>
+							<th className="brutto">brutto</th>
+						</tr>
+						{ order.products.map(product => <ProductRow product={product} />) }
+						<tr>
+							<th colSpan="5">Summe der Bestellung</th><th>{order.total} €</th>
+						</tr>
+					</tbody>
+				</table>
+			</Row>
+			<Row>
+				{ billMeta.greetings }
+			</Row>
+			<Row className="bill__company-infos">
+				<ul className="grid-col-4">
+					<li>{company.name}</li>
+					<li>{company.owner}</li>
+					<li>{company.street}</li>
+					<li>{company.zip + company.city}</li>
+					<li>{company.phone}</li>
+					<li>{company.email}</li>
+					<li>{company.website}</li>
+				</ul>
+				<ul className="grid-col-4">
+					<li>{company.bank}</li>
+					<li>{company.iban}</li>
+					<li>{company.bic}</li>
+				</ul>
+				<ul className="grid-col-4">
+					<li>{company.taxOffice}</li>
+					<li>{company.taxNr}</li>
+				</ul>
+			</Row>
+		</HoverBox>
+	)
+}
+
+export class OrderDialog extends React.Component {
+	render() {
+		const order = this.props.data.order
+		return (
+			<Dialog title={ order.nr !== null ? 'Bestellung ' + order.nr + ' bearbeiten' : 'Neue Bestellung' }>
+				<Row>
+					<OrderHeader data={order} />
 				</Row>
 				<Row>
-					{ billMeta.greetings }
-				</Row>
-				<Row className="company-infos">
-					<ul className="grid-col-4">
-						<li>{company.name}</li>
-						<li>{company.owner}</li>
-						<li>{company.street}</li>
-						<li>{company.zip + company.city}</li>
-						<li>{company.phone}</li>
-						<li>{company.email}</li>
-						<li>{company.website}</li>
-					</ul>
-					<ul className="grid-col-4">
-						<li>{company.bank}</li>
-						<li>{company.iban}</li>
-						<li>{company.bic}</li>
-					</ul>
-					<ul className="grid-col-4">
-						<li>{company.taxdiscountice}</li>
-						<li>{company.taxNr}</li>
-					</ul>
+					<Bill data={this.props.data} />
 				</Row>
 			</Dialog>
 		)

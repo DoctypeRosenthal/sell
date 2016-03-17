@@ -7,10 +7,11 @@ import Row from '../components/Row'
 import { CustomersList } from '../containers/BrowseList'
 import { CustomerDialog } from '../containers/Dialog'
 
+/* mockup data */
+import mockupData from '../mockup.json'
+
 export default class Customers extends React.Component {
-
 	render() {
-
 		return (
 			<main>
 				<Row>
@@ -18,9 +19,9 @@ export default class Customers extends React.Component {
 					<Pagination />
 				</Row>
 
-				<CustomersList />
+				<CustomersList data={mockupData.customers} />
 				
-				<CustomerDialog />
+				<CustomerDialog data={mockupData.customers} />
 
 			</main>
 		)
