@@ -73,25 +73,16 @@ const OrderHeader = props => {
 
 
 const ProductRow = props => {
-	// returns the product price by subtractig the discount
-	const discountPrice = (price, discount) => price - price / 100 * discount
-	// returns the monetary value of the tax
-	const taxAmount = (price, tax) => price / 100 * tax
-	// returns the product's total price by adding the tax on top
-	const taxPrice = (price, tax) => price + price / 100 * tax
-	// if product's label.price is defined, take this as the product price
-
 	const product = props.product
 	const productPrice = product.label.price || product.netto
-
 	return (
 		<tr>
 			<td className="quantity">{product.quantity}</td>
 			<td className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</td>
-			<td className="netto">{productPrice}</td>
-			<td className="discount">{product.discount} %</td>
-			<td className="tax">{ taxAmount(discountPrice(productPrice, product.discount), product.tax) } ({product.tax} %)</td>
-			<th className="total">{ taxPrice(discountPrice(productPrice, product.discount), product.tax) } €</th>
+			<td className="netto">{productPrice} €</td>
+			<td className="discount">{product.discount}%</td>
+			<td className="tax">{product.taxPrice} € ({product.tax}%)</td>
+			<th className="total">{product.total} €</th>
 		</tr>
 	)
 }

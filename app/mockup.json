@@ -35,11 +35,15 @@
 		    "dispatched": "14.12.15",
 		    "products": [
 		    	{ 
+		    		"quantity": 2,
 		    		"nr": 2,
 					"type": "CD",
 					"netto": 14.29,
+					"discount": 0,
 					"tax": 19.00,
+					"taxPrice": 2.74,
 					"brutto": 17.00,
+					"total": 34.00,
 					"label": {
 						"name": "Händlerabgabe",
 						"price": 15.00
