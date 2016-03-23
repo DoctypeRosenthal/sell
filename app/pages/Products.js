@@ -20,11 +20,7 @@ export default class Products extends React.Component {
 
 				<BrowseList type="products" data={mockupData.productGroups}/>
 
-				<Dialog type="product" data={{
-					company: mockupData.company,
-					billMeta: mockupData.billMeta,
-					order: mockupData.orders[0]
-				}} />
+				<Dialog type="product" />
 
 			</main>
 		)
