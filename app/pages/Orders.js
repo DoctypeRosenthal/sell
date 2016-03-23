@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { FilterBarOrders } from '../components/FilterBar'
+import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination'
 import Row from '../components/Row'
-
-import { OrdersList } from '../containers/BrowseList'
-import { OrderDialog } from '../containers/Dialog'
+import BrowseList from '../components/BrowseList'
+import Dialog from '../components/Dialog'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -15,13 +14,13 @@ export default class Orders extends React.Component {
 		return (
 			<main>
 				<Row>
-					<FilterBarOrders />
+					<FilterBar type="orders" />
 					<Pagination />
 				</Row>
 
-				<OrdersList data={mockupData.orders} />
+				<BrowseList type="orders" data={mockupData.orders} />
 				
-				<OrderDialog data={{
+				<Dialog type="order" data={{
 					company: mockupData.company,
 					billMeta: mockupData.billMeta,
 					order: mockupData.orders[0]

@@ -1,10 +1,7 @@
 import React from 'react'
 
-const HoverBox = (props) => {
-	let className = "hover-box " + props.className
+export default function HoverBox(props) {
 	return (
-		<div className={className}>{ props.children }</div>
+		<div className={'hover-box ' + (props.className ? props.className : '')}>{ props.children }</div>
 	)
 }
-
-export default HoverBox
