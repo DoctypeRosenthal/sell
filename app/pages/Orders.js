@@ -20,7 +20,7 @@ export default class Orders extends React.Component {
 
 				<BrowseList type="orders" data={mockupData.orders} />
 				
-				<Dialog type="order" data={{
+				<Dialog type="order" show="true" data={{
 					company: mockupData.company,
 					billMeta: mockupData.billMeta,
 					order: mockupData.orders[0]

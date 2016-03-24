@@ -12,6 +12,7 @@ const Label = props => {
 				<InputField className="grid-col-3" placeholder="Menge" />
 			</Row>
 }
+
 export default function CustomerDialog(props) {
 	const customer = props.data
 	return (
