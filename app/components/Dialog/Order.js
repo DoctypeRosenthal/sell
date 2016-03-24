@@ -4,8 +4,8 @@ import Row from '../Row'
 import InputField from '../InputField'
 import HoverBox from '../HoverBox'
 
-const OrderDialog = props => {
-	const order = props.data
+export default function OrderDialog(props) {
+	const order = props.data.order
 	return (
 		<div>
 			<Row>
@@ -20,17 +20,14 @@ const OrderDialog = props => {
 				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
 			</Row>
 			<Row>
-				<Bill data={this.props.data} />
+				<Bill data={props.data} />
 			</Row>
 		</div>
 	)
 }
 
-export default OrderDialog
-
-
 const ProductRow = props => {
-	const product = props.product
+	const product = props.data
 	const productPrice = product.label.price || product.netto
 	return (
 		<tr>
@@ -102,7 +99,7 @@ const Bill = props => {
 								<th className="tax">MwSt.</th>
 								<th className="brutto">brutto</th>
 							</tr>
-							{ order.products.map(product => <ProductRow product={product} />) }
+							{ order.products.map(product => <ProductRow data={product} />) }
 							<tr>
 								<th colSpan="5">Summe der Bestellung</th><th>{order.total} €</th>
 							</tr>

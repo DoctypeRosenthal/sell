@@ -3,27 +3,25 @@ import { Link } from 'react-router'
 
 import { AddBtn } from '../components/Buttons'
 
-const BrowseList = props => {
+export default function BrowseList(props) {
 	switch (props.type) {
 		case 'products':
 			return <ProductsList data={props.data} />
 		case 'orders':
-			return <ProductsList data={props.data} />
+			return <OrdersList data={props.data} />
 		case 'customers':
-			return <ProductsList data={props.data} />
+			return <CustomersList data={props.data} />
 		case 'protocol':
-			return <ProductsList data={props.data} />
+			return <ProtocolList data={props.data} />
 	}	
 }
-
-export default BrowseList
 
 /*-----------------------------------------------------------------------------------------
  * CUSTOMERS
  *---------------------------------------------------------------------------------------*/
 
 const CustomerRow = props => {
-	let customer = props.customer
+	let customer = props.data
 	return (
 		<li>
 			<div className="nr">{customer.nr}</div>
@@ -58,7 +56,7 @@ const CustomersList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ customers.map(customer => <CustomerRow customer={customer} />) }
+				{ customers.map(customer => <CustomerRow data={customer} />) }
 			</ol>
 		</div>
 	)
@@ -69,7 +67,7 @@ const CustomersList = props => {
  *---------------------------------------------------------------------------------------*/
 
 const OrderRow = props => {
-	let order = props.order
+	let order = props.data
 	return (
 	    <li>
 			<div className="order-nr">{order.nr}</div>
@@ -104,7 +102,7 @@ const OrdersList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ orders.map(order => <OrderRow order={order} />) }
+				{ orders.map(order => <OrderRow data={order} />) }
 			</ol>
 		</div>
 	)
@@ -115,7 +113,7 @@ const OrdersList = props => {
  *---------------------------------------------------------------------------------------*/
 
 const ProductRow = props => {
-	let product = props.product
+	let product = props.data
 	return (
 		<li>
 			<div className="nr">{product.nr}</div>
@@ -131,7 +129,7 @@ const ProductRow = props => {
 }
 
 const ProductGroupRow = props => {
-	let group = props.group
+	let group = props.data
 	return (
 		<li>
 	    	<div className="group">
@@ -152,7 +150,7 @@ const ProductGroupRow = props => {
 		        	</li>
 		        </ol>
 		        <ol className="browse-list browse-list__body">
-		        	{ group.products.map(product => <ProductRow product={product} />) }
+		        	{ group.products.map(product => <ProductRow data={product} />) }
 		        </ol>
 	        </div>
 	    </li>
@@ -173,7 +171,7 @@ const ProductsList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ groups.map(group => <ProductGroupRow group={group} />) }
+				{ groups.map(group => <ProductGroupRow data={group} />) }
 			</ol>
 		</div>
 	)
@@ -184,13 +182,13 @@ const ProductsList = props => {
  *---------------------------------------------------------------------------------------*/
 
 const ProtocolRow = (props) => {
-	let row = props.row
-	let className = "action action--" + row.action
+	let item = props.data
+	let className = "action action--" + item.action
 	return (
 	    <li className={className}>
-			<div>{row.description}</div>
-			<Link to={row.link} className="ico-go-to">&nbsp;anschauen</Link>
-			<em className="floatright">{row.date}</em>
+			<div>{item.description}</div>
+			<Link to={item.link} className="ico-go-to">&nbsp;anschauen</Link>
+			<em className="floatright">{item.date}</em>
 	    </li>
 	)
 }
@@ -206,7 +204,7 @@ const ProtocolList = props => {
 			</ol>
 			
 			<ol className="browse-list browse-list__body">
-				{ mockup.map(row => <ProtocolRow row={row} />) }
+				{ protocol.map(item => <ProtocolRow data={item} />) }
 			</ol>
 		</div>
 	)
