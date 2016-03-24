@@ -1,8 +1,8 @@
 import React from 'react'
 
+import Row from '../components/Row'
 import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination'
-import Row from '../components/Row'
 import BrowseList from '../components/BrowseList'
 import Dialog from '../components/Dialog'
 
@@ -20,7 +20,7 @@ export default class Orders extends React.Component {
 
 				<BrowseList type="orders" data={mockupData.orders} />
 				
-				<Dialog type="order" show="true" data={{
+				<Dialog type="order" show={true} data={{
 					company: mockupData.company,
 					billMeta: mockupData.billMeta,
 					order: mockupData.orders[0]
