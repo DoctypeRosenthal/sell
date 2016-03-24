@@ -310,25 +310,26 @@
 		}
 	],
 	"company": {
-		"name": "",
-		"owner": "",
-		"street": "ee",
-		"zip": 0,
-		"city": "",
-		"phone": "",
+		"logo": "signet.png",
+		"name": "Acoustic Motion Concepts",
+		"owner": "Luis Reichard",
+		"street": "Mauenheimer Str. 2",
+		"zip": 50733,
+		"city": "Köln",
+		"phone": "+49 123 456",
 		"fax": "",
 		"mobile": "",
-		"email": "",
-		"website": "",
-		"bank": "",
-		"bic": null,
-		"iban": null,
-		"taxOffice": "",
-		"taxNr": ""
+		"email": "info@amc-record.com",
+		"website": "amc-record.com",
+		"bank": "Sparda Bank Köln",
+		"iban": "DE46 3706 0590 0004 6404 97",
+		"bic": "GENODED1SPK",
+		"taxOffice": "Finanzamt Köln-Mitte",
+		"taxNr": "215/5138/2992"
 	},
 	"billMeta": {
-		"introText": "wir bedanken uns für die Bestellung und stellen ihnen folgende Posten in Rechnung:",
-		"greetings": "Bitte überweisen sie das Geld bis zum #Zahlungsziel auf unser Konto. Vielen Dank! Herzliche Grüße, Luis Reichard",
+		"introText": "Wir bedanken uns für die Bestellung und stellen Ihnen folgende Posten in Rechnung:",
+		"greetings": "Bitte überweisen Sie das Geld bis zum #Zahlungsziel auf unser Konto. Vielen Dank! Herzliche Grüße, Luis Reichard",
 		"termOfPayment": 14
 	},
 

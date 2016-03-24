@@ -1,0 +1,75 @@
+.order
+	ul
+		+list()
+		display: inline-block
+
+		li
+			margin: 0
+
+
+.bill
+	$company-infos-height: 159px
+
+	+DIN-A4-page()
+	font-size: .95em
+	position: relative
+	padding-bottom: ($company-infos-height + $page-padding + 25px)
+
+	&__logo
+		> img
+			width: 100%
+
+	&__info
+		text-align: right
+
+		table
+			line-height: 1.5em
+			margin-bottom: 1em
+
+			td:nth-child(2)
+				font-weight: 600
+
+	&__from
+		font-size: map-get($font-sizes, 'xs')
+		margin-bottom: 1rem
+
+	&__articles
+
+		tr + tr
+			border-top: 1px solid $lighter-grey-line
+
+		.quantity,
+		.netto,
+		.discount,
+		.tax,
+		.brutto,
+		.total,
+		.sum
+			text-align: right
+
+		.quantity,
+		.netto,
+		.discount,
+		.brutto,
+		.tax,
+		.sum
+			padding-right: $small-spacing
+
+		.quantity
+			width: 60px
+
+		.sum,
+		.total
+			font-weight: 700
+			
+	&__company-infos
+		height: $company-infos-height
+		position: absolute
+		bottom: $page-padding
+		left: $page-padding
+		width: calc(100% - 2*#{$page-padding})
+		padding-top: $standard-spacing
+		border-top: 1px solid $lighter-grey-line
+
+		li:first-child
+			font-weight: bold

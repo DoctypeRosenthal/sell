@@ -4,13 +4,14 @@
      
 .add-btn,
 .save-btn,
-.delete-btn
+.delete-btn,
+.close-btn
 	+transition(all .3s)
 	position: relative
 	text-shadow: none
 	font-size: inherit
 	line-height: inherit
-	box-shadow: 0 0 1em -.4em transparent inset
+	box-shadow: 0 0 0 -.5em $darkest-grey inset
 
 	&:before
 		position: relative
@@ -18,7 +19,7 @@
 		font-size: inherit
 
 	&:hover
-		box-shadow: 0 0 1em -.6em $black inset
+		box-shadow: 0 0 1em -.5em $darkest-grey inset
 
 	&--main,
 	&--big
@@ -31,6 +32,7 @@
 	&--medium
 		padding: 0 .4em
 		font-weight: 600
+		
 		&:before
 			width: 1em
 			margin-right: .4em
@@ -75,3 +77,11 @@
 	&:hover
 		background: lighten($red, 8%)
 		border-color: lighten($red, 2%)
+
+.close-btn
+	background: transparent
+	border-color: $lighter-grey
+
+	&--big
+		margin-right: .8em
+		float: right

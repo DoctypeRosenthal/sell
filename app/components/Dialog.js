@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Row from './Row'
-import { SaveBtn } from './Buttons'
+import { SaveBtn, CloseBtn } from './Buttons'
 
 import Customer from './Dialog/Customer'
 import Order from './Dialog/Order'
@@ -40,7 +40,7 @@ export default function Dialog(props) {
 				<div className="dialog__center">
 					<div className="dialog__window">
 						<Row>
-							<div className="dialog__header">{ getTitle(props) }<SaveBtn type="big" /><div className="dialog__x ico-close"></div></div>
+							<div className="dialog__header">{ getTitle(props) }<SaveBtn type="big" /><CloseBtn type="big" /></div>
 						</Row>
 						<Row className="dialog__children">
 							{ getChildren(props) }

@@ -7,15 +7,25 @@ import HoverBox from '../HoverBox'
 export default function OrderDialog(props) {
 	const order = props.data.order
 	return (
-		<div>
+		<div className="order">
 			<Row>
-				<h4>Lieferadresse</h4>
-				<ul className="address-block__to">
-					<li>{order.customer.prefix}</li>
-					<li>{order.customer.forename} {order.customer.surname}</li>
-					<li>{order.customer.street}</li>
-					<li>{order.customer.zip} {order.customer.city}</li>
-				</ul>
+				<div className="grid-col-6">
+					<h4>Lieferadresse</h4>
+					<Row><InputField placeholder="Nameszusatz" value={order.customer.prefix} /></Row>
+					<Row>
+						<InputField placeholder="Vorname" value={order.customer.forename} className="grid-col-6" />
+						<InputField placeholder="Nachname" value={order.customer.surname} className="grid-col-6"  />
+					</Row>
+					<Row>
+						<InputField placeholder="Straße" value={order.customer.street} />
+					</Row>
+					<Row>
+						<InputField placeholder="Nameszusatz" value={order.customer.zip} className="grid-col-6"  />
+						<InputField placeholder="Nameszusatz" value={order.customer.city} className="grid-col-6"  />
+					</Row>
+				</div>
+			<Row>
+			</Row>
 				<h4>Status</h4>
 				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
 			</Row>
@@ -36,7 +46,8 @@ const ProductRow = props => {
 			<td className="netto">{productPrice} €</td>
 			<td className="discount">{product.discount}%</td>
 			<td className="tax">{product.taxPrice} € ({product.tax}%)</td>
-			<th className="total">{product.total} €</th>
+			<td className="brutto">{product.brutto} €</td>
+			<td className="total">{product.total} €</td>
 		</tr>
 	)
 }
@@ -46,71 +57,68 @@ const Bill = props => {
 	const billMeta = props.data.billMeta
 	const order = props.data.order
 	const bill = order.bill
+	const parser = new DOMParser()
+
 	return (
-		<HoverBox>
-			<div className="bill">
-				<Row>
-					<div className="grid-col-6">
-						<div className="bill__logo">
-							<img src="" />
-						</div>
-						<div className="bill__from">
-							{company.name} · {company.owner} · {company.street} · {company.zip + company.city}
-						</div>
-						<ul className="bill__to">
-							<li>{bill.customer.prefix}</li>
-							<li>{bill.customer.forename} {bill.customer.surname}</li>
-							<li>{bill.customer.street}</li>
-							<li>{bill.customer.zip} {bill.customer.city}</li>
-						</ul>
-					</div>
-					<div className="bill__info grid-col-6">
-						<h3>Rechnung</h3>
-						<table>
-							<tbody>
-								<tr>
-									<td>Nr.</td><td>{bill.nr}</td>
-								</tr>
-								<tr>
-									<td>Kundennr.</td><td>{bill.customer.nr}</td>
-								</tr>
-								<tr>
-									<td>Rechnungsdatum</td><td>{bill.created}</td>
-								</tr>
-								<tr>
-									<td>Lieferdatum</td><td>{order.created}</td>
-								</tr>
-							</tbody>
-						</table>
-						Bitte bei Zahlung angeben.
-					</div>
-				</Row>
-				<Row>
-					{ billMeta.introText }
-				</Row>
-				<Row>
-					<table className="grid-col-12">
+		<HoverBox className="bill">
+			<Row>
+				<div className="bill__logo grid-col-8">
+					<img src={ require("../../pics/" + company.logo) } />
+				</div>
+				<div className="bill__info grid-col-4">
+					<table>
 						<tbody>
-							<tr>
-								<th className="quantity">Menge</th>								
-								<th className="name">Artikel</th>
-								<th className="netto">Netto</th>
-								<th className="discount">Rabatt</th>
-								<th className="tax">MwSt.</th>
-								<th className="brutto">brutto</th>
-							</tr>
-							{ order.products.map(product => <ProductRow data={product} />) }
-							<tr>
-								<th colSpan="5">Summe der Bestellung</th><th>{order.total} €</th>
-							</tr>
+							<tr><td>Rechnungsnr.</td><td>{bill.nr}</td></tr>
+							<tr><td>Kundennr.</td><td>{bill.customer.nr}</td></tr>
+							<tr><td>Rechnungsdatum</td><td>{bill.created}</td></tr>
+							<tr><td>Lieferdatum</td><td>{order.created}</td></tr>
 						</tbody>
 					</table>
-				</Row>
-				<Row>
-					{ billMeta.greetings }
-				</Row>
-				<Row className="bill__company-infos">
-					<ul className="grid-col-4">
+					Bitte bei Zahlung angeben.
+				</div>
+			</Row>
+			<Row>
+				<div className="grid-col-6">
+					<div className="bill__from">
+						{company.name} · {company.street} · {company.zip} {company.city}
+					</div>
+					<ul className="bill__to">
+						<li>{bill.customer.gender}</li>
+						<li>{bill.customer.forename} {bill.customer.surname}</li>
+						<li>{bill.customer.street}</li>
+						<li>{bill.customer.zip} {bill.customer.city}</li>
+					</ul>
+				</div>
+			</Row>
+			<Row>
+				<h2>Rechnung</h2>
+				{ billMeta.introText }
+			</Row>
+			<Row>
+				<table className="bill__articles grid-col-12">
+					<tbody>
+						<tr>
+							<th className="quantity">Menge</th>								
+							<th className="name">Artikel</th>
+							<th className="netto">Netto</th>
+							<th className="discount">Rabatt</th>
+							<th className="tax">MwSt.</th>
+							<th className="brutto">brutto</th>
+							<th className="total">gesamt</th>
+						</tr>
+						{ order.products.map(product => <ProductRow data={product} />) }
+						<tr>
+							<td colSpan="6" className="sum">Summe</td><td className="total">{order.total} €</td>
+						</tr>
+					</tbody>
+				</table>
+			</Row>
+			<Row>
+				{ billMeta.greetings }
+			</Row>
+			<Row className="bill__company-infos">
+				<div className="grid-col-4">
+					<ul>
 						<li>{company.name}</li>
 						<li>{company.owner}</li>
 						<li>{company.street}</li>
@@ -119,17 +127,21 @@ const Bill = props => {
 						<li>{company.email}</li>
 						<li>{company.website}</li>
 					</ul>
-					<ul className="grid-col-4">
+				</div>
+				<div className="grid-col-4">
+					<ul>
 						<li>{company.bank}</li>
 						<li>{company.iban}</li>
 						<li>{company.bic}</li>
 					</ul>
-					<ul className="grid-col-4">
+				</div>
+				<div className="grid-col-4">
+					<ul>
 						<li>{company.taxOffice}</li>
 						<li>{company.taxNr}</li>
 					</ul>
-				</Row>
-			</div>
+				</div>
+			</Row>
 		</HoverBox>
 	)
 }
