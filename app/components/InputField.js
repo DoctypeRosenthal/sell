@@ -11,7 +11,8 @@ const getInput = props => {
 					</div> 
 		case 'image':
 			return	<div className="input-field__input">
-						<img src={ require("../pics/" + (isEmpty(props.value) ? 'placeholder.png' : props.value)) } className="input-field__img" /><input type="file" accept="image/jpg,image/jpeg,image/png" className="input-field__file" />
+						<img src={ require("../pics/" + (isEmpty(props.value) ? 'placeholder.png' : props.value)) } height={ isEmpty(props.height) ? '' : props.height } className="input-field__img" />
+						<input type="file" accept="image/jpg,image/jpeg,image/png" className="input-field__file" />
 					</div> 
 		default:
 			return 	<div className="input-field__input" contentEditable="true">

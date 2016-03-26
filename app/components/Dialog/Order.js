@@ -61,7 +61,7 @@ const Bill = props => {
 	return (
 		<HoverBox className="bill">
 			<Row>
-				<InputField className="grid-col-8" type="image" value={company.logo} />
+				<InputField className="grid-col-8" type="image" value={company.logo} height="113" />
 				<div className="bill__info grid-col-4">
 					<Row>
 						<div className="grid-col-7">Rechnungsnr.</div>
