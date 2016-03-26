@@ -42,19 +42,19 @@ export default class Options extends React.Component {
 					<HoverBox className="grid-col-4">
 						<h2>Zahlungsbedingungen</h2>
 						<Row><InputField placeholder="Zahlungszeitraum" value={billMeta.termOfPayment}/></Row>
-						<Row><InputField type="multi-line" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
-						<Row><InputField type="multi-line" placeholder="Grußtext" value={billMeta.greetings} /></Row>
+						<Row><InputField multiLine="true" placeholder="Zahlungstext" value={billMeta.introText} /></Row>
+						<Row><InputField multiLine="true" placeholder="Grußtext" value={billMeta.greetings} /></Row>
 						<Row>
 							<h4>Zahlungserinnerung</h4>
 							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.firstTermOfPayment} /></Row>
-							<Row><InputField type="multi-line" placeholder="Einleitung" value={dunning.firstIntro} /></Row>
-							<Row><InputField type="multi-line" placeholder="Grußtext" value={dunning.firstGreetings} /></Row>
+							<Row><InputField multiLine="true" placeholder="Einleitung" value={dunning.firstIntro} /></Row>
+							<Row><InputField multiLine="true" placeholder="Grußtext" value={dunning.firstGreetings} /></Row>
 						</Row>
 						<Row>
 							<h4>Mahnung</h4>
 							<Row><InputField placeholder="Zahlungszeitraum" value={dunning.secondTermOfPayment} /></Row>
-							<Row><InputField type="multi-line" placeholder="Einleitung" value={dunning.secondIntro} /></Row>
-							<Row><InputField type="multi-line" placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
+							<Row><InputField multiLine="true" placeholder="Einleitung" value={dunning.secondIntro} /></Row>
+							<Row><InputField multiLine="true" placeholder="Grußtext" value={dunning.secondGreetings} /></Row>
 						</Row>
 					</HoverBox>
 					<HoverBox className="grid-col-4">

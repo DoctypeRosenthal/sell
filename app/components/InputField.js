@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { isEmpty, getClassNames} from '../utils'
+import { isEmpty, getClassName } from '../utils'
 
 // determine the input type
 const getInput = props => {
@@ -15,7 +15,7 @@ const getInput = props => {
 						<input type="file" accept="image/jpg,image/jpeg,image/png" className="input-field__file" />
 					</div>
 		default:
-			return 	<div className={'input-field__input' + (props.type === 'multi-line' ? ' multi-line' : '')} contentEditable="true">
+			return 	<div className={'input-field__input' + (!!props.multiLine ? ' multi-line' : '')} contentEditable="true">
 						{ isEmpty(props.value) ? <br /> : props.value }
 					</div>
 	}

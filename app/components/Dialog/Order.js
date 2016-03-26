@@ -125,7 +125,7 @@ const Bill = props => {
 				</Row>
 			</Row>
 			<Row>
-				<InputField type="multi-line" value={billMeta.greetings} />
+				<InputField multiLine="true" value={billMeta.greetings} />
 			</Row>
 			<Row className="bill__company-infos">
 				<div className="grid-col-4">
