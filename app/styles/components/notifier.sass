@@ -1,0 +1,27 @@
+.notifier
+	position: fixed
+	z-index: map-get($z-index, 'notifier')
+	left: 50%
+	margin-left: -150px
+	background: $standard-bg-color
+	border-width: 6px
+	border-style: solid
+	border-color: white
+	padding: $small-spacing
+	border-radius: .15em
+	box-shadow: $small-shadow
+	transition: all .4s
+
+	top: -4rem
+
+	&.show
+		top: $standard-spacing
+
+	&--created
+		border-color: $green
+
+	&--modified
+		border-color: $green
+
+	&--deleted
+		border-color: $red

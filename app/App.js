@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Header from './components/Header'
+import Notifier from './components/Notifier'
 
 export default class App extends React.Component {
 	render() {
@@ -8,7 +9,9 @@ export default class App extends React.Component {
 
 		return (
 			<div className={pagename}>
-				
+
+				<Notifier show={true} mode="deleted" message="Ihr Bums wurde gelöscht." />
+
 				<Header page={pagename} />
 
 				{this.props.children}

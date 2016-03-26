@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router'
 
-const Navigation = (props) => {
+export default function Navigation(props) {
 	const ico = () => <i className="ico-angle-down"></i>
 	const selectState = (string, page = props.page) => page === string ? ' js-selected' : ''
 	
@@ -18,5 +18,3 @@ const Navigation = (props) => {
 		</nav>
 	)
 }
-
-export default Navigation
