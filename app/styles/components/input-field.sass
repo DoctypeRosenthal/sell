@@ -14,9 +14,6 @@
 		> input
 			border: none
 
-	&--image
-		padding-top: 0
-
 	&__placeholder
 		left: 0
 		top: $s
@@ -77,19 +74,14 @@
 		opacity: 0
 		cursor: pointer
 
-	&:not(.multi-line) // aka single-line input (default)
-		overflow: hidden
-
-		.input-field__input
+	.input-field__input
+		&:not(.multi-line) // aka single-line input (default)
 			white-space: nowrap
 
 			br:not(:last-of-type)
-					display: none
+				display: none
 
-	&.multi-line
-		overflow: visible
-
-		.input-field__input
+		&.multi-line
 			white-space: initial
 
 			br:not(:last-of-type)
