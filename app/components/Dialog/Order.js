@@ -3,6 +3,7 @@ import React from 'react'
 import Row from '../Row'
 import InputField from '../InputField'
 import HoverBox from '../HoverBox'
+import { AddBtn } from '../Buttons'
 
 export default function OrderDialog(props) {
 	const order = props.data.order
@@ -38,17 +39,15 @@ export default function OrderDialog(props) {
 
 const ProductRow = props => {
 	const product = props.data
-	const productPrice = product.label.price || product.netto
+	const netto = product.label.netto || product.netto
 	return (
-		<tr>
-			<td className="quantity">{product.quantity}</td>
-			<td className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</td>
-			<td className="netto">{productPrice} €</td>
-			<td className="discount">{product.discount}%</td>
-			<td className="tax">{product.taxPrice} € ({product.tax}%)</td>
-			<td className="brutto">{product.brutto} €</td>
-			<td className="total">{product.total} €</td>
-		</tr>
+		<Row>
+			<div className="quantity">{product.quantity}</div>
+			<div className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</div>
+			<div className="netto">{product.netto} €</div>
+			<div className="netto">{product.totalNetto} €</div>
+			<div className="brutto">{product.totalBrutto} €</div>
+		</Row>
 	)
 }
 
@@ -61,24 +60,17 @@ const Bill = props => {
 	return (
 		<HoverBox className="bill">
 			<Row>
-				<InputField className="grid-col-8" type="image" value={company.logo} height="113" />
-				<div className="bill__info grid-col-4">
-					<Row>
-						<div className="grid-col-7">Rechnungsnr.</div>
-						<div className="grid-col-5">{bill.nr}</div>
-					</Row>
-					<Row>
-						<div className="grid-col-7">Kundennr.</div>
-						<div className="grid-col-5">{bill.customer.nr}</div>
-					</Row>
-					<Row>
-						<div className="grid-col-7">Rechnungsdatum</div>
-						<InputField className="grid-col-5" value={bill.created} />
-					</Row>
-					<Row>
-						<div className="grid-col-7">Lieferdatum</div>
-						<InputField className="grid-col-5" value={order.created} />
-					</Row>
+				<InputField className="grid-col-8" type="image" value={company.logo} height="97" />
+				<div className="grid-col-4 textright">
+					<div className="grid-col-7">Kundennr.</div>
+					<div className="grid-col-5">{bill.customer.nr}</div>
+					<br />
+					<div className="grid-col-7">Rechnungsdatum</div>
+					<InputField className="grid-col-5" value={bill.created} />
+					<br />
+					<div className="grid-col-7">Lieferdatum</div>
+					<InputField className="grid-col-5" value={order.created} />
+					<br /><br />
 					Bitte bei Zahlung angeben.
 				</div>
 			</Row>
@@ -95,31 +87,45 @@ const Bill = props => {
 					</div>
 				</div>
 			</Row>
-			<Row>
-				<h2>Rechnung</h2>
-				<InputField type="multi-line" value={billMeta.introText} />
+			<Row><br /></Row>
+			<h2>Rechnung {bill.nr}</h2>
+			<Row className="bill__articles">
+				<Row className="bill__article-sorters">
+					<div className="quantity">Menge</div>								
+					<div className="name">Artikel</div>
+					<div className="netto">Einzelnetto</div>
+					<div className="netto">Gesamtnetto</div>
+					<div className="brutto">Gesamtbrutto</div>
+				</Row>
+				{ 
+					order.products.map(product => <ProductRow data={product} />) 
+				}
+				<Row className="textcenter">
+					<AddBtn type="medium" title="Artikel hinzufügen" />
+				</Row>
+				<Row>
+					<div className="grid-col-5">
+						<Row>
+							<div className="grid-col-7">Brutto</div>
+							<div className="grid-col-5">{order.brutto} €</div>
+						</Row>
+						<Row>
+							<div className="grid-col-7">Daraus {order.taxRate}% USt.</div>
+							<div className="grid-col-5">{order.tax} €</div>
+						</Row>
+						<Row>
+							<div className="grid-col-7">Versandkosten</div>
+							<div className="grid-col-5">{order.shippingCosts} €</div>
+						</Row>
+						<Row className="sum">
+							<div className="grid-col-7">Summe</div>
+							<div className="grid-col-5">{order.total} €</div>
+						</Row>
+					</div>
+				</Row>
 			</Row>
 			<Row>
-				<table className="bill__articles grid-col-12">
-					<tbody>
-						<tr>
-							<th className="quantity">Menge</th>								
-							<th className="name">Artikel</th>
-							<th className="netto">Netto</th>
-							<th className="discount">Rabatt</th>
-							<th className="tax">MwSt.</th>
-							<th className="brutto">brutto</th>
-							<th className="total">gesamt</th>
-						</tr>
-						{ order.products.map(product => <ProductRow data={product} />) }
-						<tr>
-							<td colSpan="6" className="sum">Summe</td><td className="total">{order.total} €</td>
-						</tr>
-					</tbody>
-				</table>
-			</Row>
-			<Row>
-				{ billMeta.greetings }
+				<InputField type="multiline" value={billMeta.greetings} />
 			</Row>
 			<Row className="bill__company-infos">
 				<div className="grid-col-4">

@@ -13,7 +13,7 @@ const getInput = props => {
 			return	<div className="input-field__input">
 						<img src={ require("../pics/" + (isEmpty(props.value) ? 'placeholder.png' : props.value)) } height={ isEmpty(props.height) ? '' : props.height } className="input-field__img" />
 						<input type="file" accept="image/jpg,image/jpeg,image/png" className="input-field__file" />
-					</div> 
+					</div>
 		default:
 			return 	<div className="input-field__input" contentEditable="true">
 						{ isEmpty(props.value) ? <br /> : props.value }
@@ -35,7 +35,7 @@ const getModifier = type => {
 export default function InputField(props) {
 	
 	return (								
-		<div className={ 'input-field ' + (props.type === 'image' ? 'input-field--image ' : '') + (!!props.className ? props.className : '') + (isEmpty(props.value) && isEmpty(props.children) ? ' empty' : '') }>
+		<div className={ 'input-field ' + getModifier(props.type) + (!!props.className ? props.className : '') + (isEmpty(props.value) && isEmpty(props.children) ? ' empty' : '') }>
 			{ getInput(props) }
 			<div className="input-field__placeholder">{props.placeholder}</div>
 		</div>

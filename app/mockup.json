@@ -31,26 +31,27 @@
 		{
 		    "nr": 363,
 		    "created": "14.12.15",
-		    "total": 34.65,
+		    "brutto": 99999.99,
+		    "taxRate": 19,
+		    "tax": 99999.99,
+		    "shippingCosts": 9999.99,
+		    "total": 99999.99,
 		    "dispatched": "14.12.15",
 		    "products": [
 		    	{ 
-		    		"quantity": 2,
+		    		"quantity": 99999,
 		    		"nr": 2,
 					"type": "CD",
-					"netto": 14.29,
-					"discount": 0,
-					"tax": 19.00,
-					"taxPrice": 2.74,
-					"brutto": 17.00,
-					"total": 34.00,
+					"netto": 9999.99,
+					"totalNetto": 99999.99,
+					"totalBrutto": 99999.99,
 					"label": {
 						"name": "Händlerabgabe",
-						"price": 15.00
+						"netto": 9999.99
 					},
 					"group": {
 						"nr": 301,
-						"name": "Noch:Schon"
+						"name": "Noch:Schon NochSchon vollkorrekter und überlanger Titel zum Testen"
 					}
 		    	}
 		    ],
@@ -95,20 +96,20 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"price": 17.00,
+					"netto": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 99,
 							"quantity": 200,
-							"price": 15.00
+							"netto": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 100,
-							"price": 16.00
+							"netto": 16.00
 						}
 					]
 				}
@@ -117,67 +118,67 @@
 		},
 		{
 			"nr": 301,
-			"name": "NochSchon",
+			"name": "NochSchon vollkorrekter und überlanger Titel zum Testen",
 			"pic": "NochSchon-150x135.jpg",
 			"created": "20.10.14",
 			"products": [
 				{
 					"nr": 2,
 					"type": "CD",
-					"price": 17.00,
+					"netto": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 20,
 							"quantity": 20,
-							"price": 15.00
+							"netto": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 50,
 							"quantity": 50,
-							"price": 16.00
+							"netto": 16.00
 						}
 					]
 				},
 				{
 					"nr": 3,
 					"type": "DVD",
-					"price": 20.00,
+					"netto": 20.00,
 					"quantity": 50,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 10,
-							"price": 17.00
+							"netto": 17.00
 						},
 						{
 							"name": "VVK",
 							"sold": 30,
 							"quantity": 30,
-							"price": 18.00
+							"netto": 18.00
 						}
 					]
 				},
 				{
 					"nr": 99999,
 					"type": "LP",
-					"price": 35.00,
+					"netto": 35.00,
 					"quantity": 10,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 5,
-							"price": 30.00
+							"netto": 30.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 5,
-							"price": 30.00
+							"netto": 30.00
 						}
 					]
 				}
@@ -193,20 +194,20 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"price": 17.00,
+					"netto": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 99,
 							"quantity": 200,
-							"price": 15.00
+							"netto": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 100,
-							"price": 16.00
+							"netto": 16.00
 						}
 					]
 				}
@@ -222,60 +223,60 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"price": 17.00,
+					"netto": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 20,
 							"quantity": 20,
-							"price": 15.00
+							"netto": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 50,
 							"quantity": 50,
-							"price": 16.00
+							"netto": 16.00
 						}
 					]
 				},
 				{
 					"nr": 3,
 					"type": "DVD",
-					"price": 20.00,
+					"netto": 20.00,
 					"quantity": 50,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 10,
-							"price": 17.00
+							"netto": 17.00
 						},
 						{
 							"name": "VVK",
 							"sold": 30,
 							"quantity": 30,
-							"price": 18.00
+							"netto": 18.00
 						}
 					]
 				},
 				{
 					"nr": 99999,
 					"type": "LP",
-					"price": 35.00,
+					"netto": 35.00,
 					"quantity": 10,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 5,
-							"price": 30.00
+							"netto": 30.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 5,
-							"price": 30.00
+							"netto": 30.00
 						}
 					]
 				}
@@ -310,7 +311,7 @@
 		}
 	],
 	"company": {
-		"logo": "signet.png",
+		"logo": "signet-borderless.png",
 		"name": "Acoustic Motion Concepts",
 		"owner": "Luis Reichard",
 		"street": "Mauenheimer Str. 2",
@@ -324,6 +325,7 @@
 		"bank": "Sparda Bank Köln",
 		"iban": "DE46 3706 0590 0004 6404 97",
 		"bic": "GENODED1SPK",
+		"taxRates": [19, 7, 0],
 		"taxOffice": "Finanzamt Köln-Mitte",
 		"taxNr": "215/5138/2992"
 	},

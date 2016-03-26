@@ -20,6 +20,12 @@ body
 	font-family: PT Sans, Myriad Pro
 	font-size: 15px
 
+h1,
+h2,
+h3,
+h4
+	margin-bottom: 1em
+
 h1, .h1,
 h2, .h2,
 h3,
@@ -109,8 +115,8 @@ footer
  *-------------------------------------------------*/
 
 div[class*=grid-col-]
-	float: left
-	display: block
+	display: inline-block
+	vertical-align: top
 
 	& + &
 		margin-left: $standard-spacing
@@ -166,6 +172,9 @@ $single-col: (100% / $grid-fineness)
 
 .textleft
 	text-align: left
+
+.textcenter
+	text-align: center
 
 .clearboth
 	clear: both

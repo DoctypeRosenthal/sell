@@ -59,7 +59,7 @@ export default function CustomerDialog(props) {
 							<InputField placeholder="Preis" />
 						</Row>
 						<Row>
-							<h4>Labels <AddBtn type="small" /></h4>
+							<h4>Rabatt-Labels <AddBtn type="small" /></h4>
 							<Label />
 						</Row>
 					</Row>
