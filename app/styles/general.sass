@@ -133,6 +133,17 @@ $single-col: (100% / $grid-fineness)
 		$grid-part: $grid-fineness / $i // the space of the grid, which is occupied by that column (in percent)
 		width: calc( #{$single-col} * #{$i} - #{$standard-spacing} * (#{$grid-part} - 1) / #{$grid-part})
 
+/*---------------------------------------------------
+ *  ROWS
+ *-------------------------------------------------*/
+
+.row
+	display: inline-block
+	clear:both
+	width: 100%
+
+	& + & // add margins to following rows
+        margin-top: $standard-spacing
 
 /*---------------------------------------------------
  *  MISC CLASSES
@@ -158,11 +169,3 @@ $single-col: (100% / $grid-fineness)
 
 .clearboth
 	clear: both
-
-.row
-	display: inline-block
-	clear:both
-	width: 100%
-
-	& + & // add margins to following rows
-        margin-top: $standard-spacing

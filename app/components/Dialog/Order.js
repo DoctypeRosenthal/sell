@@ -57,40 +57,47 @@ const Bill = props => {
 	const billMeta = props.data.billMeta
 	const order = props.data.order
 	const bill = order.bill
-	const parser = new DOMParser()
 
 	return (
 		<HoverBox className="bill">
 			<Row>
 				<InputField className="grid-col-8" type="image" value={company.logo} />
 				<div className="bill__info grid-col-4">
-					<table>
-						<tbody>
-							<tr><td>Rechnungsnr.</td><td>{bill.nr}</td></tr>
-							<tr><td>Kundennr.</td><td>{bill.customer.nr}</td></tr>
-							<tr><td>Rechnungsdatum</td><td>{bill.created}</td></tr>
-							<tr><td>Lieferdatum</td><td>{order.created}</td></tr>
-						</tbody>
-					</table>
+					<Row>
+						<div className="grid-col-7">Rechnungsnr.</div>
+						<div className="grid-col-5">{bill.nr}</div>
+					</Row>
+					<Row>
+						<div className="grid-col-7">Kundennr.</div>
+						<div className="grid-col-5">{bill.customer.nr}</div>
+					</Row>
+					<Row>
+						<div className="grid-col-7">Rechnungsdatum</div>
+						<InputField className="grid-col-5" value={bill.created} />
+					</Row>
+					<Row>
+						<div className="grid-col-7">Lieferdatum</div>
+						<InputField className="grid-col-5" value={order.created} />
+					</Row>
 					Bitte bei Zahlung angeben.
 				</div>
 			</Row>
 			<Row>
 				<div className="grid-col-6">
-					<div className="bill__from">
-						{company.name} · {company.street} · {company.zip} {company.city}
+					<div className="bill__sender" >
+						<InputField value={company.name + ' · ' + company.street + ' · ' + company.zip + ' ' + company.city} />
+					</div>					
+					<div className="bill__recipient">
+						{bill.customer.gender}<br />
+						{bill.customer.forename} {bill.customer.surname}<br />
+						{bill.customer.street}<br />
+						{bill.customer.zip} {bill.customer.city}<br />
 					</div>
-					<ul className="bill__to">
-						<li>{bill.customer.gender}</li>
-						<li>{bill.customer.forename} {bill.customer.surname}</li>
-						<li>{bill.customer.street}</li>
-						<li>{bill.customer.zip} {bill.customer.city}</li>
-					</ul>
 				</div>
 			</Row>
 			<Row>
 				<h2>Rechnung</h2>
-				{ billMeta.introText }
+				<InputField type="multi-line" value={billMeta.introText} />
 			</Row>
 			<Row>
 				<table className="bill__articles grid-col-12">

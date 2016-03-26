@@ -15,23 +15,26 @@
 	position: relative
 	padding-bottom: ($company-infos-height + $page-padding + 25px)
 
-	.input-field__input
-		border-bottom: none
+	.input-field
+		padding-top: 0
+
+		&__input
+			border-bottom: none
+
+		&__placeholder
+			display: none
 
 	&__info
 		text-align: right
 
-		table
-			line-height: 1.5em
-			margin-bottom: 1em
+		.row
+			margin-top: 0
 
-			td:nth-child(2)
-				font-weight: 600
-
-	&__from
+	&__sender
 		font-size: map-get($font-sizes, 'xs')
-		margin-bottom: 1rem
 
+	&__recipient
+		margin-top: 1.2em
 
 	&__articles
 
