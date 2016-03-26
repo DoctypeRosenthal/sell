@@ -62,9 +62,7 @@ const Bill = props => {
 	return (
 		<HoverBox className="bill">
 			<Row>
-				<div className="bill__logo grid-col-8">
-					<img src={ require("../../pics/" + company.logo) } />
-				</div>
+				<InputField className="grid-col-8" type="image" value={company.logo} />
 				<div className="bill__info grid-col-4">
 					<table>
 						<tbody>

@@ -1,33 +1,42 @@
 import React from 'react'
 
-const InputField = props => {
-	
-	const isEmpty = value => typeof value === 'undefined' || value === '' || value === null
+import { isEmpty } from '../utils'
 
-	// get css-classes
-	let classes = !!props.className ? props.className : ''
-	if (isEmpty(props.value) && isEmpty(props.children)) classes += ' empty'
-
-	// determine the input type
-	const getInput = type => {
-		switch (type) {
-			case 'tag-container':
-				return 	<div className="input-field__input">
-							{props.children}<div contentEditable="true"></div>
-						</div> 
-			default:
-				return 	<div className="input-field__input" contentEditable="true">
-							{ isEmpty(props.value) ? <br /> : props.value }
-						</div>
-		}
+// determine the input type
+const getInput = props => {
+	switch (props.type) {
+		case 'tag-container':
+			return 	<div className="input-field__input">
+						{props.children}<div contentEditable="true"></div>
+					</div> 
+		case 'image':
+			return	<div className="input-field__input">
+						<img src={ require("../pics/" + (isEmpty(props.value) ? 'placeholder.png' : props.value)) } className="input-field__img" /><input type="file" accept="image/jpg,image/jpeg,image/png" className="input-field__file" />
+					</div> 
+		default:
+			return 	<div className="input-field__input" contentEditable="true">
+						{ isEmpty(props.value) ? <br /> : props.value }
+					</div>
 	}
+}
 
-	return (
-		<div className={ 'input-field ' + classes }>
-			{ getInput(props.type) }
+const getModifier = type => {
+	switch(type) {
+		case 'image':
+			return 'input-field--image'
+
+		case 'tag-container':
+		default:
+			return ''
+
+	}
+}
+export default function InputField(props) {
+	
+	return (								
+		<div className={ 'input-field ' + (props.type === 'image' ? 'input-field--image ' : '') + (!!props.className ? props.className : '') + (isEmpty(props.value) && isEmpty(props.children) ? ' empty' : '') }>
+			{ getInput(props) }
 			<div className="input-field__placeholder">{props.placeholder}</div>
 		</div>
 	)
 }
-
-export default InputField

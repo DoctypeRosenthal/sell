@@ -18,6 +18,7 @@ export default class Options extends React.Component {
 					<HoverBox className="grid-col-4">
 						<h2>Firma</h2>
 						<Row><InputField className="h2" placeholder="Firmenname" value={company.name}/></Row>
+						<Row><InputField placeholder="Firmenlogo" type="image" value={company.logo} /></Row>
 						<Row><InputField placeholder="Inhaber" value={company.owner}/></Row>
 						<Row><InputField placeholder="Straße" value={company.street}/></Row>
 						<Row>

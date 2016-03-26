@@ -14,6 +14,9 @@
 		> input
 			border: none
 
+	&--image
+		padding-top: 0
+
 	&__placeholder
 		left: 0
 		top: $s
@@ -58,6 +61,21 @@
 		top: 0
 		line-height: $s
 		color: $black
+
+	&__img
+		position: relative
+		display: inline-block
+		height: 100%
+		width: 100%	
+
+	&__file
+		position: absolute
+		height: 100%
+		width: 100%
+		top: 0
+		left: 0
+		opacity: 0
+		cursor: pointer
 
 	&:not(.multi-line) // aka single-line input (default)
 		overflow: hidden
