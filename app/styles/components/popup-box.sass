@@ -1,0 +1,19 @@
+.popup-box
+	position: fixed
+	z-index: map-get($z-index, 'popup-box')
+	width: 500px
+	left: 50%
+	top: 50%
+	margin-left: -250px
+	margin-top: -300px
+
+	&__header
+		display: inline-block
+		text-align: left
+
+		> .close-btn
+			float: right
+
+	&__title
+		float: left
+		line-height: 1.8em
