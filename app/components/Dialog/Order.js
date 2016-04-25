@@ -10,7 +10,7 @@ export default function OrderDialog(props) {
 	return (
 		<div className="order">
 			<Row>
-				<div className="grid-col-6">
+				<div className="shipping-address grid-col-6">
 					<h4>Lieferadresse</h4>
 					<Row><InputField placeholder="Nameszusatz" value={order.customer.prefix} /></Row>
 					<Row>
