@@ -5,24 +5,25 @@ import InputField from '../InputField'
 import HoverBox from '../HoverBox'
 import { AddBtn } from '../Buttons'
 
-export default function OrderDialog(props) {
-	const order = props.data.order
+export default function OrderDialog({data}) {
+	
+	const customer = data.order.customer
 	return (
 		<div className="order">
 			<Row>
 				<div className="shipping-address grid-col-6">
 					<h4>Lieferadresse</h4>
-					<Row><InputField placeholder="Nameszusatz" value={order.customer.prefix} /></Row>
+					<Row><InputField placeholder="Nameszusatz" value={customer.prefix} /></Row>
 					<Row>
-						<InputField placeholder="Vorname" value={order.customer.forename} className="grid-col-6" />
-						<InputField placeholder="Nachname" value={order.customer.surname} className="grid-col-6"  />
+						<InputField placeholder="Vorname" value={customer.forename} className="grid-col-6" />
+						<InputField placeholder="Nachname" value={customer.surname} className="grid-col-6"  />
 					</Row>
 					<Row>
-						<InputField placeholder="Straße" value={order.customer.street} />
+						<InputField placeholder="Straße" value={customer.street} />
 					</Row>
 					<Row>
-						<InputField placeholder="Nameszusatz" value={order.customer.zip} className="grid-col-6"  />
-						<InputField placeholder="Nameszusatz" value={order.customer.city} className="grid-col-6"  />
+						<InputField placeholder="Nameszusatz" value={customer.zip} className="grid-col-6"  />
+						<InputField placeholder="Nameszusatz" value={customer.city} className="grid-col-6"  />
 					</Row>
 				</div>
 			<Row>
@@ -31,7 +32,7 @@ export default function OrderDialog(props) {
 				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
 			</Row>
 			<Row>
-				<Bill data={props.data} />
+				<Bill data={data} />
 			</Row>
 		</div>
 	)

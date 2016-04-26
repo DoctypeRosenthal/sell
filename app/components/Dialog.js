@@ -7,43 +7,47 @@ import Customer from './Dialog/Customer'
 import Order from './Dialog/Order'
 import Product from './Dialog/Product'
 
-const getChildren = props => {
-	switch (props.type) {
+const getChildren = (type, data) => {
+	switch (type) {
 		case 'customer':
-			return <Customer data={props.data} />
+			return <Customer data={data} />
 		case 'order':
-			return <Order data={props.data} />
+			return <Order data={data} />
 		case 'product':
-			return <Product data={props.data} />
+			return <Product data={data} />
 		default:
 			return
 	}
 }
 
-const getTitle = props => {
-	switch (props.type) {
-		case 'customer':
-			return props.editItem ? 'Kunde bearbeiten' : 'Neuer Kunde'
-		case 'order':
-			return props.editItem ? 'Bestellung bearbeiten' : 'Neue Bestellung'
-		case 'product':
-			return props.editItem ? 'Veröffentlichung bearbeiten' : 'Neue Veröffentlichung'
-		default:
-			return
+const getTitle = (mode, type) => {
+	const map = {
+		'NEW': {
+			'customer': 'Neuer Kunde',
+			'order': 'Neue Bestellung',
+			'product': 'Neue Veröffentlichung'
+		},
+		'EDIT': {
+			'customer': 'Kunde bearbeiten',
+			'order': 'Bestellung bearbeiten',
+			'product': 'Veröffentlichung bearbeiten'
+		}
 	}
+	return map[mode][type]
 }
 
 export default function Dialog(props) {
+	console.log(props)
 	return (
-		<div className={'dialog__layer' + (props.show ? ' show' : '')}>
+		<div className={'dialog__layer' + (visible ? ' show' : '')}>
 			<div className="dialog__scroll">
 				<div className="dialog__center">
 					<div className="dialog__window">
 						<Row>
-							<div className="dialog__header">{ getTitle(props) }<SaveBtn type="big" /><CloseBtn type="big" /></div>
+							<div className="dialog__header">{ getTitle(mode, type) }<SaveBtn type="big" /><CloseBtn type="big" /></div>
 						</Row>
 						<Row className="dialog__children">
-							{ getChildren(props) }
+							{ getChildren(type, data) }
 						</Row>
 					</div>
 				</div>

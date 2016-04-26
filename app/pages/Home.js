@@ -6,14 +6,10 @@ import HoverBox from '../components/HoverBox'
 import { StatsGraph, StatsTable, StatsWidgetProduct } from '../components/StatsWidgets'
 import Row from '../components/Row'
 
-/* mockup data */
-import mockupData from '../mockup.json'
-
 export default class Home extends React.Component {
 	render() {
-		let productGroups = mockupData.productGroups
-
-
+		let productGroups = this.props.store.getState().productGroups
+		
 		return (
 			<main>
 				<Row>
