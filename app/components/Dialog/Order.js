@@ -6,7 +6,7 @@ import HoverBox from '../HoverBox'
 import { AddBtn } from '../Buttons'
 
 export default function OrderDialog({data}) {
-	
+	console.log(data)
 	const customer = data.order.customer
 	return (
 		<div className="order">

@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import * as reducers from './reducers'
 import * as actions from './actions'
+import * as selectors from './selectors'
 
 /* routing */
 import { Router, Route, browserHistory } from 'react-router'
@@ -17,17 +18,17 @@ import { ROUTES } from './routes'
 /* mockup data */
 import mockupData from './mockup.json'
 
-const _INITIAL_STATE_ = { data: mockupData }
+const _INITIAL_STATE_ = mockupData // must be moved out later to the index-template!
 
 const store = createStore(
 	combineReducers({
 		...reducers
 	}),
-	_INITIAL_STATE_.data // global. is rendered and sent by the server
+	_INITIAL_STATE_ // global. is rendered and sent by the server
 )
 
 /**
- * Adds custom properties to each Component.
+ * Adds custom properties to every Component.
  * 
  * @param  {React Component} Component 	[the Component to be rendered]
  * @param  {Object} 		 props     	[passed down props from Router Component]
@@ -37,7 +38,8 @@ const createElement = (Component, props) => {
 	let extendedProps = {
 		...props,
 		store,
-		actions
+		actions,
+		selectors
 	}
 	return <Component {...extendedProps} />
 }
@@ -48,10 +50,18 @@ const renderDatShit = () => ReactDOM.render(
 )
 
 /**
- * Update the current visibilityFilter in the store depending on the route.
+ * Update the store depending on the route.
  */
 browserHistory.listen(location => {
-	store.dispatch(actions.setDialogMode(location.query))
+	store.dispatch(actions.setPage(location.pathname))
+
+	if (!!location.query.new) {
+		store.dispatch(actions.createItem(location.query))
+	}
+
+	if (!!location.query.new || !!location.query.edit) {
+		store.dispatch(actions.setDialogMode(location.query))
+	}
 })
 
 /**

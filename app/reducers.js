@@ -1,22 +1,19 @@
 
-export const dialog = (state = { mode: 'NEW', type: 'orders', visible: false }, action) => {
-
+export const dialog = (state = { mode: undefined, type: undefined, id: undefined }, action) => {
 	switch(action.type) {
 		case 'SET_DIALOG_MODE':
-		
 			let q = action.query
 			if (q.edit && q.id) {
 				return {
-					mode: 'EDIT',
+					mode: 'editing',
 					type: q.edit,
-					visible: true
+					id: q.id
 				}
 			} else if (q.new) {
-				console.log(q.new)
 				return {
-					mode: 'NEW',
+					mode: 'adding',
 					type: q.new,
-					visible: true
+					id: undefined
 				}
 			} else {
 				return state
@@ -26,9 +23,45 @@ export const dialog = (state = { mode: 'NEW', type: 'orders', visible: false }, 
 	}
 }
 
+export const activePage = (state = 'home', action) => {
+	switch(action.type) {
+		case 'SET_ACTIVE_PAGE':
+			return action.path.replace('/', '') || state
+		default:
+			return state
+	}
+}
+
+const customer = (state = {}, action) => {
+	console.log(action)
+	switch(action.type) {
+		case 'CREATE_CUSTOMER':
+			return {
+				id: action.id,
+				nr: null,
+				prefix: '',
+				forename: '',
+				surname: '',
+				street: '',
+				zip: null,
+				city: '',
+				email: '',
+				website: '',
+				note: ''
+			}
+		default:
+			return
+	}
+}
 
 export const customers = (state = {}, action) => {
 	switch(action.type) {
+		case 'CREATE_CUSTOMER':
+			return [
+				customer(undefined, action),
+				...state
+			]
+			
 		default:
 			return state
 	}

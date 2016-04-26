@@ -6,16 +6,15 @@ import PopupBox from './components/PopupBox'
 import Dialog from './components/Dialog'
 
 export default class App extends React.Component {
-	render() {
-		let pagename = this.props.location.pathname.replace('/', '') || 'home'
-		let query = this.props.location.query
-		let storeState = this.props.store.getState()
-		let dialogState = {
-			...storeState.dialog,
-			data: storeState
-		}
 
-		console.log(dialogState)
+	render() {
+		let { store, actions, selectors } = this.props,
+			pagename = store.getState().activePage,
+			dialogProps = {
+				store, 
+				actions, 
+				selectors
+			}
 		return (
 			<div className={pagename}>
 
@@ -26,7 +25,7 @@ export default class App extends React.Component {
 
 				{this.props.children}
 
-				<Dialog {...dialogState} />
+				<Dialog {...dialogProps} />
 
 				<footer>
 					Lorenz Rosenthal © 2014 - 2016
