@@ -28,6 +28,7 @@ export default class Dialog extends React.Component {
 	}
 
 	getTitle(mode, type) {
+		if (!mode) return
 		let map = translations.DE.dialog
 		return map[mode][type] || ''
 	}
@@ -73,8 +74,6 @@ export default class Dialog extends React.Component {
 				onSave: this.handleSave.bind(this)
 			}
 
-		console.log('Data: ', this.state.item)
-
-		return <Wrapper {...wrapperProps}>{this.getChild(this.state.item)}</Wrapper>
+		return <Wrapper {...wrapperProps}>{visible ? this.getChild(this.state.item) : ''}</Wrapper>
 	}
 }

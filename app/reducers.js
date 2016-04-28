@@ -1,5 +1,5 @@
 
-export const dialog = (state = { mode: 'adding', type: undefined, id: undefined }, action) => {
+export const dialog = (state = { mode: undefined, type: undefined, id: undefined }, action) => {
 	switch(action.type) {
 		case 'SET_DIALOG_MODE':
 			let q = action.query
