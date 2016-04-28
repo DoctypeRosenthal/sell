@@ -17,3 +17,9 @@ export const CloseBtn = props => {
 		<button className={ 'ico-close close-btn close-btn--' + (props.type || 'medium') }>{ props.title }</button>
 	)
 }
+
+export const PrintBtn = props => {
+	return (
+		<button className={ 'ico-print print-btn print-btn--' + (props.type || 'medium') }>{ props.title }</button>
+	)
+}

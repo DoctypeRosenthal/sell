@@ -56,7 +56,8 @@ browserHistory.listen(location => {
 	store.dispatch(actions.setPage(location.pathname))
 
 	if (!!location.query.new) {
-		store.dispatch(actions.createItem(location.query))
+		let storeState = store.getState()
+		store.dispatch(actions.createItem(location.query, storeState))
 	}
 
 	if (!!location.query.new || !!location.query.edit) {

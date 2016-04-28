@@ -3,11 +3,12 @@ import React from 'react'
 import Row from '../Row'
 import InputField from '../InputField'
 import HoverBox from '../HoverBox'
-import { AddBtn } from '../Buttons'
+import { AddBtn, PrintBtn } from '../Buttons'
 
-export default function OrderDialog({data}) {
-	console.log(data)
-	const customer = data.order.customer
+import {calcTaxMoney, calcNetto, calcBrutto, formatDate } from '../../utils'
+
+export default function OrderDialog({order, company, billMeta}) {
+	const customer = order.customer
 	return (
 		<div className="order">
 			<Row>
@@ -32,34 +33,53 @@ export default function OrderDialog({data}) {
 				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
 			</Row>
 			<Row>
-				<Bill data={data} />
+				<Bill order={order} company={company} billMeta={billMeta} />
 			</Row>
 		</div>
 	)
 }
 
+const getArticlePrice = product => !!product.label.price ? product.label.price : product.price
+const calcOrderTotal = order => {
+	if (order.products.length === 0) {
+		return 0
+	}
+
+	return order.products.map(x => x.quantity * getArticlePrice(x)) // first create an Array of order bruttos
+				  		 .reduce((prevBrutto, curBrutto) => prevBrutto + curBrutto) // then sum up the bruttos and return that value
+}
+
 const ProductRow = props => {
-	const product = props.data
-	const netto = product.label.netto || product.netto
+	let product = props.data.product,
+		order = props.data.order,
+
+		price = getArticlePrice(product),
+		totalNetto = calcNetto(price, order.taxRate) * product.quantity,
+		totalBrutto = calcBrutto(totalNetto, order.taxRate)
+
 	return (
 		<Row>
 			<div className="quantity">{product.quantity}</div>
 			<div className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</div>
-			<div className="netto">{product.netto} €</div>
-			<div className="netto">{product.totalNetto} €</div>
-			<div className="brutto">{product.totalBrutto} €</div>
+			<div className="price">{price.toFixed(2)} €</div>
+			<div className="netto">{totalNetto.toFixed(2)} €</div>
+			<div className="brutto">{totalBrutto.toFixed(2)} €</div>
 		</Row>
 	)
 }
 
-const Bill = props => {
-	const company = props.data.company
-	const billMeta = props.data.billMeta
-	const order = props.data.order
-	const bill = order.bill
+const Bill = ({company, billMeta, order}) => {
+	let bill = order.bill,
+
+		orderTotal = calcOrderTotal(order),
+		taxMoney = calcTaxMoney(orderTotal, order.taxRate)
 
 	return (
 		<HoverBox className="bill">
+			<Row className="bill__tools">
+				<h3><PrintBtn type="big" /></h3>
+			</Row>
+			
 			<Row>
 				<InputField className="grid-col-8" type="image" value={company.logo} height="97" />
 				<div className="grid-col-4 textright">
@@ -67,10 +87,10 @@ const Bill = props => {
 					<div className="grid-col-5">{bill.customer.nr}</div>
 					<br />
 					<div className="grid-col-7">Rechnungsdatum</div>
-					<InputField className="grid-col-5" value={bill.created} />
+					<InputField className="grid-col-5" value={formatDate(bill.created, 'de-DE')} />
 					<br />
 					<div className="grid-col-7">Lieferdatum</div>
-					<InputField className="grid-col-5" value={order.created} />
+					<InputField className="grid-col-5" value={formatDate(order.created, 'de-DE')} />
 					<br /><br />
 					Bitte bei Zahlung angeben.
 				</div>
@@ -94,12 +114,12 @@ const Bill = props => {
 				<Row className="bill__article-sorters">
 					<div className="quantity">Menge</div>								
 					<div className="name">Artikel</div>
-					<div className="netto">Einzelnetto</div>
-					<div className="netto">Gesamtnetto</div>
-					<div className="brutto">Gesamtbrutto</div>
+					<div className="price">Einzelpreis</div>
+					<div className="netto">netto</div>
+					<div className="brutto">brutto</div>
 				</Row>
 				{ 
-					order.products.map(product => <ProductRow data={product} />) 
+					order.products.map(product => <ProductRow data={ {product, order} } />) 
 				}
 				<Row className="textcenter">
 					<AddBtn type="medium" title="Artikel hinzufügen" />
@@ -108,19 +128,19 @@ const Bill = props => {
 					<div className="grid-col-5">
 						<Row>
 							<div className="grid-col-7">Brutto</div>
-							<div className="grid-col-5">{order.brutto} €</div>
+							<div className="grid-col-5">{orderTotal.toFixed(2)} €</div>
 						</Row>
 						<Row>
 							<div className="grid-col-7">Daraus {order.taxRate}% USt.</div>
-							<div className="grid-col-5">{order.tax} €</div>
+							<div className="grid-col-5">{taxMoney.toFixed(2)} €</div>
 						</Row>
 						<Row>
 							<div className="grid-col-7">Versandkosten</div>
-							<div className="grid-col-5">{order.shippingCosts} €</div>
+							<div className="grid-col-5">{order.shippingCosts.toFixed(2)} €</div>
 						</Row>
 						<Row className="sum">
 							<div className="grid-col-7">Summe</div>
-							<div className="grid-col-5">{order.total} €</div>
+							<div className="grid-col-5">{(orderTotal + order.shippingCosts).toFixed(2)} €</div>
 						</Row>
 					</div>
 				</Row>

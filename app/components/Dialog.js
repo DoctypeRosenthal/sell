@@ -7,6 +7,8 @@ import Customer from './Dialog/Customer'
 import Order from './Dialog/Order'
 import Product from './Dialog/Product'
 
+import translations from '../translations.json'
+
 export default class Dialog extends React.Component {
 
 	constructor(props) {
@@ -26,20 +28,8 @@ export default class Dialog extends React.Component {
 	}
 
 	getTitle(mode, type) {
-		const map = {
-			adding: {
-				customer: 'Neuer Kunde',
-				order: 'Neue Bestellung',
-				product: 'Neue Veröffentlichung'
-			},
-			editing: {
-				customer: 'Kunde bearbeiten',
-				order: 'Bestellung bearbeiten',
-				product: 'Veröffentlichung bearbeiten'
-			}
-		}
-		
-		return map[mode][type] || ''		
+		let map = translations.DE.dialog
+		return map[mode][type] || ''
 	}
 
 	getItem(mode, type, id) {
@@ -57,101 +47,34 @@ export default class Dialog extends React.Component {
 	handleSave() {
 		let { store, actions } = this.props,
 			{ item, type, id } = this.state
+
 		store.dispatch(actions.updateItem(type, item, id))
 	}
 
-	getChild() {
+	getChild(item) {
+		let storeState = this.props.store.getState()
 		switch (this.state.type) {
 			case 'customer':
-				return <Customer />
+				return <Customer customer={item} />
 			case 'order':
-				return <Orders />
+				return <Order order={item} company={storeState.company} billMeta={storeState.billMeta} />
 			case 'product':
-				return <Product />
+				return <Product data={item} />
 			default:
-				return 'pups'
+				return <p>Sorry, No Dialog type found.</p>
 		}
 	}
 
 	render() {
 		let { visible, title, mode } = this.state,
-			Child = this.getChild(),
 			wrapperProps = {
 				title,
 				visible,
-				onSave: this.handleSave().bind(this)
+				onSave: this.handleSave.bind(this)
 			}
 
-		console.log('Kinder: ', Child)
 		console.log('Data: ', this.state.item)
 
-		return <Wrapper {...wrapperProps}><Child data={this.state.item} /></Wrapper>
+		return <Wrapper {...wrapperProps}>{this.getChild(this.state.item)}</Wrapper>
 	}
-}
-
-export class TodoItem extends React.Component {
-	constructor(props) {
-		
-	    super(props)
-	    this.state = {
-	    	edit: false,
-	      	text: this.props.text || ''
-	    }
-	}
-
-	toggleEditing() {
-		this.setState({edit: !this.state.edit})
-	}
-
-  	handleSubmit(evt) {
-	    const text = evt.target.value.trim()
-	    if (evt.keyCode === 13) {
-	      	this.props.onSave(text)
-	      	if (this.props.newTodo) {
-	        	this.setState({ text: '' })
-	      	}
-	      	this.toggleEditing()
-	    }
-  	}
-
-  	handleChange(evt) {
-    	this.setState({ text: evt.target.value })
-  	}
-
-  	handleBlur(evt) {
-    	if (!this.props.newTodo) {
-      		this.props.onSave(evt.target.value)
-    	}
-    	this.toggleEditing()
-  	}
-
-  	inputField() {
-  		return (
-			<input 
-		        type="text"
-		        placeholder={this.props.placeholder}
-		        autoFocus="true"
-		        value={this.state.text}
-		        onBlur={this.handleBlur.bind(this)}
-		        onChange={this.handleChange.bind(this)}
-		        onKeyDown={this.handleSubmit.bind(this)} 
-		    />
-  		)
-  	}
-
-  	span() {
-		return <div>
-				<input type="checkbox" onChange={this.props.onToggle} checked={this.props.completed}/>
-				<span className={classnames({completed: this.props.completed})} onDoubleClick={this.toggleEditing.bind(this)}>{this.state.text}</span>
-				<span className="todo-list__delete" onClick={this.props.onDelete}>❌</span>
-			</div>
-  	}
-
-  	render() {
-	    return (
-	  		<li className="todo-list__item" key={this.props.key}>
-				{ this.state.edit ? this.inputField() : this.span() }
-			</li>
-	    )
-  	}
 }

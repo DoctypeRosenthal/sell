@@ -24,6 +24,18 @@
 		&__placeholder
 			display: none
 
+	&__tools
+		position: absolute
+		opacity: 0
+		transition: all .3s
+		left: 0
+		top: 0
+		padding: 0
+
+	&:hover &__tools
+		opacity: 1
+		padding: $standard-spacing
+
 	&__sender
 		font-size: map-get($font-sizes, 'xs')
 
@@ -45,6 +57,7 @@
 		.netto,
 		.netto,
 		.brutto,
+		.price,
 		.total,
 		.sum
 			display: block
@@ -55,6 +68,7 @@
 
 		.quantity,
 		.netto,
+		.price,
 		.discount
 			padding-right: $small-spacing
 
@@ -63,6 +77,7 @@
 
 		.netto,
 		.brutto,
+		.price,
 		.total
 			width: 18%
 

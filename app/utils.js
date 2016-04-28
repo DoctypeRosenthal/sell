@@ -17,3 +17,8 @@ export const makeRandText = letters => {
 }
 // create a new ID: Date in ms as bigint + a random text of 5 letters
 export const makeID = () => parseInt(Date.now()) + makeRandText(5)
+export const formatDate = dateInMs => (new Date(dateInMs)).toLocaleDateString()
+export const calcNetto = (brutto, tax) => brutto - brutto / (100 + tax) * tax
+export const calcBrutto = (netto, tax) => netto + netto / 100 * tax
+
+export const calcTaxMoney = (brutto, tax) => brutto / (100 + tax) * tax

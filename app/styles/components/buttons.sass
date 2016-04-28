@@ -5,6 +5,7 @@
 .add-btn,
 .save-btn,
 .delete-btn,
+.print-btn,
 .close-btn
 	+transition(all .3s)
 	position: relative
@@ -87,3 +88,16 @@
 
 	&--small
 		float: right
+
+.print-btn
+	background: $blue
+	color: $black
+	border-color: $blue
+
+	&:hover
+		background: lighten($blue, 8%)
+		border-color: $blue
+
+	&--big
+		float: right
+

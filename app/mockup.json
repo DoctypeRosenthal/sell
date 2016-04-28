@@ -29,33 +29,33 @@
 	],
 	"orders": [
 		{
+			"id": "xyz",
 		    "nr": 363,
 		    "created": "14.12.15",
-		    "brutto": 99999.99,
 		    "taxRate": 19,
-		    "tax": 99999.99,
-		    "shippingCosts": 9999.99,
-		    "total": 99999.99,
+		    "shippingCosts": 2.00,
 		    "dispatched": "14.12.15",
 		    "products": [
 		    	{ 
-		    		"quantity": 99999,
+		    		"id": "xyz",
+		    		"quantity": 10,
 		    		"nr": 2,
 					"type": "CD",
-					"netto": 9999.99,
-					"totalNetto": 99999.99,
-					"totalBrutto": 99999.99,
+					"price": 15.50,
 					"label": {
+						"id": "xyz",
 						"name": "Händlerabgabe",
-						"netto": 9999.99
+						"price": 15.00
 					},
 					"group": {
+						"id": "xyz",
 						"nr": 301,
 						"name": "Noch:Schon NochSchon vollkorrekter und überlanger Titel zum Testen"
 					}
 		    	}
 		    ],
 		    "customer": {
+		    	"id": "xyz",
 		    	"nr": 431,
 		    	"prefix": null,
 		    	"gender": "Herr",
@@ -67,10 +67,12 @@
 		    	"email": "jonas@dingsbums.de"
 		    },
 		    "bill": {
+		    	"id": "xyz",
 		    	"nr": 14009,
 		    	"created": "27.5.2014",
 		    	"payed": "30.5.2014",
 		    	"customer": {
+		    		"id": "xyz",
 					"nr": 411,
 					"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
 					"gender": "Herr",

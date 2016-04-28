@@ -1,5 +1,5 @@
 
-export const dialog = (state = { mode: undefined, type: undefined, id: undefined }, action) => {
+export const dialog = (state = { mode: 'adding', type: undefined, id: undefined }, action) => {
 	switch(action.type) {
 		case 'SET_DIALOG_MODE':
 			let q = action.query
@@ -67,8 +67,36 @@ export const customers = (state = {}, action) => {
 	}
 }
 
+const order = (state = {}, action) => {
+	switch(action.type) {
+		case 'CREATE_ORDER':
+			return {
+				id: action.id,
+				nr: action.nr,
+				created: action.created,
+				taxRate: action.taxRate,
+				shippingCosts: 0,
+				dispatched: undefined,
+				products: [],
+				customer: {},
+				bill: {
+					id: action.id,
+					nr: action.bill.nr,
+					created: action.created,
+					payed: undefined,
+					customer: {}
+				}
+			}
+	}
+}
+
 export const orders = (state = {}, action) => {
 	switch(action.type) {
+		case 'CREATE_ORDER':
+			return [
+				order(undefined, action),
+				...state
+			]
 		default:
 			return state
 	}

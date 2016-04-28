@@ -5,15 +5,25 @@ export const setDialogMode  = query => ({ type: 'SET_DIALOG_MODE', query })
 export const setPage = path => ({ type: 'SET_ACTIVE_PAGE', path })
 
 export const createCustomer = () => ({ type: 'CREATE_CUSTOMER', id: makeID() })
-export const createOrder 	= () => ({ type: 'CREATE_ORDER', id: makeID() })
+export const createOrder 	= storeState => ({ 
+	type: 'CREATE_ORDER', 
+	id: makeID(),
+	created: Date.now(),
+	taxRate: storeState.company.taxRates[0],
+	nr: 2755, // later: fetch the next order number from server
+	bill: {
+		nr: 160965 // later: fetch the next order number from server
+	}
+})
 export const createProduct  = () => ({ type: 'CREATE_PRODUCT', id: makeID() })
 
-export const createItem = query => {
+export const createItem = (query, storeState) => {
+	console.log(query.new)
 	switch(query.new) {
 		case 'customer':
 			return createCustomer()
 		case 'order':
-			return createOrder()
+			return createOrder(storeState)
 		case 'product':
 			return createProduct()
 		default:
@@ -37,3 +47,4 @@ export const updateItem = (type, item, id) => {
 			return {}
 	}	
 }
+

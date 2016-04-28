@@ -4,8 +4,7 @@ import Row from '../Row'
 import InputField from '../InputField'
 import HoverBox from '../HoverBox'
 
-export default function CustomerDialog(props) {
-	const customer = props.data
+export default function CustomerDialog({customer}) {
 	return (
 		<HoverBox>
 			<Row><InputField placeholder="Namenszusatz" value={customer.prefix}/></Row>
