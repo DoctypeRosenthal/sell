@@ -2,7 +2,7 @@
  * SELECTOR FUNCTIONS
  * (not REAL selectors yet, only prototypes)
  */
-const getByID = (id, state) => state.filter(x => x.id === id)
+const getByID = (id, state) => state.filter(x => x.id === id)[0]
 
 export const getItemByID = (id, type, state) => {
 	switch(type) {
