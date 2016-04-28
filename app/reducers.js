@@ -3,20 +3,23 @@ export const dialog = (state = { mode: undefined, type: undefined, id: undefined
 	switch(action.type) {
 		case 'SET_DIALOG_MODE':
 			let q = action.query
-			if (q.edit && q.id) {
+			if (!!q.edit && !!q.id) {
 				return {
 					mode: 'editing',
 					type: q.edit,
 					id: q.id
 				}
-			} else if (q.new) {
+			} else if (!!q.new) {
 				return {
 					mode: 'adding',
 					type: q.new,
 					id: undefined
 				}
-			} else {
-				return state
+			} else { // hide the Dialog
+				return {
+					...state,
+					mode: undefined
+				}
 			}
 		default:
 			return state

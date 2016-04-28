@@ -9,15 +9,25 @@ import Product from './Dialog/Product'
 
 import translations from '../translations.json'
 
+/**
+ * The stateful Dialog Container Component
+ */
 export default class Dialog extends React.Component {
 
 	constructor(props) {
+		
 	    super(props)
 
-	    let { selectors, actions, store } = props,
+	    
+
+	    this.state = this.makeStateObject(props)
+	}
+
+	makeStateObject(props) {
+		let { selectors, actions, store } = props,
 	    	{ mode, id, type } = store.getState().dialog
 
-	    this.state = {
+	    return {
 	    	type,
 	    	mode,
 	    	id,
@@ -25,6 +35,10 @@ export default class Dialog extends React.Component {
 	    	title: this.getTitle(mode, type),
 	    	visible: !!mode
 	    }
+	}
+
+	componentWillReceiveProps(props) {
+		this.setState(this.makeStateObject(props))
 	}
 
 	getTitle(mode, type) {

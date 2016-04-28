@@ -60,9 +60,7 @@ browserHistory.listen(location => {
 		store.dispatch(actions.createItem(location.query, storeState))
 	}
 
-	if (!!location.query.new || !!location.query.edit) {
-		store.dispatch(actions.setDialogMode(location.query))
-	}
+	store.dispatch(actions.setDialogMode(location.query))
 })
 
 /**

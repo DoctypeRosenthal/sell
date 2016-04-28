@@ -18,7 +18,7 @@ export default class Home extends React.Component {
 				</Row>
 
 				<Row>
-					<AddBtn type="medium" title="Bestellung hinzufügen" />
+					<Link to="?new=order"><AddBtn type="medium" title="Bestellung hinzufügen" /></Link>
 				</Row>
 
 				<Row>

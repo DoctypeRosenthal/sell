@@ -18,7 +18,6 @@ export const createOrder 	= storeState => ({
 export const createProduct  = () => ({ type: 'CREATE_PRODUCT', id: makeID() })
 
 export const createItem = (query, storeState) => {
-	console.log(query.new)
 	switch(query.new) {
 		case 'customer':
 			return createCustomer()

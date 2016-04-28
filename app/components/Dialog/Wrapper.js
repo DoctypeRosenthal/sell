@@ -3,6 +3,8 @@ import React from 'react'
 import Row from '../Row'
 import { SaveBtn, CloseBtn } from '../Buttons'
 
+import { Link } from 'react-router'
+
 export default function Wrapper({visible, title, children}) {
 	return (
 		<div className={'dialog__layer' + (visible ? ' show' : '')}>
@@ -10,7 +12,7 @@ export default function Wrapper({visible, title, children}) {
 				<div className="dialog__center">
 					<div className="dialog__window">
 						<Row>
-							<div className="dialog__header">{ title }<SaveBtn type="big" /><CloseBtn type="big" /></div>
+							<div className="dialog__header">{ title }<SaveBtn type="big" /><Link to="/"><CloseBtn type="big" /></Link></div>
 						</Row>
 						<Row className="dialog__children">
 							{ children }
