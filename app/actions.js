@@ -25,6 +25,8 @@ export const createItem 	= (query, storeState) => {
 			return createOrder(storeState)
 		case 'product':
 			return createProduct()
+		default:
+			return { type: '' }
 	}
 }
 

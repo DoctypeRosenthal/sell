@@ -13,6 +13,7 @@ import * as selectors from './selectors'
 
 /* routing */
 import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { ROUTES } from './routes'
 
 /* mockup data */
@@ -22,7 +23,8 @@ const _INITIAL_STATE_ = mockupData // must be moved out later to the index-templ
 
 const store = createStore(
 	combineReducers({
-		...reducers
+		...reducers,
+		routing: routerReducer
 	}),
 	_INITIAL_STATE_ // global. is rendered and sent by the server
 )
@@ -44,15 +46,18 @@ const createElement = (Component, props) => {
 	return <Component {...extendedProps} />
 }
 
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store)
+
 const renderDatShit = () => ReactDOM.render(
-	<Router history={browserHistory} createElement={createElement} routes={ROUTES}/>,
+	<Router history={history} createElement={createElement} routes={ROUTES}/>,
   	document.getElementById('app')
 )
 
 /**
  * Update the store depending on the route.
  */
-browserHistory.listen(location => {
+history.listen(location => {
 	store.dispatch(actions.setPage(location.pathname))
 
 	if (!!location.query.new) {

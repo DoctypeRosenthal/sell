@@ -1,25 +1,25 @@
 import React from 'react'
 
-export const AddBtn = props => {
+export const AddBtn = ({type, title, onClick}) => {
 	return (
-		<button className={ 'ico-add add-btn add-btn--' + (props.type || 'medium') }>{ props.title }</button>
+		<button className={ 'ico-add add-btn add-btn--' + (type || 'medium') } onClick={onClick}>{ title }</button>
 	)
 }
 
-export const SaveBtn = props => {
+export const SaveBtn = ({type, title, onClick}) => {
 	return (
-		<button className={ 'ico-save save-btn save-btn--' + (props.type || 'medium') }>{ props.title }</button>
+		<button className={ 'ico-save save-btn save-btn--' + (type || 'medium') } onClick={onClick}>{ title }</button>
 	)
 }
 
-export const CloseBtn = props => {
+export const CloseBtn = ({type, title, onClick}) => {
 	return (
-		<button className={ 'ico-close close-btn close-btn--' + (props.type || 'medium') }>{ props.title }</button>
+		<button className={ 'ico-close close-btn close-btn--' + (type || 'medium') } onClick={onClick}>{ title }</button>
 	)
 }
 
-export const PrintBtn = props => {
+export const PrintBtn = ({type, title, onClick}) => {
 	return (
-		<button className={ 'ico-print print-btn print-btn--' + (props.type || 'medium') }>{ props.title }</button>
+		<button className={ 'ico-print print-btn print-btn--' + (type || 'medium') } onClick={onClick}>{ title }</button>
 	)
 }

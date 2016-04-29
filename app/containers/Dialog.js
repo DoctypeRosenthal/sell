@@ -25,15 +25,19 @@ export default class Dialog extends React.Component {
 
 	makeStateObject(props) {
 		let { selectors, actions, store } = props,
-	    	{ mode, id, type } = store.getState().dialog
+	    	{ mode, id, type } = store.getState().dialog,
+	    	visible = false
 
+	    if (!!mode && ['customer', 'product', 'order'].indexOf(type) > -1) {
+	    	visible = true
+	    }
 	    return {
 	    	type,
 	    	mode,
 	    	id,
 	    	item: this.getItem(mode, type, id),
 	    	title: this.getTitle(mode, type),
-	    	visible: !!mode
+	    	visible
 	    }
 	}
 
@@ -85,9 +89,12 @@ export default class Dialog extends React.Component {
 			wrapperProps = {
 				title,
 				visible,
+				page: this.props.store.getState().activePage,
 				onSave: this.handleSave.bind(this)
 			}
 
 		return <Wrapper {...wrapperProps}>{visible ? this.getChild(this.state.item) : ''}</Wrapper>
 	}
 }
+
+export const removeQueryFromURL = url => url.split("?")[0]
