@@ -1,0 +1,16 @@
+{
+	"DE": {
+		"dialog" : {
+			"adding": {
+				"customer": "Neuer Kunde",
+				"order": "Neue Bestellung",
+				"product": "Neue Veröffentlichung"
+			},
+			"editing": {
+				"customer": "Kunde bearbeiten",
+				"order": "Bestellung bearbeiten",
+				"product": "Veröffentlichung bearbeiten"
+			}
+		}
+	}
+}

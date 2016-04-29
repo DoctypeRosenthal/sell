@@ -3,7 +3,8 @@ import React from 'react'
 import Header from './components/Header'
 import Notifier from './components/Notifier'
 import PopupBox from './components/PopupBox'
-import Dialog from './components/Dialog'
+
+import Dialog from './containers/Dialog'
 
 export default class App extends React.Component {
 

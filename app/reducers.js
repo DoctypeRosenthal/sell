@@ -1,7 +1,12 @@
+import { 
+	UPDATE_PRODUCT, UPDATE_ORDER, UPDATE_CUSTOMER, 
+	CREATE_PRODUCT, CREATE_ORDER, CREATE_CUSTOMER, 
+	SET_ACTIVE_PAGE, SET_DIALOG_MODE
+} from './constants'
 
 export const dialog = (state = { mode: undefined, type: undefined, id: undefined }, action) => {
 	switch(action.type) {
-		case 'SET_DIALOG_MODE':
+		case SET_DIALOG_MODE:
 			let q = action.query
 			if (!!q.edit && !!q.id) {
 				return {
@@ -28,7 +33,7 @@ export const dialog = (state = { mode: undefined, type: undefined, id: undefined
 
 export const activePage = (state = 'home', action) => {
 	switch(action.type) {
-		case 'SET_ACTIVE_PAGE':
+		case SET_ACTIVE_PAGE:
 			return action.path.replace('/', '') || state
 		default:
 			return state
@@ -38,7 +43,7 @@ export const activePage = (state = 'home', action) => {
 const customer = (state = {}, action) => {
 	console.log(action)
 	switch(action.type) {
-		case 'CREATE_CUSTOMER':
+		case CREATE_CUSTOMER:
 			return {
 				id: action.id,
 				nr: null,
@@ -59,7 +64,7 @@ const customer = (state = {}, action) => {
 
 export const customers = (state = {}, action) => {
 	switch(action.type) {
-		case 'CREATE_CUSTOMER':
+		case CREATE_CUSTOMER:
 			return [
 				customer(undefined, action),
 				...state
@@ -72,7 +77,7 @@ export const customers = (state = {}, action) => {
 
 const order = (state = {}, action) => {
 	switch(action.type) {
-		case 'CREATE_ORDER':
+		case CREATE_ORDER:
 			return {
 				id: action.id,
 				nr: action.nr,
@@ -95,7 +100,7 @@ const order = (state = {}, action) => {
 
 export const orders = (state = {}, action) => {
 	switch(action.type) {
-		case 'CREATE_ORDER':
+		case CREATE_ORDER:
 			return [
 				order(undefined, action),
 				...state
@@ -146,8 +151,3 @@ export const user = (state = {}, action) => {
 			return state
 	}
 }
-
-
-
-
-

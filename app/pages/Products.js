@@ -4,7 +4,6 @@ import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination' 
 import Row from '../components/Row'
 import BrowseList from '../components/BrowseList'
-import Dialog from '../components/Dialog'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -19,8 +18,6 @@ export default class Products extends React.Component {
 				</Row>
 
 				<BrowseList type="products" data={mockupData.productGroups}/>
-
-				<Dialog type="product" />
 
 			</main>
 		)

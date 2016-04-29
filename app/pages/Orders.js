@@ -4,7 +4,6 @@ import Row from '../components/Row'
 import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination'
 import BrowseList from '../components/BrowseList'
-import Dialog from '../components/Dialog'
 
 /* mockup data */
 import mockupData from '../mockup.json'
@@ -20,12 +19,6 @@ export default class Orders extends React.Component {
 
 				<BrowseList type="orders" data={mockupData.orders} />
 				
-				<Dialog type="order" show={true} data={{
-					company: mockupData.company,
-					billMeta: mockupData.billMeta,
-					order: mockupData.orders[0]
-				}} />
-
 			</main>
 		)
 	}

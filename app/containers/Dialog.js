@@ -2,10 +2,10 @@ import React from 'react'
 
 import classnames from 'classnames'
 
-import Wrapper from './Dialog/Wrapper'
-import Customer from './Dialog/Customer'
-import Order from './Dialog/Order'
-import Product from './Dialog/Product'
+import Wrapper from '../components/Dialog/Wrapper'
+import Customer from '../components/Dialog/Customer'
+import Order from '../components/Dialog/Order'
+import Product from '../components/Dialog/Product'
 
 import translations from '../translations.json'
 

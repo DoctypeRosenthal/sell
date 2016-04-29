@@ -1,0 +1,13 @@
+/**
+ * ACTIONS
+ * @type {String}
+ */
+
+export const SET_DIALOG_MODE = 'SET_DIALOG_MODE'
+export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE'
+export const CREATE_CUSTOMER = 'CREATE_CUSTOMER'
+export const CREATE_ORDER = 'CREATE_ORDER'
+export const CREATE_PRODUCT = 'CREATE_PRODUCT'
+export const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER'
+export const UPDATE_ORDER = 'UPDATE_ORDER'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
