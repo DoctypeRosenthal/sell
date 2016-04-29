@@ -1,30 +1,11 @@
 /**
- * SELECTOR FUNCTIONS
- * (not REAL selectors yet, only prototypes)
+ * SELECTOR AND MEMOIZED SELECTOR FUNCTIONS
+ * (not REAL memoized selectors yet, only prototypes)
  */
-const getByID = (id, state) => state.filter(x => x.id === id)[0]
+export const getCustomerById = (id, state) => state.customers.filter(x => x.id === id)[0]
+export const getOrderById = (id, state) => state.orders.filter(x => x.id === id)[0]
+export const getProductById = (id, state) => state.productGroups.filter(x => x.id === id)[0]
 
-export const getItemByID = (id, type, state) => {
-	switch(type) {
-		case 'customer':
-			return getByID(id, state.customers)
-		case 'order':
-			return getByID(id, state.orders)
-		case 'product':
-			return getByID(id, state.products)
-	}
-}
-
-const getLatest = state => state[0]
-
-export const getLatestItem = (type, state) => {
-	switch(type) {
-		case 'customer':
-			return getLatest(state.customers)
-		case 'order':
-			return getLatest(state.orders)
-		case 'product':
-			return getLatest(state.products)
-	}
-}
-
+export const getLatestCustomer = state => state.customers[0]
+export const getLatestOrder = state => state.orders[0]
+export const getLatestProduct = state => state.productGroups[0]

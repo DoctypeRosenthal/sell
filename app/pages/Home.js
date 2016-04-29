@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Link } from 'react-router'
 
 import { AddBtn } from '../components/Buttons'
@@ -8,17 +9,23 @@ import Row from '../components/Row'
 
 export default class Home extends React.Component {
 	render() {
-		let productGroups = this.props.store.getState().productGroups
+		let { store, actions } = this.props,
+			storeState = store.getState(),
+			newOrder = () => {
+				store.dispatch(actions.createOrder(store.getState()))
+				store.dispatch(actions.editNewOrder())
+			}
 		
+
 		return (
 			<main>
 				<Row>
 					<h3>Hallo Luis</h3>
-					Es gibt <Link to="/orders?undispatched">4 unversandte Bestellungen</Link>
+					Es gibt <Link to="/orders/undispatched">4 unversandte Bestellungen</Link>
 				</Row>
 
 				<Row>
-					<Link to="?new=order"><AddBtn type="medium" title="Bestellung hinzufügen" /></Link>
+					<AddBtn type="medium" title="Bestellung hinzufügen" onClick={newOrder}/>
 				</Row>
 
 				<Row>
@@ -32,7 +39,7 @@ export default class Home extends React.Component {
 
 				<Row>
 					<h4>Produktionen</h4>
-					{ productGroups.map(group => (
+					{ storeState.productGroups.map(group => (
 						<HoverBox className="grid-col-4">
 							<StatsWidgetProduct data={group} />
 						</HoverBox>

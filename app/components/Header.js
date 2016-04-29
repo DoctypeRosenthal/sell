@@ -1,33 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router'
 
 import Navigation from './Navigation'
 import { AddBtn } from './Buttons'
 import SearchField from './SearchField'
 
-/**
- * Returns a URL-query to open the Dialog that matches the current page 
- * @param  {string} page The current page
- * @return {string}      A URL-query
- */
-const getHref = page => {
+const getAction = page => {
 	switch(page) {
 		case 'customers':
-			return {
-				pathname: '/customers',
-				query: { new: 'customer' }
+			return () => {
+				// store.dispatch(actions.createCustomer())
+				// store.dispatch(actions.editNewCustomer())
 			}
 		case 'orders':
-			return {
-				pathname: '/orders',
-				query: { new: 'order' }
+			return () => {
+				
+				// store.dispatch(actions.createOrder())
+				// store.dispatch(actions.editNewOrder())
 			}
 		case 'products':
-			return {
-				pathname: '/products',
-				query: { new: 'product' }
+			return () => {
+				// create and edit new product group
 			}
-	}
+	}	
 }
 
 const getTools = page => {
@@ -35,12 +29,14 @@ const getTools = page => {
 		case 'customers':
 		case 'orders':
 		case 'products':
-			return 	<div>
-						<Link to={ getHref(page) }><AddBtn type="main"/></Link>
-						<SearchField />
-					</div>
+			return (	
+				<div>
+					<AddBtn type="main" onClick={getAction(page)}/>
+					<SearchField />
+				</div>
+			)
 		default:
-			return 
+			return
 	}
 }
 

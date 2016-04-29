@@ -1,30 +1,26 @@
-import { 
+import {
+	EDIT_NEW_PRODUCT, EDIT_NEW_ORDER, EDIT_NEW_CUSTOMER,
+	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID,
 	UPDATE_PRODUCT, UPDATE_ORDER, UPDATE_CUSTOMER, 
 	CREATE_PRODUCT, CREATE_ORDER, CREATE_CUSTOMER, 
-	SET_ACTIVE_PAGE, SET_DIALOG_MODE
+	SET_ACTIVE_PAGE
 } from './constants'
 
-export const dialog = (state = { mode: undefined, type: undefined, id: undefined }, action) => {
+export const dialog = (state = { action: undefined, id: undefined }, action) => {
 	switch(action.type) {
-		case SET_DIALOG_MODE:
-			let q = action.query
-			if (!!q.edit && !!q.id) {
-				return {
-					mode: 'editing',
-					type: q.edit,
-					id: q.id
-				}
-			} else if (!!q.new) {
-				return {
-					mode: 'adding',
-					type: q.new,
-					id: undefined
-				}
-			} else { // hide the Dialog
-				return {
-					...state,
-					mode: undefined
-				}
+		case EDIT_NEW_CUSTOMER:
+		case EDIT_NEW_ORDER:
+		case EDIT_NEW_PRODUCT:
+			return {
+				action: action.type,
+				id: undefined
+			}
+		case EDIT_CUSTOMER_BY_ID:
+		case EDIT_PRODUCT_BY_ID:
+		case EDIT_ORDER_BY_ID: 
+			return {
+				action: action.type,
+				id: action.id
 			}
 		default:
 			return state

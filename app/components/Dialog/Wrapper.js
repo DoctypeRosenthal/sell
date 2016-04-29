@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router'
-
-import { removeQueryFromURL } from '../../utils'
 
 import Row from '../Row'
 import { SaveBtn, CloseBtn } from '../Buttons'
 
-export default function Wrapper({visible, title, children, onSave, page}) {
+export default function Wrapper({visible, title, children, onSave, onClose}) {
 	return (
 		<div className={'dialog__layer' + (visible ? ' show' : '')}>
 			<div className="dialog__scroll">
@@ -16,7 +13,7 @@ export default function Wrapper({visible, title, children, onSave, page}) {
 							<div className="dialog__header">
 								{ title }
 								<SaveBtn type="big" onClick={onSave} />
-								<Link to={removeQueryFromURL(page)}><CloseBtn type="big" /></Link>
+								<CloseBtn type="big" onClick={onClose} />
 							</div>
 						</Row>
 						<Row className="dialog__children">

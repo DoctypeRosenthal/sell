@@ -59,13 +59,6 @@ const renderDatShit = () => ReactDOM.render(
  */
 history.listen(location => {
 	store.dispatch(actions.setPage(location.pathname))
-
-	if (!!location.query.new) {
-		let storeState = store.getState()
-		store.dispatch(actions.createItem(location.query, storeState))
-	}
-
-	store.dispatch(actions.setDialogMode(location.query))
 })
 
 /**

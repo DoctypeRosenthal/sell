@@ -3,11 +3,18 @@
  * @type {String}
  */
 
-export const SET_DIALOG_MODE = 'SET_DIALOG_MODE'
-export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE'
+export const EDIT_NEW_CUSTOMER = 'NEW_CUSTOMER'
+export const EDIT_NEW_ORDER = 'NEW_ORDER'
+export const EDIT_NEW_PRODUCT = 'NEW_PRODUCT'
+export const EDIT_PRODUCT_BY_ID = 'EDIT_PRODUCT'
+export const EDIT_ORDER_BY_ID = 'EDIT_ORDER'
+export const EDIT_CUSTOMER_BY_ID = 'EDIT_CUSTOMER'
+
 export const CREATE_CUSTOMER = 'CREATE_CUSTOMER'
 export const CREATE_ORDER = 'CREATE_ORDER'
 export const CREATE_PRODUCT = 'CREATE_PRODUCT'
 export const UPDATE_CUSTOMER = 'UPDATE_CUSTOMER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
+
+export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE'

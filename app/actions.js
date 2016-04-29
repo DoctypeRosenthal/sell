@@ -1,11 +1,17 @@
 import { makeID } from './utils'
 import { 
+	EDIT_NEW_PRODUCT, EDIT_NEW_ORDER, EDIT_NEW_CUSTOMER,
+	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID,
 	CREATE_PRODUCT, CREATE_ORDER, CREATE_CUSTOMER,
 	UPDATE_PRODUCT, UPDATE_ORDER, UPDATE_CUSTOMER,
-	SET_ACTIVE_PAGE, SET_DIALOG_MODE
+	SET_ACTIVE_PAGE
 } from './constants'
 
-export const createCustomer = () => ({ type: CREATE_CUSTOMER, id: makeID() })
+export const editNewOrder = () => ({type: EDIT_NEW_ORDER})
+export const editOrderById = id => ({ type: EDIT_ORDER_BY_ID, id })
+
+export const createCustomer = customer => ({ type: CREATE_CUSTOMER, id: makeID(), customer })
+export const createProduct  = () => ({ type: CREATE_PRODUCT, id: makeID() })
 export const createOrder 	= storeState => ({ 
 	type: CREATE_ORDER, 
 	id: makeID(),
@@ -16,33 +22,23 @@ export const createOrder 	= storeState => ({
 		nr: 160965 // later: fetch the next order number from server
 	}
 })
-export const createProduct  = () => ({ type: CREATE_PRODUCT, id: makeID() })
-export const createItem 	= (query, storeState) => {
-	switch(query.new) {
-		case 'customer':
-			return createCustomer()
-		case 'order':
-			return createOrder(storeState)
-		case 'product':
-			return createProduct()
-		default:
-			return { type: '' }
-	}
-}
 
 export const updateCustomer = (item, id) => ({ type: UPDATE_CUSTOMER, item, id })
 export const updateOrder 	= (item, id) => ({ type: UPDATE_ORDER, item, id })
 export const updateProduct  = (item, id) => ({ type: UPDATE_PRODUCT, item, id })
-export const updateItem 	= (type, item, id) => {
-	switch(type) {
-		case 'customer':
+
+export const updateItem = (item, action, id) => {
+	switch(action) {
+		case EDIT_NEW_PRODUCT:
+		case EDIT_PRODUCT_BY_ID:
+			return updateProduct(item, id)
+		case EDIT_NEW_CUSTOMER:
+		case EDIT_CUSTOMER_BY_ID:
 			return updateCustomer(item, id)
-		case 'order':
+		case EDIT_NEW_ORDER:
+		case EDIT_ORDER_BY_ID:
 			return updateOrder(item, id)
-		case 'product':
-			return updateOrder(item, id)
-	}	
+	}
 }
 
-export const setDialogMode  = query => ({ type: SET_DIALOG_MODE, query })
 export const setPage 		= path => ({ type: SET_ACTIVE_PAGE, path })

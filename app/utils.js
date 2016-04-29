@@ -22,5 +22,3 @@ export const calcNetto = (brutto, tax) => brutto - brutto / (100 + tax) * tax
 export const calcBrutto = (netto, tax) => netto + netto / 100 * tax
 
 export const calcTaxMoney = (brutto, tax) => brutto / (100 + tax) * tax
-
-export const removeQueryFromURL = url => url.split("?")[0]
