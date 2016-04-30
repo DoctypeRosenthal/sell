@@ -4,44 +4,60 @@ import Navigation from './Navigation'
 import { AddBtn } from './Buttons'
 import SearchField from './SearchField'
 
-const getAction = page => {
-	switch(page) {
-		case 'customers':
-			return () => {
-				// store.dispatch(actions.createCustomer())
-				// store.dispatch(actions.editNewCustomer())
-			}
-		case 'orders':
-			return () => {
-				
-				// store.dispatch(actions.createOrder())
-				// store.dispatch(actions.editNewOrder())
-			}
-		case 'products':
-			return () => {
-				// create and edit new product group
-			}
-	}	
-}
+export default class props extends React.Component { 
 
-const getTools = page => {
-	switch (page) {
-		case 'customers':
-		case 'orders':
-		case 'products':
-			return (	
-				<div>
-					<AddBtn type="main" onClick={getAction(page)}/>
-					<SearchField />
-				</div>
-			)
-		default:
-			return
+	constructor(props) {
+		super(props)
+		this.state = {
+			page: props.page
+		}
+	}
+
+	getTools() {
+		switch (this.state.page) {
+			case 'customers':
+			case 'orders':
+			case 'products':
+				return (	
+					<div>
+						<AddBtn type="main" onClick={this.getAction(this.state.page)}/>
+						<SearchField />
+					</div>
+				)
+			default:
+				return
+		}
+	}
+
+	getAction() {
+		let { page } = this.state,
+			{ store, actions } = this.props
+
+		switch(page) {
+			case 'customers':
+				return () => {
+					store.dispatch(actions.createCustomer())
+					store.dispatch(actions.editNewCustomer())
+				}
+			case 'orders':
+				return () => {
+					
+					// store.dispatch(actions.createOrder())
+					// store.dispatch(actions.editNewOrder())
+				}
+			case 'products':
+				return () => {
+					// create and edit new product group
+				}
+		}	
+	}
+
+	render() {
+		return (
+			<header>
+				<Navigation page={this.state.page}/>
+				{ this.getTools() }
+			</header>
+		)
 	}
 }
-
-export default props => 
-	<header>
-		<Navigation page={props.page}/>
-		{ getTools(props.page) }
-	</header>

@@ -23,22 +23,7 @@ export default class Dialog extends React.Component {
 	    super(props)
 	    this.state = {
 	    	item: undefined,
-	    	title: '',
-	    	visible: false
-	    }
-	}
-
-	getVisibility(action) {
-		switch(action) {
-	    	case EDIT_NEW_CUSTOMER:
-			case EDIT_NEW_ORDER:
-			case EDIT_NEW_PRODUCT:
-			case EDIT_CUSTOMER_BY_ID:
-			case EDIT_PRODUCT_BY_ID:
-			case EDIT_ORDER_BY_ID: 
-				return true
-			default:
-				return false
+	    	title: ''
 	    }
 	}
 
@@ -48,8 +33,7 @@ export default class Dialog extends React.Component {
 	    	{ id, action } = store.getState().dialog,
 	    	nextState = {
 		    	item: this.getItem(action, id),
-		    	title: this.getTitle(action),
-		    	visible: this.getVisibility(action)
+		    	title: this.getTitle(action)
 		    }
 
 		this.setState(nextState)
@@ -89,7 +73,8 @@ export default class Dialog extends React.Component {
 	}
 
 	handleClose() {
-		alert('Soll das Fenster geschlossen werden? Pupsipusi?????')
+		let { store, actions } = this.props
+		store.dispatch(actions.hideDialog())
 	}
 
 	getChild() {
@@ -112,14 +97,13 @@ export default class Dialog extends React.Component {
 	}
 
 	render() {
-		let { visible, title } = this.state,
-			wrapperProps = {
-				title,
-				visible,
+		let wrapperProps = {
+				title: this.state.title,
+				visible: this.props.store.getState().dialog.visible,
 				onSave: this.handleSave.bind(this),
 				onClose: this.handleClose.bind(this)
 			}
 
-		return <Wrapper {...wrapperProps}>{visible ? this.getChild() : ''}</Wrapper>
+		return <Wrapper {...wrapperProps}>{this.getChild()}</Wrapper>
 	}
 }

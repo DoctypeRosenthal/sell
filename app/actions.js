@@ -4,11 +4,14 @@ import {
 	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID,
 	CREATE_PRODUCT, CREATE_ORDER, CREATE_CUSTOMER,
 	UPDATE_PRODUCT, UPDATE_ORDER, UPDATE_CUSTOMER,
-	SET_ACTIVE_PAGE
+	SET_ACTIVE_PAGE, HIDE_DIALOG
 } from './constants'
 
 export const editNewOrder = () => ({type: EDIT_NEW_ORDER})
 export const editOrderById = id => ({ type: EDIT_ORDER_BY_ID, id })
+export const editNewCustomer = () => ({type: EDIT_NEW_CUSTOMER})
+export const editCustomerById = id => ({ type: EDIT_CUSTOMER_BY_ID, id })
+export const hideDialog = () => ({type: HIDE_DIALOG})
 
 export const createCustomer = customer => ({ type: CREATE_CUSTOMER, id: makeID(), customer })
 export const createProduct  = () => ({ type: CREATE_PRODUCT, id: makeID() })

@@ -9,9 +9,14 @@
 		z-index: map-get($z-index, 'dialog')
 		display: block
 		overflow: auto
+		opacity: 0
+		transform: scale(1.2,1.2)
 		visibility: hidden
+		transition: all .3s
 
 		&.show
+			opacity: 1
+			transform: scale(1,1)
 			visibility: visible
 
 	&__scroll

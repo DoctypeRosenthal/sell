@@ -15,7 +15,6 @@ export default class Home extends React.Component {
 				store.dispatch(actions.createOrder(store.getState()))
 				store.dispatch(actions.editNewOrder())
 			}
-		
 
 		return (
 			<main>

@@ -18,3 +18,4 @@ export const UPDATE_ORDER = 'UPDATE_ORDER'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 
 export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE'
+export const HIDE_DIALOG = 'HIDE_DIALOG'

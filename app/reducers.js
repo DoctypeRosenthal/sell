@@ -3,16 +3,17 @@ import {
 	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID,
 	UPDATE_PRODUCT, UPDATE_ORDER, UPDATE_CUSTOMER, 
 	CREATE_PRODUCT, CREATE_ORDER, CREATE_CUSTOMER, 
-	SET_ACTIVE_PAGE
+	SET_ACTIVE_PAGE, HIDE_DIALOG
 } from './constants'
 
-export const dialog = (state = { action: undefined, id: undefined }, action) => {
+export const dialog = (state = { action: undefined, visible: false, id: undefined }, action) => {
 	switch(action.type) {
 		case EDIT_NEW_CUSTOMER:
 		case EDIT_NEW_ORDER:
 		case EDIT_NEW_PRODUCT:
 			return {
 				action: action.type,
+				visible: true,
 				id: undefined
 			}
 		case EDIT_CUSTOMER_BY_ID:
@@ -20,7 +21,13 @@ export const dialog = (state = { action: undefined, id: undefined }, action) => 
 		case EDIT_ORDER_BY_ID: 
 			return {
 				action: action.type,
+				visible: true,
 				id: action.id
+			}
+		case HIDE_DIALOG:
+			return {
+				...state,
+				visible: false,
 			}
 		default:
 			return state

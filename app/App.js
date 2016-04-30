@@ -11,6 +11,11 @@ export default class App extends React.Component {
 	render() {
 		let { store, actions, selectors } = this.props,
 			activePage = store.getState().activePage,
+			headerProps = {
+				page: activePage,
+				store,
+				actions
+			},
 			dialogProps = {
 				store, 
 				actions, 
@@ -23,7 +28,7 @@ export default class App extends React.Component {
 				<Notifier show={true} mode="deleted" message="Ihr Bums wurde gelöscht." />
 				<PopupBox show={true} type="info" title="Allen Bums löschen??">pupsi</PopupBox>
 
-				<Header page={activePage} />
+				<Header {...headerProps} />
 
 				{this.props.children}
 
