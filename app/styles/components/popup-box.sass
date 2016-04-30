@@ -6,6 +6,15 @@
 	top: 50%
 	margin-left: -250px
 	margin-top: -300px
+	opacity: 0
+	visibility: hidden
+	transform: scale(1.2,1.2)
+	transition: all .3s
+
+	&.show
+		opacity: 1
+		transform: scale(1,1)
+		visibility: visible
 
 	&__header
 		display: inline-block

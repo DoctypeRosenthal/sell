@@ -13,6 +13,12 @@ export default class PopupBox extends React.Component {
 	    }
 	}
 
+	componentWillReceiveProps(props) {
+		this.setState({
+			show: props.show,
+			callback: props.callback
+		})
+	}
 	getContent(){
 		let { type, children, choices } = this.props
 		switch(type) {
