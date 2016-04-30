@@ -42,8 +42,7 @@ export const StatsGraph = (props) => {
 	)
 }
 
-const LabelRow = (props) => {
-	let label = props.data
+const LabelRow = ({label}) => {
 	return (
 		<tr>
 			<td className="label"><button>{label.name}</button></td>
@@ -54,22 +53,20 @@ const LabelRow = (props) => {
 	)
 }
 
-const ProductRow = (props) => {
-	let product = props.data
+const ProductRow = ({product}) => {
 	return (
 		<tbody>
 			<tr>
 				<th className="type" rowSpan={product.labels.length + 1}><em>{product.type}</em></th>
 			</tr>
 
-			{ product.labels.map(label => <LabelRow data={label} />) }
+			{ product.labels.map(label => <LabelRow label={label} />) }
 
 		</tbody>
 	)
 }
 
-export const StatsWidgetProduct = (props) => {
-	let group = props.data
+export const StatsWidgetProduct = ({group}) => {
 	return (
 		<div className="stats-widget stats-widget--product">
 			<div className="stats-widget__head">
@@ -91,7 +88,7 @@ export const StatsWidgetProduct = (props) => {
 						</tr>
 					</thead>
 
-					{ group.products.map(product => <ProductRow data={product} />) }
+					{ group.products.map(product => <ProductRow product={product} />) }
 
 					<tfoot>
 						<tr className="total">

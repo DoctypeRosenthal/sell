@@ -40,7 +40,7 @@ export default class Home extends React.Component {
 					<h4>Produktionen</h4>
 					{ state().productGroups.map(group => (
 						<HoverBox className="grid-col-4">
-							<StatsWidgetProduct data={group} />
+							<StatsWidgetProduct group={group} />
 						</HoverBox>
 					)) }
 				</Row>

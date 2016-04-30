@@ -12,7 +12,11 @@ export default function OrderDialog({order, company, billMeta}) {
 	return (
 		<div className="order">
 			<Row>
-				<div className="shipping-address grid-col-6">
+				<h4>Status</h4>
+				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
+			</Row>
+			<Row>
+				<div className="shipping-address grid-col-12">
 					<h4>Lieferadresse</h4>
 					<Row><InputField placeholder="Nameszusatz" value={customer.prefix} /></Row>
 					<Row>
@@ -27,10 +31,6 @@ export default function OrderDialog({order, company, billMeta}) {
 						<InputField placeholder="Nameszusatz" value={customer.city} className="grid-col-6"  />
 					</Row>
 				</div>
-			<Row>
-			</Row>
-				<h4>Status</h4>
-				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
 			</Row>
 			<Row>
 				<Bill order={order} company={company} billMeta={billMeta} />

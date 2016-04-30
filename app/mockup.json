@@ -100,20 +100,20 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"netto": 17.00,
+					"price": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 99,
 							"quantity": 200,
-							"netto": 15.00
+							"price": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 100,
-							"netto": 16.00
+							"price": 16.00
 						}
 					]
 				}
@@ -129,60 +129,60 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"netto": 17.00,
+					"price": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 20,
 							"quantity": 20,
-							"netto": 15.00
+							"price": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 50,
 							"quantity": 50,
-							"netto": 16.00
+							"price": 16.00
 						}
 					]
 				},
 				{
 					"nr": 3,
 					"type": "DVD",
-					"netto": 20.00,
+					"price": 20.00,
 					"quantity": 50,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 10,
-							"netto": 17.00
+							"price": 17.00
 						},
 						{
 							"name": "VVK",
 							"sold": 30,
 							"quantity": 30,
-							"netto": 18.00
+							"price": 18.00
 						}
 					]
 				},
 				{
 					"nr": 99999,
 					"type": "LP",
-					"netto": 35.00,
+					"price": 35.00,
 					"quantity": 10,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 5,
-							"netto": 30.00
+							"price": 30.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 5,
-							"netto": 30.00
+							"price": 30.00
 						}
 					]
 				}
@@ -198,20 +198,20 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"netto": 17.00,
+					"price": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 99,
 							"quantity": 200,
-							"netto": 15.00
+							"price": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 100,
-							"netto": 16.00
+							"price": 16.00
 						}
 					]
 				}
@@ -227,60 +227,60 @@
 				{
 					"nr": 2,
 					"type": "CD",
-					"netto": 17.00,
+					"price": 17.00,
 					"quantity": 100,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 20,
 							"quantity": 20,
-							"netto": 15.00
+							"price": 15.00
 						},
 						{
 							"name": "VVK",
 							"sold": 50,
 							"quantity": 50,
-							"netto": 16.00
+							"price": 16.00
 						}
 					]
 				},
 				{
 					"nr": 3,
 					"type": "DVD",
-					"netto": 20.00,
+					"price": 20.00,
 					"quantity": 50,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 10,
-							"netto": 17.00
+							"price": 17.00
 						},
 						{
 							"name": "VVK",
 							"sold": 30,
 							"quantity": 30,
-							"netto": 18.00
+							"price": 18.00
 						}
 					]
 				},
 				{
 					"nr": 99999,
 					"type": "LP",
-					"netto": 35.00,
+					"price": 35.00,
 					"quantity": 10,
 					"labels": [
 						{
 							"name": "Händlerabgabe",
 							"sold": 5,
 							"quantity": 5,
-							"netto": 30.00
+							"price": 30.00
 						},
 						{
 							"name": "VVK",
 							"sold": 5,
 							"quantity": 5,
-							"netto": 30.00
+							"price": 30.00
 						}
 					]
 				}
