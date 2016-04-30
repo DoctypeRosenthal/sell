@@ -19,40 +19,6 @@ export default class Dialog extends React.Component {
 
 	constructor(props) {
 	    super(props)
-	    this.state = {
-	    	item: undefined
-	    }
-	}
-
-	componentWillReceiveProps(nextProps) {
-		// store has triggered a view-update by passing fresh props
-		let { selectors, actions, store } = nextProps,
-	    	{ id, action } = store.getState().dialog,
-	    	nextState = {
-		    	item: this.getItem(action, id)
-		    }
-
-		this.setState(nextState)
-	}
-
-	getItem(action, id) {
-		let { selectors, store } = this.props,
-			state = store.getState()
-
-		switch(action) {
-	    	case EDIT_CUSTOMER_BY_ID:
-	    		return selectors.getCustomerById(id, state)
-			case EDIT_PRODUCT_BY_ID:
-				return selectors.getProductById(id, state)
-			case EDIT_ORDER_BY_ID: 
-				return selectors.getOrderById(id, state)
-	    	case EDIT_NEW_CUSTOMER:
-	    		return selectors.getLatestCustomer(state)
-			case EDIT_NEW_ORDER:
-				return selectors.getLatestOrder(state)
-			case EDIT_NEW_PRODUCT:
-				return selectors.getLatestProduct(state)
-		}		
 	}
 
 	handleSave() {
@@ -68,19 +34,18 @@ export default class Dialog extends React.Component {
 	}
 
 	getChild() {
-		let {company, billMeta, dialog } = this.props.store.getState(),
-			{ item } = this.state
+		let {company, billMeta, dialog } = this.props.store.getState()
 
 		switch (dialog.action) {
 			case EDIT_CUSTOMER_BY_ID:
 			case EDIT_NEW_CUSTOMER:
-				return <Customer customer={item} />
+				return <Customer customer={dialog.item} />
 			case EDIT_ORDER_BY_ID:
 			case EDIT_NEW_ORDER:
-				return <Order order={item} company={company} billMeta={billMeta} />
+				return <Order order={dialog.item} company={company} billMeta={billMeta} />
 			case EDIT_PRODUCT_BY_ID:
 			case EDIT_NEW_PRODUCT:
-				return <Product data={item} />
+				return <Product data={dialog.item} />
 			default:
 				return
 		}

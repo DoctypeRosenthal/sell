@@ -11,6 +11,28 @@ export default class props extends React.Component {
 	}
 
 
+	getAction() {
+		let { store, actions } = this.props,
+			state = () => store.getState()
+
+		switch(state().activePage) {
+			case 'customers':
+				return () => {
+					store.dispatch(actions.createCustomer())
+					store.dispatch(actions.editNewCustomer(state()))
+				}
+			case 'orders':
+				return () => {
+					store.dispatch(actions.createOrder(state()))
+					store.dispatch(actions.editNewOrder(state()))
+				}
+			case 'products':
+				return () => {
+					// create and edit new product group
+				}
+		}	
+	}
+
 	getTools() {
 		switch (this.props.store.getState().activePage) {
 			case 'customers':
@@ -25,28 +47,6 @@ export default class props extends React.Component {
 			default:
 				return
 		}
-	}
-
-	getAction() {
-		let { store, actions } = this.props
-
-		switch(store.getState().activePage) {
-			case 'customers':
-				return () => {
-					store.dispatch(actions.createCustomer())
-					store.dispatch(actions.editNewCustomer())
-				}
-			case 'orders':
-				return () => {
-					
-					store.dispatch(actions.createOrder(store.getState()))
-					store.dispatch(actions.editNewOrder())
-				}
-			case 'products':
-				return () => {
-					// create and edit new product group
-				}
-		}	
 	}
 
 	render() {

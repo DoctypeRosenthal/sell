@@ -17,15 +17,14 @@ export default class App extends React.Component {
 			},
 			dialogProps = {
 				store, 
-				actions, 
-				selectors
+				actions
 			}
 			
 		return (
 			<div className={activePage}>
 
 				<Notifier show={true} mode="deleted" message="Ihr Bums wurde gelöscht." />
-				<PopupBox show={true} type="info" title="Allen Bums löschen??">pupsi</PopupBox>
+				<PopupBox show={false} type="info" title="Allen Bums löschen??">pupsi</PopupBox>
 
 				<Header {...headerProps} />
 

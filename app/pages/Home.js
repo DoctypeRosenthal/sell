@@ -10,10 +10,10 @@ import Row from '../components/Row'
 export default class Home extends React.Component {
 	render() {
 		let { store, actions } = this.props,
-			storeState = store.getState(),
+			state = () => store.getState(),
 			newOrder = () => {
-				store.dispatch(actions.createOrder(store.getState()))
-				store.dispatch(actions.editNewOrder())
+				store.dispatch(actions.createOrder(state()))
+				store.dispatch(actions.editNewOrder(state()))
 			}
 
 		return (
@@ -38,7 +38,7 @@ export default class Home extends React.Component {
 
 				<Row>
 					<h4>Produktionen</h4>
-					{ storeState.productGroups.map(group => (
+					{ state().productGroups.map(group => (
 						<HoverBox className="grid-col-4">
 							<StatsWidgetProduct data={group} />
 						</HoverBox>
