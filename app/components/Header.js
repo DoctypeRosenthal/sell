@@ -8,19 +8,17 @@ export default class props extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.state = {
-			page: props.page
-		}
 	}
 
+
 	getTools() {
-		switch (this.state.page) {
+		switch (this.props.store.getState().activePage) {
 			case 'customers':
 			case 'orders':
 			case 'products':
 				return (	
 					<div>
-						<AddBtn type="main" onClick={this.getAction(this.state.page)}/>
+						<AddBtn type="main" onClick={this.getAction()}/>
 						<SearchField />
 					</div>
 				)
@@ -30,10 +28,9 @@ export default class props extends React.Component {
 	}
 
 	getAction() {
-		let { page } = this.state,
-			{ store, actions } = this.props
+		let { store, actions } = this.props
 
-		switch(page) {
+		switch(store.getState().activePage) {
 			case 'customers':
 				return () => {
 					store.dispatch(actions.createCustomer())
@@ -42,8 +39,8 @@ export default class props extends React.Component {
 			case 'orders':
 				return () => {
 					
-					// store.dispatch(actions.createOrder())
-					// store.dispatch(actions.editNewOrder())
+					store.dispatch(actions.createOrder(store.getState()))
+					store.dispatch(actions.editNewOrder())
 				}
 			case 'products':
 				return () => {
@@ -55,7 +52,7 @@ export default class props extends React.Component {
 	render() {
 		return (
 			<header>
-				<Navigation page={this.state.page}/>
+				<Navigation page={this.props.store.getState().activePage}/>
 				{ this.getTools() }
 			</header>
 		)

@@ -1,4 +1,6 @@
 import { makeID } from './utils'
+import translations from './translations.json'
+
 import { 
 	EDIT_NEW_PRODUCT, EDIT_NEW_ORDER, EDIT_NEW_CUSTOMER,
 	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID,
@@ -7,13 +9,13 @@ import {
 	SET_ACTIVE_PAGE, HIDE_DIALOG
 } from './constants'
 
-export const editNewOrder = () => ({type: EDIT_NEW_ORDER})
-export const editOrderById = id => ({ type: EDIT_ORDER_BY_ID, id })
-export const editNewCustomer = () => ({type: EDIT_NEW_CUSTOMER})
-export const editCustomerById = id => ({ type: EDIT_CUSTOMER_BY_ID, id })
+export const editNewOrder = () => ({type: EDIT_NEW_ORDER, title: translations.DE.dialog[EDIT_NEW_ORDER] })
+export const editOrderById = id => ({ type: EDIT_ORDER_BY_ID, title: translations.DE.dialog[EDIT_ORDER_BY_ID], id })
+export const editNewCustomer = () => ({type: EDIT_NEW_CUSTOMER, title: translations.DE.dialog[EDIT_NEW_CUSTOMER] })
+export const editCustomerById = id => ({ type: EDIT_CUSTOMER_BY_ID, title: translations.DE.dialog[EDIT_CUSTOMER_BY_ID], id })
 export const hideDialog = () => ({type: HIDE_DIALOG})
 
-export const createCustomer = customer => ({ type: CREATE_CUSTOMER, id: makeID(), customer })
+export const createCustomer = customer => ({ type: CREATE_CUSTOMER, id: makeID() })
 export const createProduct  = () => ({ type: CREATE_PRODUCT, id: makeID() })
 export const createOrder 	= storeState => ({ 
 	type: CREATE_ORDER, 

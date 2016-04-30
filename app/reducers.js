@@ -6,7 +6,7 @@ import {
 	SET_ACTIVE_PAGE, HIDE_DIALOG
 } from './constants'
 
-export const dialog = (state = { action: undefined, visible: false, id: undefined }, action) => {
+export const dialog = (state = { action: undefined, visible: false, title: '', id: undefined }, action) => {
 	switch(action.type) {
 		case EDIT_NEW_CUSTOMER:
 		case EDIT_NEW_ORDER:
@@ -14,6 +14,7 @@ export const dialog = (state = { action: undefined, visible: false, id: undefine
 			return {
 				action: action.type,
 				visible: true,
+				title: action.title,
 				id: undefined
 			}
 		case EDIT_CUSTOMER_BY_ID:
@@ -22,6 +23,7 @@ export const dialog = (state = { action: undefined, visible: false, id: undefine
 			return {
 				action: action.type,
 				visible: true,
+				title: action.title,
 				id: action.id
 			}
 		case HIDE_DIALOG:

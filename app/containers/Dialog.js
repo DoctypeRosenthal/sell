@@ -7,8 +7,6 @@ import Customer from '../components/Dialog/Customer'
 import Order from '../components/Dialog/Order'
 import Product from '../components/Dialog/Product'
 
-import translations from '../translations.json'
-
 import {
 	EDIT_NEW_PRODUCT, EDIT_NEW_ORDER, EDIT_NEW_CUSTOMER,
 	EDIT_PRODUCT_BY_ID, EDIT_ORDER_BY_ID, EDIT_CUSTOMER_BY_ID
@@ -22,8 +20,7 @@ export default class Dialog extends React.Component {
 	constructor(props) {
 	    super(props)
 	    this.state = {
-	    	item: undefined,
-	    	title: ''
+	    	item: undefined
 	    }
 	}
 
@@ -32,17 +29,10 @@ export default class Dialog extends React.Component {
 		let { selectors, actions, store } = nextProps,
 	    	{ id, action } = store.getState().dialog,
 	    	nextState = {
-		    	item: this.getItem(action, id),
-		    	title: this.getTitle(action)
+		    	item: this.getItem(action, id)
 		    }
 
 		this.setState(nextState)
-	}
-
-	getTitle(action) {
-		if (!action) return
-		let map = translations.DE.dialog
-		return map[action] || ''
 	}
 
 	getItem(action, id) {
@@ -97,9 +87,10 @@ export default class Dialog extends React.Component {
 	}
 
 	render() {
-		let wrapperProps = {
-				title: this.state.title,
-				visible: this.props.store.getState().dialog.visible,
+		let state = this.props.store.getState().dialog,
+			wrapperProps = {
+				title: state.title,
+				visible: state.visible,
 				onSave: this.handleSave.bind(this),
 				onClose: this.handleClose.bind(this)
 			}

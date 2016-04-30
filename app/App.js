@@ -12,7 +12,6 @@ export default class App extends React.Component {
 		let { store, actions, selectors } = this.props,
 			activePage = store.getState().activePage,
 			headerProps = {
-				page: activePage,
 				store,
 				actions
 			},
