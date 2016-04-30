@@ -41,7 +41,7 @@ export const dialog = (state = { action: undefined, visible: false, title: '', i
 export const activePage = (state = 'home', action) => {
 	switch(action.type) {
 		case SET_ACTIVE_PAGE:
-			return action.path.replace('/', '') || state
+			return action.path.replace('/', '') || 'home'
 		default:
 			return state
 	}
