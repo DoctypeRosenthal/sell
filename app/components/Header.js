@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 import { AddBtn } from './Buttons'
 import SearchField from './SearchField'
 
-export default class props extends React.Component { 
+export default class Header extends React.Component { 
 
 	constructor(props) {
 		super(props)

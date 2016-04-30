@@ -9,11 +9,14 @@ import BrowseList from '../components/BrowseList'
 import mockupData from '../mockup.json'
 
 export default class Orders extends React.Component {
+	constructor(props) {
+		super(props)
+	}
 	render() {
 		return (
 			<main>
 				<Row>
-					<FilterBar type="orders" />
+					<FilterBar type="orders" route={this.props.store.getState().routing} />
 					<Pagination />
 				</Row>
 

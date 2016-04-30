@@ -13,10 +13,10 @@ export const ROUTES = {
   indexRoute: { component: Home },
   childRoutes: [
     {
-    	path: 'customers', component: Customers
+    	path: 'customers/(:filter)', component: Customers
     },
-    { path: 'orders', component: Orders },
-    { path: 'products', component: Products },
+    { path: 'orders/(:filter)', component: Orders },
+    { path: 'products/(:filter)', component: Products },
     { path: 'options', component: Options },
     { path: 'protocol', component: Protocol }
   ]

@@ -9,11 +9,15 @@ import BrowseList from '../components/BrowseList'
 import mockupData from '../mockup.json'
 
 export default class Customers extends React.Component {
+	constructor(props) {
+		super(props)
+	}
+
 	render() {
 		return (
 			<main>
 				<Row>
-					<FilterBar type="customers" />
+					<FilterBar type="customers" route={this.props.store.getState().routing.locationBeforeTransitions.pathname} />
 					<Pagination />
 				</Row>
 
