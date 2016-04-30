@@ -13,7 +13,7 @@ export default class Products extends React.Component {
 		return (
 			<main>
 				<Row>
-					<FilterBar type="products" />
+					<FilterBar type="products" route={this.props.store.getState().routing.locationBeforeTransitions.pathname} />
 					<Pagination />
 				</Row>
 

@@ -8,6 +8,7 @@ const makeFilterLinks = (activeRoute, ...links) => {
 }
 
 export default function FilterBar({type, route}) {
+	console.log(route)
 	switch (type) {
 		case 'customers':
 			return 	<ul className="filter-bar">

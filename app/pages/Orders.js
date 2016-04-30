@@ -16,7 +16,7 @@ export default class Orders extends React.Component {
 		return (
 			<main>
 				<Row>
-					<FilterBar type="orders" route={this.props.store.getState().routing} />
+					<FilterBar type="orders" route={this.props.store.getState().routing.locationBeforeTransitions.pathname} />
 					<Pagination />
 				</Row>
 
