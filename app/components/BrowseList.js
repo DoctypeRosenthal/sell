@@ -3,25 +3,11 @@ import { Link } from 'react-router'
 
 import { AddBtn } from '../components/Buttons'
 
-export default function BrowseList(props) {
-	switch (props.type) {
-		case 'products':
-			return <ProductsList data={props.data} />
-		case 'orders':
-			return <OrdersList data={props.data} />
-		case 'customers':
-			return <CustomersList data={props.data} />
-		case 'protocol':
-			return <ProtocolList data={props.data} />
-	}	
-}
-
 /*-----------------------------------------------------------------------------------------
  * CUSTOMERS
  *---------------------------------------------------------------------------------------*/
 
-const CustomerRow = props => {
-	let customer = props.data
+const CustomerRow = ({customer}) => {
 	return (
 		<li>
 			<div className="nr">{customer.nr}</div>
@@ -36,8 +22,7 @@ const CustomerRow = props => {
 	)
 }
 
-const CustomersList = props => {
-	let customers = props.data
+export const CustomersList = ({customers}) => {
 	return (
 		<div>
 			<ol className="browse-list browse-list__head">
@@ -56,7 +41,7 @@ const CustomersList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ customers.map(customer => <CustomerRow data={customer} />) }
+				{ customers.map(x => <CustomerRow customer={x} />) }
 			</ol>
 		</div>
 	)
@@ -66,24 +51,22 @@ const CustomersList = props => {
  * ORDERS
  *---------------------------------------------------------------------------------------*/
 
-const OrderRow = props => {
-	let order = props.data
+const OrderRow = ({order}) => {
 	return (
 	    <li>
 			<div className="order-nr">{order.nr}</div>
 			<div className="bill-nr">{order.bill.nr}</div>
 			<div className="created">{order.created}</div>
-			<div className="customer-nr">{order.customer.nr}</div>
-			<div className="name">{order.customer.name}</div>
-			<div className="email">{order.customer.email}</div>
+			<div className="customer-nr">{order.address.nr}</div>
+			<div className="name">{order.address.name}</div>
+			<div className="email">{order.address.email}</div>
 			<div className="total">{order.total}</div>
 			<div className="dispatched">{order.dispatched}</div>
 	    </li>
 	)
 }
 
-const OrdersList = props => {
-	let orders = props.data
+export const OrdersList = ({orders}) => {
 	return (
 		<div>
 			<ol className="browse-list browse-list__head">
@@ -102,7 +85,7 @@ const OrdersList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ orders.map(order => <OrderRow data={order} />) }
+				{ orders.map(x => <OrderRow order={x} />) }
 			</ol>
 		</div>
 	)
@@ -112,8 +95,7 @@ const OrdersList = props => {
  * PRODUCTS
  *---------------------------------------------------------------------------------------*/
 
-const ProductRow = props => {
-	let product = props.data
+const ProductRow = ({product}) => {
 	return (
 		<li>
 			<div className="nr">{product.nr}</div>
@@ -122,14 +104,13 @@ const ProductRow = props => {
 			<div className="quantity">{product.quantity}</div>
 			<div className="labels">
 				<AddBtn type="small" />
-				{ product.labels.map(label => <button>{label.name}</button>) }
+				{ product.labels.map(x => <button>{x.name}</button>) }
 			</div>				        	
     	</li>		
 	)
 }
 
-const ProductGroupRow = props => {
-	let group = props.data
+const ProductGroupRow = ({group}) => {
 	return (
 		<li>
 	    	<div className="group">
@@ -150,15 +131,14 @@ const ProductGroupRow = props => {
 		        	</li>
 		        </ol>
 		        <ol className="browse-list browse-list__body">
-		        	{ group.products.map(product => <ProductRow data={product} />) }
+		        	{ group.products.map(x => <ProductRow product={x} />) }
 		        </ol>
 	        </div>
 	    </li>
 	)
 }
 
-const ProductsList = props => {
-	let groups = props.data
+export const ProductsList = ({groups}) => {
 	return (
 		<div>
 			<ol className="browse-list browse-list__head">
@@ -171,7 +151,7 @@ const ProductsList = props => {
 				</li>
 			</ol>
 			<ol className="browse-list browse-list__body">
-				{ groups.map(group => <ProductGroupRow data={group} />) }
+				{ groups.map(x => <ProductGroupRow group={x} />) }
 			</ol>
 		</div>
 	)
@@ -181,8 +161,7 @@ const ProductsList = props => {
  * PROTOCOL
  *---------------------------------------------------------------------------------------*/
 
-const ProtocolRow = (props) => {
-	let item = props.data
+const ProtocolRow = ({item}) => {
 	let className = "action action--" + item.action
 	return (
 	    <li className={className}>
@@ -193,8 +172,7 @@ const ProtocolRow = (props) => {
 	)
 }
 
-const ProtocolList = props => {
-	let protocol = props.data
+export const ProtocolList = ({protocol}) => {
 	return (
 		<div>
 			<ol className="browse-list browse-list__head">
@@ -204,7 +182,7 @@ const ProtocolList = props => {
 			</ol>
 			
 			<ol className="browse-list browse-list__body">
-				{ protocol.map(item => <ProtocolRow data={item} />) }
+				{ protocol.map(x => <ProtocolRow item={x} />) }
 			</ol>
 		</div>
 	)

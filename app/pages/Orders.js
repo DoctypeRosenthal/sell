@@ -3,24 +3,22 @@ import React from 'react'
 import Row from '../components/Row'
 import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination'
-import BrowseList from '../components/BrowseList'
-
-/* mockup data */
-import mockupData from '../mockup.json'
+import { OrdersList } from '../components/BrowseList'
 
 export default class Orders extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 	render() {
+		let storeState = this.props.store.getState()
 		return (
 			<main>
 				<Row>
-					<FilterBar type="orders" route={this.props.store.getState().routing.locationBeforeTransitions.pathname} />
+					<FilterBar type="orders" route={storeState.routing.locationBeforeTransitions.pathname} />
 					<Pagination />
 				</Row>
 
-				<BrowseList type="orders" data={mockupData.orders} />
+				<OrdersList orders={storeState.orders} />
 				
 			</main>
 		)

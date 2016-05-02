@@ -32,6 +32,7 @@ export default class Dialog extends React.Component {
 		let { store, actions } = this.props,
 			{ dialog } = store.getState()
 
+			console.log(store.getState())
 		store.dispatch(actions.hideDialog())
 	}
 
@@ -71,12 +72,7 @@ export default class Dialog extends React.Component {
 				return <Customer customer={dialog.item} />
 			case EDIT_ORDER_BY_ID:
 			case EDIT_NEW_ORDER:
-			console.log(dialog)
-				let props = {
-					order: dialog.item,
-					...this.props
-				}
-				return <Order {...props} />
+				return <Order {...{...this.props, order: dialog.item}} />
 			case EDIT_PRODUCT_BY_ID:
 			case EDIT_NEW_PRODUCT:
 				return <Product data={dialog.item} />

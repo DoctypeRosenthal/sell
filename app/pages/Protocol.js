@@ -1,15 +1,13 @@
 import React from 'react'
 
-import BrowseList from '../components/BrowseList'
-
-/* mockup data */
-import mockupData from '../mockup.json'
+import { ProtocolList } from '../components/BrowseList'
 
 export default class Protocol extends React.Component {
 	render() {
+		let storeState = this.props.store.getState()
 		return (
 			<main>
-				<BrowseList type="protocol" data={mockupData.protocol} />
+				<ProtocolList protocol={storeState.protocol} />
 			</main>
 		)
 	}

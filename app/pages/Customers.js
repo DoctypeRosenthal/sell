@@ -3,10 +3,7 @@ import React from 'react'
 import FilterBar from '../components/FilterBar'
 import Pagination from '../components/Pagination'
 import Row from '../components/Row'
-import BrowseList from '../components/BrowseList'
-
-/* mockup data */
-import mockupData from '../mockup.json'
+import { CustomersList } from '../components/BrowseList'
 
 export default class Customers extends React.Component {
 	constructor(props) {
@@ -14,14 +11,15 @@ export default class Customers extends React.Component {
 	}
 
 	render() {
+		let storeState = this.props.store.getState()
 		return (
 			<main>
 				<Row>
-					<FilterBar type="customers" route={this.props.store.getState().routing.locationBeforeTransitions.pathname} />
+					<FilterBar type="customers" route={storeState.routing.locationBeforeTransitions.pathname} />
 					<Pagination />
 				</Row>
 
-				<BrowseList type="customers" data={mockupData.customers} />
+				<CustomersList customers={storeState.customers} />
 			</main>
 		)
 	}
