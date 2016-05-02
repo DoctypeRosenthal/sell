@@ -11,11 +11,17 @@ export default class Customers extends React.Component {
 	}
 
 	render() {
-		let storeState = this.props.store.getState()
+		let storeState = this.props.store.getState(),
+			customerFilters = [
+				{route: '/customers/all', title: 'Alle'}, 
+				{route: '/customers/payed', title: 'Bezahlt'}, 
+				{route: '/customers/due', title: 'Unbezahlt'}
+			]
+
 		return (
 			<main>
 				<Row>
-					<FilterBar type="customers" route={storeState.routing.locationBeforeTransitions.pathname} />
+					<FilterBar filters={customerFilters} route={location.pathname} />
 					<Pagination />
 				</Row>
 
