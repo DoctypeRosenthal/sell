@@ -37,7 +37,7 @@
 		    "taxRate": 19,
 		    "shippingCosts": 2.00,
 		    "dispatched": "14.12.15",
-		    "products": [
+		    "articles": [
 		    	{ 
 		    		"id": "xyz",
 		    		"quantity": 10,
@@ -56,36 +56,30 @@
 					}
 		    	}
 		    ],
-		    "customer": {
-		    	"id": "xyz",
-		    	"nr": 431,
+		    "address": {
+		    	"customerId": "xyz",
 		    	"prefix": null,
 		    	"gender": "Herr",
 		    	"forename": "Jonas",
 		    	"surname": "Limbrock",
 		    	"street": "Geschwister-Scholl-Platz 1",
 				"zip": 80539,
-				"city": "München",
-		    	"email": "jonas@dingsbums.de"
+				"city": "München"
 		    },
 		    "bill": {
 		    	"id": "xyz",
 		    	"nr": 14009,
 		    	"created": "27.5.2014",
 		    	"payed": "30.5.2014",
-		    	"customer": {
-		    		"id": "xyz",
-					"nr": 411,
+		    	"address": {
+		    		"customerId": "xyz",
 					"prefix": "Ludwig-Maximilians Universität München / Lehrstuhl Christliche Sozialethik",
 					"gender": "Herr",
 					"forename": "Prof. Dr. Markus",
 					"surname": "Vogt",
 					"street": "Geschwister-Scholl-Platz 1",
 					"zip": 80539,
-					"city": "München",
-					"email": null,
-					"website": null,
-					"note": null	    		
+					"city": "München"
 		    	}
 		    }
 		}

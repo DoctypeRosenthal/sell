@@ -29,12 +29,41 @@ export default class Dialog extends React.Component {
 	}
 
 	handleClose() {
-		let { store, actions } = this.props
+		let { store, actions } = this.props,
+			{ dialog } = store.getState()
+
 		store.dispatch(actions.hideDialog())
 	}
 
+	handleDelete() {
+		let { store, actions } = this.props,
+			{ dialog } = store.getState(),
+			conf = confirm('Möchten Sie das Dings WIRKLICH löschen?')
+
+		if (conf === true) {
+			switch (dialog.action) {
+				// if a item was newly created, delete it
+				case EDIT_NEW_CUSTOMER:
+					store.dispatch(actions.deleteCustomer(dialog.item))
+				break
+				case EDIT_NEW_ORDER:
+					store.dispatch(actions.deleteOrder(dialog.item))
+				break
+				case EDIT_NEW_PRODUCT:
+					store.dispatch(actions.deleteProduct(dialog.item))
+				break
+			}
+			alert('Dings wurde gelöscht!')
+		} else {
+			alert('Dings wird NICHT gelöscht!')
+		}
+
+		this.handleClose()
+		console.log(store.getState())
+	}
+
 	getChild() {
-		let {company, billMeta, dialog } = this.props.store.getState()
+		let { company, billMeta, dialog } = this.props.store.getState()
 
 		switch (dialog.action) {
 			case EDIT_CUSTOMER_BY_ID:
@@ -42,7 +71,12 @@ export default class Dialog extends React.Component {
 				return <Customer customer={dialog.item} />
 			case EDIT_ORDER_BY_ID:
 			case EDIT_NEW_ORDER:
-				return <Order order={dialog.item} company={company} billMeta={billMeta} />
+			console.log(dialog)
+				let props = {
+					order: dialog.item,
+					...this.props
+				}
+				return <Order {...props} />
 			case EDIT_PRODUCT_BY_ID:
 			case EDIT_NEW_PRODUCT:
 				return <Product data={dialog.item} />
@@ -57,7 +91,8 @@ export default class Dialog extends React.Component {
 				title: state.title,
 				visible: state.visible,
 				onSave: this.handleSave.bind(this),
-				onClose: this.handleClose.bind(this)
+				onClose: this.handleClose.bind(this),
+				onDelete: this.handleDelete.bind(this)
 			}
 
 		return <Wrapper {...wrapperProps}>{this.getChild()}</Wrapper>

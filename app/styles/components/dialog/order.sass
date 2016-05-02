@@ -6,6 +6,28 @@
 		li
 			margin: 0
 
+	.shipping-address
+
+		&__showcase
+			position: relative
+			cursor: pointer
+			transition: all .3s
+
+		&__editor
+			position: absolute
+			top: 0
+			width: 100%
+			background: $white
+			height: 0
+			opacity: 0
+			visibility: hidden
+			transition: all .3s
+
+			&.show
+				visibility: visible
+				opacity: 1
+				height: 100%
+
 
 .bill
 	$company-infos-height: 152px

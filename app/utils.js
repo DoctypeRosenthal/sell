@@ -8,10 +8,11 @@ export const isEmpty = value => typeof value === 'undefined' || value === '' || 
 // returns the css-classes given to a component
 export const getClassName = props => props.className || ''
 
-export const makeRandText = letters => {
+// creates a random text with n letters
+export const makeRandText = n => {
 	let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-	if (letters > 0) {
-		return possible.charAt(Math.floor(Math.random() * possible.length)) + makeRandText(letters - 1)
+	if (n > 0) {
+		return possible.charAt(Math.floor(Math.random() * possible.length)) + makeRandText(n - 1)
 	}
 	return ''
 }

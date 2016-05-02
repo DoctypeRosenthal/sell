@@ -23,7 +23,7 @@ export default class App extends React.Component {
 		return (
 			<div className={activePage}>
 
-				<Notifier show={true} mode="deleted" message="Ihr Bums wurde gelöscht." />
+				<Notifier show={false} mode="deleted" message="Ihr Bums wurde gelöscht." />
 				<PopupBox show={false} type="info" title="Allen Bums löschen??">pupsi</PopupBox>
 
 				<Header {...headerProps} />

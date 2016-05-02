@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Row from '../Row'
-import { SaveBtn, CloseBtn } from '../Buttons'
+import { SaveBtn, CloseBtn, DeleteBtn } from '../Buttons'
 
-export default function Wrapper({visible, title, children, onSave, onClose}) {
+export default function Wrapper({visible, title, children, onSave, onClose, onDelete}) {
 	return (
 		<div className={'dialog__layer' + (visible ? ' show' : '')}>
 			<div className="dialog__scroll">
@@ -14,6 +14,7 @@ export default function Wrapper({visible, title, children, onSave, onClose}) {
 								{ title }
 								<SaveBtn type="big" onClick={onSave} />
 								<CloseBtn type="big" onClick={onClose} />
+								<DeleteBtn type="big" onClick={onDelete} />
 							</div>
 						</Row>
 						<Row className="dialog__children">

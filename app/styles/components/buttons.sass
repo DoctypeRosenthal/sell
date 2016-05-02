@@ -71,12 +71,19 @@
 	color: $white
 	border-color: $red
 
-	&:before
-		margin-right: .5em
-
 	&:hover
 		background: lighten($red, 8%)
 		border-color: lighten($red, 2%)
+
+	&--big
+		float: right
+		margin-right: .8em
+
+	&--medium
+
+		&:before
+			margin-right: .5em
+
 
 .close-btn
 	background: transparent

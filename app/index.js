@@ -40,8 +40,7 @@ const createElement = (Component, props) => {
 	let extendedProps = {
 		...props,
 		store,
-		actions,
-		selectors
+		actions
 	}
 	return <Component {...extendedProps} />
 }

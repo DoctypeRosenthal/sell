@@ -5,62 +5,72 @@ import InputField from '../InputField'
 import HoverBox from '../HoverBox'
 import { AddBtn, PrintBtn } from '../Buttons'
 
-import {calcTaxMoney, calcNetto, calcBrutto, formatDate } from '../../utils'
+import { calcTaxMoney, calcNetto, calcBrutto, formatDate } from '../../utils'
 
-export default function OrderDialog({order, company, billMeta}) {
-	const customer = order.customer
-	return (
-		<div className="order">
-			<Row>
-				<h4>Status</h4>
-				begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
-			</Row>
-			<Row>
-				<div className="shipping-address grid-col-12">
-					<h4>Lieferadresse</h4>
-					<Row><InputField placeholder="Nameszusatz" value={customer.prefix} /></Row>
-					<Row>
-						<InputField placeholder="Vorname" value={customer.forename} className="grid-col-6" />
-						<InputField placeholder="Nachname" value={customer.surname} className="grid-col-6"  />
-					</Row>
-					<Row>
-						<InputField placeholder="Straße" value={customer.street} />
-					</Row>
-					<Row>
-						<InputField placeholder="Nameszusatz" value={customer.zip} className="grid-col-6"  />
-						<InputField placeholder="Nameszusatz" value={customer.city} className="grid-col-6"  />
-					</Row>
-				</div>
-			</Row>
-			<Row>
-				<Bill order={order} company={company} billMeta={billMeta} />
-			</Row>
-		</div>
-	)
+import * as selectors from '../../selectors'
+
+export default class OrderDialog extends React.Component {
+
+	constructor(props) {
+		super(props)
+		console.log(props)
+	}
+
+	render() {
+		const address = this.props.order.address,
+			storeState = this.props.store.getState(),
+			billProps = {
+				order: this.props.order,
+				company: storeState.company,
+				billMeta: storeState.billMeta
+			}
+		return (
+			<div className="order">
+				<Row>
+					<h4>Status</h4>
+					begonnen - bearbeitet - versandt - bezahlt - abgeschlossen
+				</Row>
+				<Row>
+					<div className="shipping-address grid-col-6">
+						<h4>Lieferadresse</h4>
+						<Row className="shipping-address__showcase">
+							{address.prefix}<br />
+							{address.forename} {address.surname}<br />
+							{address.street}<br />
+							{address.zip} {address.city}
+							<div className="shipping-address__editor">
+								<InputField value="" className="bold" placeholder="Kunden suchen oder hinzufügen" />
+							</div>
+						</Row>
+					</div>
+				</Row>
+				<Row>
+					<Bill {...billProps} />
+				</Row>
+			</div>
+		)
+	}
 }
 
-const getArticlePrice = product => !!product.label.price ? product.label.price : product.price
+const getArticlePrice = article => !!article.label.price ? article.label.price : article.price
 const calcOrderTotal = order => {
-	if (order.products.length === 0) {
+	if (order.articles.length === 0) {
 		return 0
 	}
 
-	return order.products.map(x => x.quantity * getArticlePrice(x)) // first create an Array of order bruttos
+	return order.articles.map(x => x.quantity * getArticlePrice(x)) // first create an Array of order bruttos
 				  		 .reduce((prevBrutto, curBrutto) => prevBrutto + curBrutto) // then sum up the bruttos and return that value
 }
 
-const ProductRow = props => {
-	let product = props.data.product,
-		order = props.data.order,
-
-		price = getArticlePrice(product),
-		totalNetto = calcNetto(price, order.taxRate) * product.quantity,
-		totalBrutto = calcBrutto(totalNetto, order.taxRate)
+const ArticleRow = ({article, order}) => {
+	let	price = getArticlePrice(article),
+		totalNetto = calcNetto(price, order.taxRate) * article.quantity || 0,
+		totalBrutto = calcBrutto(totalNetto, order.taxRate) || 0
 
 	return (
 		<Row>
-			<div className="quantity">{product.quantity}</div>
-			<div className="name">{product.group.nr}-{product.nr} {product.group.name} {product.type} ({product.label.name})</div>
+			<div className="quantity">{article.quantity || 0}</div>
+			<div className="name">{article.group.nr}-{article.nr} {article.group.name} {article.type} {article.label.name ? '(' + article.label.name + ')' : ''}</div>
 			<div className="price">{price.toFixed(2)} €</div>
 			<div className="netto">{totalNetto.toFixed(2)} €</div>
 			<div className="brutto">{totalBrutto.toFixed(2)} €</div>
@@ -70,9 +80,9 @@ const ProductRow = props => {
 
 const Bill = ({company, billMeta, order}) => {
 	let bill = order.bill,
-
-		orderTotal = calcOrderTotal(order),
-		taxMoney = calcTaxMoney(orderTotal, order.taxRate)
+		address = bill.address,
+		orderTotal = calcOrderTotal(order) || 0,
+		taxMoney = calcTaxMoney(orderTotal, order.taxRate) || 0
 
 	return (
 		<HoverBox className="bill">
@@ -84,7 +94,7 @@ const Bill = ({company, billMeta, order}) => {
 				<InputField className="grid-col-8" type="image" value={company.logo} height="97" />
 				<div className="grid-col-4 textright">
 					<div className="grid-col-7">Kundennr.</div>
-					<div className="grid-col-5">{bill.customer.nr}</div>
+					<div className="grid-col-5">{order.address.nr}</div>
 					<br />
 					<div className="grid-col-7">Rechnungsdatum</div>
 					<InputField className="grid-col-5" value={formatDate(bill.created, 'de-DE')} />
@@ -101,10 +111,10 @@ const Bill = ({company, billMeta, order}) => {
 						<InputField value={company.name + ' · ' + company.street + ' · ' + company.zip + ' ' + company.city} />
 					</div>					
 					<div className="bill__recipient">
-						{bill.customer.gender}<br />
-						{bill.customer.forename} {bill.customer.surname}<br />
-						{bill.customer.street}<br />
-						{bill.customer.zip} {bill.customer.city}<br />
+						{address.gender}<br />
+						{address.forename} {address.surname}<br />
+						{address.street}<br />
+						{address.zip} {address.city}<br />
 					</div>
 				</div>
 			</Row>
@@ -119,7 +129,7 @@ const Bill = ({company, billMeta, order}) => {
 					<div className="brutto">brutto</div>
 				</Row>
 				{ 
-					order.products.map(product => <ProductRow data={ {product, order} } />) 
+					order.articles.map(x => <ArticleRow article={x} order={order} />) 
 				}
 				<Row className="textcenter">
 					<AddBtn type="medium" title="Artikel hinzufügen" />
