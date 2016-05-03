@@ -7,14 +7,10 @@ import { ProductsList } from '../components/BrowseList'
 
 export default class Products extends React.Component {
 	render() {
-		let storeState = this.props.store.getState(),
-			productFilters = [
-				{route: '/products/all', title: 'Alle'}
-			]
+		let storeState = this.props.store.getState()
 		return (
 			<main>
 				<Row>
-					<FilterBar filters={productFilters} route={location.pathname} />
 					<Pagination />
 				</Row>
 
