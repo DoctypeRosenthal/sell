@@ -1,4 +1,6 @@
 # sell
+# Update: I moved this repo to bitbucket because the project got to a point where I wanted to keep the source code private/proprietary. Send me a message if you want to have a link.
+
 <h1>Hallo liebe Liebenden!</h1>
 
 Dieses Programm habe ich Anfang 2014 angefangen. Von Grund auf habe ich alles händisch geschrieben. Es ist ein Vertriebprogramm für Musiklabels. An diesem (mitlerweile sehr) umfangreichen Programm habe ich ungalublich viel gelernt und lerne immer noch. Dieses Programm hat mich durch drei meiner Programmierentwicklungsstufen begleitet. Vom einfachen strukturierten Anweisungen schreiben über Funktionskapselung bis hin zur Objektorientierung. Und jetzt trete ich grade die 4. Stufe an: das Konstruieren von Software auf der Architekturebene und das Benutzen von frameworks. Dementsprechend ist der vorliegende Code noch totales Kuddelmuddel XD. Einige Funktionen sind schon implementiert, andere harren noch der OO-Erlösung.
